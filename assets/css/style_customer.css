@@ -1,0 +1,30 @@
+.bg-main1 {
+	background: #7ae3f9;
+	border-top: 1px solid #8C8A80;
+}
+
+.bg-main2 {
+	background: #FDF9E8;
+}
+
+.header-item {
+	border-right: 1px solid #DCDCDC;
+	height: 110px;
+	line-height: 110px;
+}
+
+.header-item:last-child {
+	border-right: none;
+}
+
+.color-white {
+	color: #FFF;
+}
+
+.margin-top-50 {
+	margin-top: 50px;
+}
+
+.margin-bottom-50 {
+	margin-bottom: 50px;
+}
