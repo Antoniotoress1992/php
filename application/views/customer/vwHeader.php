@@ -16,8 +16,14 @@
             <div class="col-sm-2 text-center header-item">
                 <b>Contact Us</b>
             </div>            
-            <div class="col-sm-3 text-center header-item">
-                Check your transaction status
+            <div class="col-sm-3 text-center header-item" style="line-height: inherit;">
+                <p style="margin-top: 15px;">
+                    <b style="font-size:12px;">Check your transaction status</b>
+                </p>
+                
+                <input type="text" class="form-control pull-left" placeholder="Enter Your Transaction ID" style="width: 73%;"/>
+                <button class="btn btn-info btn-sm pull-left" style="margin-left: 5px;">CHECK</button>
+                <div class="clearfix"></div>
             </div>                        
         </div>
     </div>
