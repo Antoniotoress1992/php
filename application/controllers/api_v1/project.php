@@ -16,6 +16,7 @@ class Project extends CI_Controller {
         $this->load->model('project_model');
         
         $user_id = isset($_POST['user_id']) ? trim($_POST['user_id']) : '';
+        $name = isset($_POST['name']) ? trim($_POST['name']) : '';
         $receiver_tel = isset($_POST['receiver_tel']) ? trim($_POST['receiver_tel']) : '';
         $country_id = isset($_POST['country_id']) ? trim($_POST['country_id']) : '';
         $amount = isset($_POST['amount']) ? trim($_POST['amount']) : '';
@@ -23,10 +24,10 @@ class Project extends CI_Controller {
         $expired_at = isset($_POST['expired_at']) ? trim($_POST['expired_at']) : '';
         $invitors = isset($_POST['invitors']) ? trim($_POST['invitors']) : '';
         
-        if ($user_id == '' || $receiver_tel == '' || $country_id == '' || $amount == '' || $message == '' || $expired_at == '') {
+        if ($name == '' || $user_id == '' || $receiver_tel == '' || $country_id == '' || $amount == '' || $message == '' || $expired_at == '') {
             $result =  ['result' => 'failed', 'msg' => 'Please enter forms correctly', ];
         } else {
-            $project_id = $this->project_model->add($user_id, $receiver_tel, $country_id, $amount, $message, $expired_at);
+            $project_id = $this->project_model->add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at);
             $result = $this->inviting($project_id, $invitors);
         }
         

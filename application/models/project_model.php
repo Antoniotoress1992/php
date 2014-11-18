@@ -4,26 +4,38 @@ class Project_model extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function add($user_id, $receiver_tel, $country_id, $amount, $message, $expired_at) {
+	public function add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at) {
 	    $this->load->model('common_model');
 	    $token = $this->common_model->generateSalt(32);
 	    
-	    $sql = "INSERT INTO bg_projects(user_id, receiver_tel, country_id, amount, message, token, expired_at, created_at, updated_at)
-	             VALUE (?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
+	    $sql = "INSERT INTO bg_projects(user_id, name, receiver_tel, country_id, amount, message, token, expired_at, created_at, updated_at)
+	             VALUE (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
 	    
-	    $result = $this->db->query($sql, array($user_id, $receiver_tel, $country_id, $amount, $message, $token, $expired_at));
+	    $result = $this->db->query($sql, array($user_id, $name, $receiver_tel, $country_id, $amount, $message, $token, $expired_at));
 	    return $this->db->insert_id();
 	}
 	
 	public function invite($id, $invitors) {
 	    $arrInvitor = explode(",", $invitors);
+	    $this->load->model('common_model');
+	    $this->load->model('country_model');
         for ($i = 0; $i < count($arrInvitor); $i++) {
             $invitor_tel = str_replace(' ', '', $arrInvitor[$i]);
+            if (substr($invitor_tel, 0, 1) == '0') {
+                $invitor_tel = substr($invitor_tel, 1);
+            }
+            
             if ($invitor_tel != '') {
                 $sql = "INSERT INTO bg_invitors(project_id, invitor_tel, created_at, updated_at)
                      VALUE (?, ?, NOW(), NOW())";
                 $this->db->query($sql, array($id, $invitor_tel));                
             }
+            
+            $project = $this->detail($id);
+            $country = $this->country_model->detail($project->country_id);
+            
+            $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, 'Apple of Eye');
+            
         }
         return ['result' => 'success', 'msg' => '', ]; 
 	}

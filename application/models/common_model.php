@@ -20,6 +20,61 @@ class Common_model extends CI_Model {
 		return $str_rndstring;
 	}
 	
+	function sendSMS($from, $to, $sms_body, $msg_id = '') {
+	    if(substr($to, 0, 1) != "+") {
+	        $to = "+".$to;
+	    }
+	        
+	    $msg_id = ($msg_id == '') ? time() : $msg_id;	    
+	    $postUrl = "http://api.infobip.com/api/v3/sendsms/xml";
+	    $infobip_username = INFOBIP_USERNAME;
+	    $infobip_password = INFOBIP_PASSWORD;
+	    
+	    $no_of_sms_will_send=ceil(strlen($sms_body)/160);
+	    for ($i = 0; $i < $no_of_sms_will_send; $i++) {
+	        $sms_part = substr( $sms_body, 0, 160);
+	        if (strlen($sms_body) > 160) {
+	            $sms_body = substr($sms_body, 160);
+	        }
+	        
+            $xmlString = "
+            <SMS>
+                <authentification>
+                    <username>$infobip_username</username>
+                    <password>$infobip_password</password>
+                </authentification>
+                <message>
+                    <sender>$from</sender>
+                    <text>$sms_part</text>
+                    <flash></flash>
+                    <type></type>
+                    <wapurl></wapurl>
+                    <binary></binary>
+                    <datacoding></datacoding>
+                    <esmclass></esmclass>
+                    <srcton></srcton>
+                    <srcnpi></srcnpi>
+                    <destton></destton>
+                    <destnpi></destnpi>
+                    <ValidityPeriod>23:59</ValidityPeriod>
+                </message>
+                <recipients>
+                    <gsm messageId=\"$msg_id\">$to</gsm>
+                </recipients>
+            </SMS>";
+            $fields = "XML=".urlencode($xmlString);
+            
+            $ch  = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $postUrl);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+            
+            $response  = curl_exec($ch);
+            curl_close($ch);
+	    }
+	    return $msg_id;
+	}
+	
 	function print_log($str_log) {
 		$fd = fopen('print.log', "a");
 		$str = "[" . date('Y-m-d H:i:s', time()) . "] : " . $str_log;
