@@ -9,6 +9,18 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('customer/home/vwIndex');
+        if ($this->session->userdata('user_id')) {
+            redirect('customer/home');
+        } elseif ($this->session->userdata('company_id')) {
+            $this->load->view('company/home/vwIndex');
+        } elseif ($this->session->userdata('company_id')) { 
+            $this->load->view('admin/home/vwIndex');
+        } else {
+            redirect('customer/home');
+        }
+    }
+    
+    public function payment() {
+        $this->load->view('vwPayment');
     }
 }

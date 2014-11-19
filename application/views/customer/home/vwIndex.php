@@ -3,6 +3,7 @@
 <head>
     <?php $this->load->view('customer/vwMeta'); ?>
     <?php $this->load->view('customer/vwCss'); ?>
+    <link href="<?php echo base_url()."assets/css/datepicker.css"?>" rel="stylesheet">
 </head>
 <body>
     <?php $this->load->view('customer/vwHeader'); ?>
@@ -15,7 +16,7 @@
             <div class="col-sm-3 col-sm-offset-1">
                 <div class="process text-center">
                     <div class="process-no">1</div>
-                    <img src="<?php echo base_url()."assets/images/icon_step_02.png"?>"/>
+                    <img src="<?php echo base_url()."assets/images/icon_step_01.png"?>"/>
                     <p class="color-blue font-size-12 margin-top-5">
                         <b>Simply select amount &amp;<br/>personalised message</b>
                     </p>
@@ -51,35 +52,46 @@
                     </div>
                     
                     <div class="color-blue">
-                    
-                        <div class="pull-left line-height-30" style="width: 20%;"><b>Name:</b></div>
-                        <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control"></div>
-                        <div class="clearfix margin-bottom-10"></div>
-                        
-                        <div class="pull-left line-height-30" style="width: 20%;"><b>Phone:</b></div>
-                        <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control"></div>
-                        <div class="clearfix margin-bottom-10"></div>
-                        
-                        <div class="pull-left line-height-30" style="width: 20%;"><b>Password:</b></div>
-                        <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control"></div>
-                        <div class="clearfix margin-bottom-10"></div>
-                        
-                        <div class="pull-left line-height-30" style="width: 45%;"><b>Amount to collect:</b></div>
-                        <div class="pull-left margin-left-15" style="width: 50%;"><input type="text" class="form-control"></div>
-                        <div class="clearfix margin-bottom-10"></div>
-                        
-                        <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
-                        <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control"></div>
-                        <div class="clearfix margin-bottom-10"></div>
-                        
-                        <div class="pull-left line-height-30" style="width: 20%;"><b>Message:</b></div>
-                        <div class="pull-left margin-left-15" style="width: 75%;">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="clearfix margin-bottom-10"></div>                                                                                                
-                        
-                        <button class="btn btn-success btn-block btn-lg">Send now</button>
-                        
+                        <input type="hidden" id="is_login" value="<?php echo ($this->session->userdata('user_id')) ? $this->session->userdata('user_id') : '';?>"/>
+                        <form method="POST" action="<?php echo base_url();?>customer/project/add" role="form">
+                            <div class="pull-left line-height-30" style="width: 20%;"><b>Name:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="name"></div>
+                            <div class="clearfix margin-bottom-10"></div>
+                            
+                            <div class="pull-left line-height-30" style="width: 20%;"><b>Phone:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="phone"></div>
+                            <div class="clearfix margin-bottom-10"></div>
+                            
+                            <div class="pull-left line-height-30" style="width: 20%;"><b>Country:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 75%;">
+                                <select class="form-control" name="country_id">
+                                <?php foreach ($countries as $country) {?>
+                                    <option value="<?php echo $country->id;?>"><?php echo $country->name;?></option>
+                                <?php }?>
+                                </select>
+                            </div>
+                            <div class="clearfix margin-bottom-10"></div>
+                            
+                            <div class="pull-left line-height-30" style="width: 35%;"><b>Expired At:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="expired_at" id="expired_at"></div>
+                            <div class="clearfix margin-bottom-10"></div>                                                    
+                            
+                            <div class="pull-left line-height-30" style="width: 45%;"><b>Amount to collect:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 50%;"><input type="text" class="form-control" name="amount"></div>
+                            <div class="clearfix margin-bottom-10"></div>
+                            
+                            <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors"></div>
+                            <div class="clearfix margin-bottom-10"></div>
+                            
+                            <div class="pull-left line-height-30" style="width: 20%;"><b>Message:</b></div>
+                            <div class="pull-left margin-left-15" style="width: 75%;">
+                                <textarea class="form-control" rows="3" name="message"></textarea>
+                            </div>
+                            <div class="clearfix margin-bottom-10"></div>                                                                                                
+                            
+                            <button class="btn btn-success btn-block btn-lg" onclick="return validate();">Send now</button>
+                        </form>
                     </div>
                     
                 </div>
@@ -143,4 +155,6 @@
     <?php $this->load->view('customer/vwFooter'); ?>
 </body>
 <?php $this->load->view('customer/vwJs'); ?>
+<script src="<?php echo base_url()."assets/js/bootstrap-datepicker.js"?>"></script>
+<?php $this->load->view('js/customer/home/jsIndex'); ?>
 </html>

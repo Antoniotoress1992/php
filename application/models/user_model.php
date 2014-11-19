@@ -36,7 +36,6 @@ class User_model extends CI_Model {
 	            $result = ['result' => 'failed', 'msg' => 'This account is not actived yet', ];
 	        }
 	    }
-
 	    return $result;
-	}	
+	}
 }

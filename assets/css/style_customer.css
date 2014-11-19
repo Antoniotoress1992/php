@@ -1,6 +1,5 @@
 .bg-main1 {
 	background: #7ae3f9;
-	border-top: 1px solid #8C8A80;
 }
 
 .bg-main2 {
@@ -15,38 +14,6 @@
 
 .header-item:last-child {
 	border-right: none;
-}
-
-.color-white {
-	color: #FFF;
-}
-
-.color-blue {
-	color: #088CE9;
-}
-
-.color-orange {
-	color: #FF6600;
-}
-
-.color-sky {
-	color: #79C7D3;
-}
-
-.color-gray {
-	color: #8D8D8D;
-}
-
-.font-size-12 {
-	font-size: 12px;
-}
-
-.margin-top-50 {
-	margin-top: 50px;
-}
-
-.margin-bottom-50 {
-	margin-bottom: 50px;
 }
 
 .process {
@@ -139,4 +106,20 @@
 .footerArea ul li {
 	float: left;
 	margin-right: 20px;
+}
+
+.navi {
+	border-bottom: 1px solid #8C8A80;
+}
+
+.form-login {
+	margin-bottom: 50px;
+}
+
+.form-login label {
+	margin-top: 30px;
+}
+
+.form-login input {
+	height: 42px;
 }

@@ -34,13 +34,13 @@ class Project_model extends CI_Model {
             $project = $this->detail($id);
             $country = $this->country_model->detail($project->country_id);
             
-            $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, 'Apple of Eye');
+            $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, $project->message." "."http://".HOST_SERVER."/home/payment");
             
         }
         return ['result' => 'success', 'msg' => '', ]; 
 	}
 	
-	public function lists($user_id, $type) {
+	public function lists($user_id, $type = 0) {
 	    $sql = "SELECT t1.*, t2.name as country_name, if(t1.expired_at < DATE(NOW()), 1, 0) AS is_expired
 	              FROM bg_projects t1, bg_countries t2
 	             WHERE t1.user_id = ?
@@ -56,10 +56,18 @@ class Project_model extends CI_Model {
 	    $sql_crowded = "SELECT SUM(amount) AS crowded_amount, project_id
 	                      FROM bg_transactions
 	                     GROUP BY project_id";
-	    $sql = "SELECT t1.*, IFNULL(t2.crowded_amount, 0) AS crowded_amount
+	    
+	    $sql_invitors = "SELECT COUNT(*) AS cnt_invitors, project_id
+	                      FROM bg_invitors
+	                     GROUP BY project_id";
+	    
+	    $sql = "SELECT t1.*, IFNULL(t2.crowded_amount, 0) AS crowded_amount, IFNULL(t3.cnt_invitors, 0) AS cnt_invitors
 	              FROM ($sql) t1
 	              LEFT JOIN ($sql_crowded) t2
-	                ON t1.id = t2.project_id";
+	                ON t1.id = t2.project_id
+	              LEFT JOIN ($sql_invitors) t3
+	                ON t1.id = t3.project_id	                
+	             ORDER BY t1.created_at DESC";
 
 	    return $this->db->query($sql, $user_id)->result();
 	}

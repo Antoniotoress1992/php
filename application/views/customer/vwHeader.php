@@ -1,4 +1,22 @@
-<!-- header class="navbar navbar-inverse navbar-static-top" -->
+    <!-- Modal -->
+    <div class="modal fade" id="msgAlert" tabindex="-1" role="dialog" aria-labelledby="msgAlertLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="msgAlertLabel">Kickgifter</h4>
+          </div>
+          <div class="modal-body">
+              <h4></h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 <header class="navi">
     <div class="container">
         <div class="row">
@@ -16,14 +34,16 @@
             <div class="col-sm-2 text-center header-item">
                 <b>Contact Us</b>
             </div>            
-            <div class="col-sm-3 text-center header-item" style="line-height: inherit;">
-                <!-- p style="margin-top: 15px;">
-                    <b style="font-size:12px;">Check your transaction status</b>
-                </p>
-                <input type="text" class="form-control pull-left" placeholder="Enter Your Transaction ID" style="width: 73%;"/>
-                <button class="btn btn-info btn-sm pull-left" style="margin-left: 5px;">CHECK</button>
-                <div class="clearfix"></div  -->
+            <div class="col-sm-3 text-center header-item">
+                <?php if (!$this->session->userdata('user_id')) { ?>
+                    <a href="<?php echo base_url()."customer/user/signin"?>" class="btn btn-primary">Sign In</a>
+                    <a href="<?php echo base_url()."customer/user/signup"?>" class="btn btn-info">Sign Up</a>                
+                <?php } else { ?>
+                    <a href="<?php echo base_url()."customer/project/lists"?>" class="btn btn-primary">List</a>
+                    <a href="<?php echo base_url()."customer/user/signout"?>" class="btn btn-danger">Sign Out</a>                
+                <?php } ?>
                 
+
             </div>                        
         </div>
     </div>

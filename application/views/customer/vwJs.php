@@ -7,3 +7,10 @@
 <script type="text/javascript" src="<?php echo base_url()."assets/js/bootstrap.js"?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/dropdown.js"?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/modal.js"?>"></script>
+
+<script>
+function bs_alert(msg) {
+    $("#msgAlert").find("div.modal-body").html('<h4>' + msg + '</h4>');
+    $("#msgAlert").modal();
+}
+</script>

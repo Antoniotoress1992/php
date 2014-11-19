@@ -67,6 +67,8 @@ class Common_model extends CI_Model {
             $ch  = curl_init();
             curl_setopt($ch, CURLOPT_URL, $postUrl);
             curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt($ch, CURLOPT_HEADER, true );
             curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
             
             $response  = curl_exec($ch);
