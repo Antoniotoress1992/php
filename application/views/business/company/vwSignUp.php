@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php $this->load->view('customer/vwMeta'); ?>
-    <?php $this->load->view('customer/vwCss'); ?>
+    <?php $this->load->view('business/vwMeta'); ?>
+    <?php $this->load->view('business/vwCss'); ?>
 </head>
 <body>
-    <?php $this->load->view('customer/vwHeader'); ?>
+    <?php $this->load->view('business/vwHeader'); ?>
     <div class="container">
         <div class="row margin-top-50">
             <div class="col-sm-6 col-sm-offset-3">    
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="<?php echo base_url()."customer/user/signup";?>">Customer</a></li>
-                    <li role="presentation"><a href="<?php echo base_url()."business/company/signup";?>">Company</a></li>  
+                   
+                    <li role="presentation"><a href="<?php echo base_url()."customer/user/signup";?>">Customer</a></li>
+                    <li role="presentation" class="active"><a href="<?php echo base_url()."business/company/signup";?>">Company</a></li>                    
                 </ul>
             </div>
         </div>
@@ -20,7 +21,7 @@
         </div>
         
         <div class="row text-center">
-            <h2>Sign Up For Customer</h2>
+            <h2>Sign Up For Company</h2>
         </div>
         
         <div class="row margin-top-10">
@@ -34,12 +35,12 @@
             </div>
         </div>
 
-        <form method="POST" action="<?php echo base_url();?>customer/user/signup" role="form" class="form-login">
+        <form method="POST" action="<?php echo base_url();?>business/company/signup" role="form" class="form-login">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="form-group">
-                        <label>Username *</label>
-                        <input class="form-control" name="username" type="text">
+                        <label>Name *</label>
+                        <input class="form-control" name="name" type="text">
                     </div>
                 </div>
             </div>
@@ -69,12 +70,48 @@
                         <input class="form-control" name="email" type="text">
                     </div>
                 </div>
-            </div>                    
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="form-group">
+                        <label>Vat Number</label>
+                        <input class="form-control" name="vat_number" type="text">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="form-group">
+                        <label>Address *</label>
+                        <input class="form-control" name="address" type="text">
+                    </div>
+                </div>
+            </div>                                              
+            
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="form-group">
+                        <label>Postal Code *</label>
+                        <input class="form-control" name="postal_code" type="text">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="form-group">
+                        <label>Bank Number *</label>
+                        <input class="form-control" name="bank_number" type="text">
+                    </div>
+                </div>
+            </div>                          
             
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">
                     <p> Already Registered? Go to the
-                        <a href="<?php echo base_url()."customer/user/signin"?>" >Sign In</a> Page
+                        <a href="<?php echo base_url()."business/company/signin"?>" >Sign In</a> Page
                     </p>
                     &nbsp;&nbsp;&nbsp;
                     <button class="btn btn-lg btn-danger text-uppercase margin-right-30">Sign Up <span class="glyphicon glyphicon-ok-circle"></span></button>
@@ -85,7 +122,7 @@
     </div>
     
 
-    <?php $this->load->view('customer/vwFooter'); ?>
+    <?php $this->load->view('business/vwFooter'); ?>
 </body>
-<?php $this->load->view('customer/vwJs'); ?>
+<?php $this->load->view('business/vwJs'); ?>
 </html>

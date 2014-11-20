@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php $this->load->view('customer/vwMeta'); ?>
-    <?php $this->load->view('customer/vwCss'); ?>
+    <?php $this->load->view('business/vwMeta'); ?>
+    <?php $this->load->view('business/vwCss'); ?>
 </head>
 <body>
-    <?php $this->load->view('customer/vwHeader'); ?>
+    <?php $this->load->view('business/vwHeader'); ?>
     <div class="container">
         <div class="row margin-top-50">
             <div class="col-sm-6 col-sm-offset-3">    
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="<?php echo base_url()."customer/user/signin";?>">Customer</a></li>
-                    <li role="presentation"><a href="<?php echo base_url()."business/company/signin";?>">Company</a></li>
+                    <li role="presentation"><a href="<?php echo base_url()."customer/user/signin";?>">Customer</a></li>
+                    <li role="presentation" class="active"><a href="<?php echo base_url()."business/company/signin";?>">Company</a></li>
                 </ul>
             </div>
         </div>
@@ -20,7 +20,7 @@
         </div>
         
         <div class="row text-center">
-            <h2>Sign In For Customer</h2>
+            <h2>Sign In For Company</h2>
         </div>
         
         <div class="row margin-top-10">
@@ -34,12 +34,12 @@
             </div>
         </div>
 
-        <form method="POST" action="<?php echo base_url();?>customer/user/signin" role="form" class="form-login">
+        <form method="POST" action="<?php echo base_url();?>business/company/signin" role="form" class="form-login">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="form-group">
-                        <label>Username *</label>
-                        <input class="form-control" name="username" type="text">
+                        <label>Name *</label>
+                        <input class="form-control" name="name" type="text">
                     </div>
                 </div>
             </div>
@@ -55,8 +55,8 @@
             
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">
-                    <p> New Customer? Go to the
-                        <a href="<?php echo base_url()."customer/user/signup"?>" >Sign Up</a> Page
+                    <p> New Company? Go to the
+                        <a href="<?php echo base_url()."business/company/signup"?>" >Sign Up</a> Page
                     </p>
                     &nbsp;&nbsp;&nbsp;                    
                     <button class="btn btn-lg btn-danger text-uppercase margin-right-30">Sign In <span class="glyphicon glyphicon-ok-circle"></span></button>
@@ -67,7 +67,7 @@
     </div>
     
 
-    <?php $this->load->view('customer/vwFooter'); ?>
+    <?php $this->load->view('business/vwFooter'); ?>
 </body>
-<?php $this->load->view('customer/vwJs'); ?>
+<?php $this->load->view('business/vwJs'); ?>
 </html>

@@ -18,33 +18,47 @@
 
 
 <header class="navi">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3 text-center header-item">
-                <a class="navi-logo" href="<?php echo base_url(); ?>">
-                    <img src="<?php echo base_url(); ?>assets/images/logo.png"/>
-                </a>
-            </div>
-            <div class="col-sm-2 text-center header-item">
-                <b>FAQ</b>
-            </div>
-            <div class="col-sm-2 text-center header-item">
-                <b>Costs</b>
-            </div>
-            <div class="col-sm-2 text-center header-item">
-                <b>Contact Us</b>
-            </div>            
-            <div class="col-sm-3 text-center header-item">
-                <?php if (!$this->session->userdata('user_id')) { ?>
-                    <a href="<?php echo base_url()."customer/user/signin"?>" class="btn btn-primary">Sign In</a>
-                    <a href="<?php echo base_url()."customer/user/signup"?>" class="btn btn-info">Sign Up</a>                
-                <?php } else { ?>
-                    <a href="<?php echo base_url()."customer/project/lists"?>" class="btn btn-primary">List</a>
-                    <a href="<?php echo base_url()."customer/user/signout"?>" class="btn btn-danger">Sign Out</a>                
-                <?php } ?>
-                
-
-            </div>                        
+    <div style="background: #003580; height: 65px;">
+        <div class="container">
+        <div class="navi-header pull-left" style="margin-top: 5px;">
+            <a class="navi-logo" href="<?php echo base_url(); ?>">
+                <img src="<?php echo base_url(); ?>assets/images/logo.png"/>
+            </a>
         </div>
-    </div>
+        <div class="pull-right">
+            <ul class="nav nav-pills nav-top">
+                <li style="width: 300px;">
+                    <div class="pull-left color-white" style="width:40%; line-height: 38px;">Enter your code : </div>
+                    <div class="pull-left" style="width:55%;"><input type="text" class="form-control"/></div>
+                    <div class="clearfix"></div>
+                </li>
+                <li><a href="<?php echo base_url(); ?>page/how_it_works">How it works?</a></li>
+                <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign in</a></li>
+                <li><a href="<?php echo base_url()."customer/user/signup"?>">Register</a></li>
+            </ul>
+        </div>
+                
+            <!-- div class="row" >
+                <div class="col-sm-4 text-center">
+                    <a class="navi-logo" href="<?php echo base_url(); ?>">
+                        <img src="<?php echo base_url(); ?>assets/images/logo.png"/>
+                    </a>
+                </div>
+                <div class="col-sm-8 text-right">
+                    <a href="#">How It Works?</a>
+                    <a href="#">Sign In</a>
+                    <a href="#">Register</a>
+                </div>    
+                <div class="col-sm-3 text-center header-item">
+                    <?php if (!$this->session->userdata('user_id')) { ?>
+                        <a href="<?php echo base_url()."customer/user/signin"?>" class="btn btn-primary">Sign In</a>
+                        <a href="<?php echo base_url()."customer/user/signup"?>" class="btn btn-info">Sign Up</a>                
+                    <?php } else { ?>
+                        <a href="<?php echo base_url()."customer/project/lists"?>" class="btn btn-primary">List</a>
+                        <a href="<?php echo base_url()."customer/user/signout"?>" class="btn btn-danger">Sign Out</a>                
+                    <?php } ?>
+                </div>                        
+            </div -->
+        </div>
+    </div>        
 </header>

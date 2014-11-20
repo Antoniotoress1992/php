@@ -108,6 +108,10 @@
 	margin-right: 20px;
 }
 
+.navi {
+	border-bottom: 1px solid #8C8A80;
+}
+
 .form-login {
 	margin-bottom: 50px;
 }
@@ -118,54 +122,4 @@
 
 .form-login input {
 	height: 42px;
-}
-
-.nav-pills > li > a {
-	color: #FFF;
-}
-
-.nav-pills > li > a:hover {
-	background: #1650A3;
-}
-
-.nav-top {
-	margin-top: 13px;
-}
-
-.nav-pills > li > a {
-	margin-left: 20px;
-}
-
-.footerArea {
-	background-color: #003580;
-	color: #FFF;
-	margin-top: 30px;
-	padding-bottom: 30px;
-}
-
-.footerArea a{
-	color: #FFF;
-	text-decoration: none;
-}
-
-.footerMenu a {
-	text-decoration: none;
-}
-
-.footerMenu ul {
-    list-style-type: none;
-    padding: 0px;
-}
-
-.footerMenu ul li{
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.footerLogo {
-	margin-top: 20px;
-	font-size: 24px;
-	font-weight: normal;
-	border-bottom: 2px solid #FFF;
-	display: inline-block;
 }
