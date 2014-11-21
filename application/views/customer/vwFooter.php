@@ -1,4 +1,4 @@
-<div style="background: #0D0D0D; padding-top: 30px;">
+<div style="background: #171717; padding-top: 30px;">
 <div class="container footerMenu">
     <div class="row color-white">
         <div class="col-sm-3">

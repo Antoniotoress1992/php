@@ -6,7 +6,7 @@ class Project_model extends CI_Model {
 	
 	public function add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at) {
 	    $this->load->model('common_model');
-	    $token = $this->common_model->generateSalt(32);
+	    $token = $this->common_model->generateSalt(16);
 	    
 	    $sql = "INSERT INTO bg_projects(user_id, name, receiver_tel, country_id, amount, message, token, expired_at, created_at, updated_at)
 	             VALUE (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
@@ -34,7 +34,7 @@ class Project_model extends CI_Model {
             $project = $this->detail($id);
             $country = $this->country_model->detail($project->country_id);
             
-            $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, $project->message." "."http://".HOST_SERVER."/home/payment");
+            $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, $project->message.". "."http://".HOST_SERVER."/payment/i/".$project->token);
             
         }
         return ['result' => 'success', 'msg' => '', ]; 
@@ -95,6 +95,19 @@ class Project_model extends CI_Model {
 	    }    
 	    
 	}
+	
+	public function detailByToken($token) {
+	    $sql = "SELECT *
+	              FROM bg_projects
+	             WHERE token = ?";
+	    
+	    $result = $this->db->query($sql, $token)->result();
+	    if ($result) {
+	        return $result[0];
+	    } else {
+	        return ['result' => 'failed', 'msg' => 'Invalid Token', ];
+	    }
+	}	
 	
 	public function invitors($id) {
 	    $sql = "SELECT invitor_tel

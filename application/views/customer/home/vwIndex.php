@@ -38,8 +38,8 @@
                     </p>
                 </div>                
             </div>
-            <div class="col-sm-4">
-                <div class="process" style="font-size: 16px;">
+            <div class="col-sm-6 col-sm-offset-1">
+                <div class="process" style="font-size: 16px; background: rgba(255, 255, 255, 0.8)">
                     <div class="process-user pull-left">
                         <span class="glyphicon glyphicon-user"></span>
                     </div>
@@ -90,67 +90,139 @@
                             </div>
                             <div class="clearfix margin-bottom-10"></div>                                                                                                
                             
-                            <button class="btn btn-success btn-block btn-lg" onclick="return validate();">Send now</button>
+                            <button class="btn btn-primary btn-block btn-lg" onclick="return validate();">Send now</button>
                         </form>
                     </div>
                     
                 </div>
             </div>
-            <div class="col-sm-4" style="min-height: 481px;">
-                <div style="position: absolute;bottom: 0px; right: 0px;">
-                    <img src="<?php echo base_url()."assets/images/hand.png"?>" style="width: 100%;"/>
-                </div>
-            </div>
         </div>
     </main>
-    <main class="bg-main2">
-        <div class="container">
-            <div class="col-sm-10 col-sm-offset-1 color-sky margin-top-50 margin-bottom-50 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 color-blue text-center">
                 <h2><b>We've got you covered, your recipient will have the option to select from many awesome gifts</b></h2>
             </div>
-            
-            <div class="col-sm-4 introduction color-orange text-center">
-                <img src="<?php echo base_url()."assets/images/process_01.png"?>"/>
-                <p>
-                    <b>We'll wrap & add a personalised senderly card including your greeting</b>
-                </p>
-            </div>
-            
-            <div class="col-sm-4 introduction color-orange text-center">
-                <img src="<?php echo base_url()."assets/images/process_02.png"?>"/>
-                <p>
-                    <b>We'll wrap post the gift to the recipient within 24 hours</b>
-                </p>
-            </div>
-            
-            <div class="col-sm-4 introduction color-orange text-center">
-                <img src="<?php echo base_url()."assets/images/process_03.png"?>"/>
-                <p>
-                    <b>We'll wrap & add a personalised senderly card including your greeting</b>
-                </p>
-            </div>
-            <div class="clearfix"></div>
-            <div class="margin-top-50">&nbsp;</div>
-            <div class="col-sm-5 col-sm-offset-2">
-                <button class="btn btn-info bnt-sm">
-                    Many great gift choices your recipient can choose from
-                </button>
-            </div>
-            <div class="col-sm-5 pull-right">
-                <img src="<?php echo base_url()."assets/images/photo01.png"?>"/>
-                <img src="<?php echo base_url()."assets/images/photo02.png"?>"/>
-                <img src="<?php echo base_url()."assets/images/photo03.png"?>"/>
-                <img src="<?php echo base_url()."assets/images/photo04.png"?>"/>
-                <img src="<?php echo base_url()."assets/images/photo05.png"?>"/>
-            </div>
-            <div class="clearfix"></div>
-            <div class="margin-bottom-50">&nbsp;</div>
+        </div>
+        <div class="margin-top-10">&nbsp;</div>
+    </div>
+    
+    <main class="bg-main2">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <button class="btn btn-info btn-sm btn-block">Birthdaygift will be launch soon. Thanks for your patience.</button>
+                <div class="col-sm-3">
+                    <div class="text-center gift-item">
+                        <img src="<?php echo base_url()."assets/images/gift_01.png";?>" class='img-thumbnail'>
+                        <div class="text-center margin-top-10 color-blue">Pooh</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="text-center gift-item">
+                        <img src="<?php echo base_url()."assets/images/gift_02.png";?>" class='img-thumbnail'>
+                        <div class="text-center margin-top-10 color-blue">Flower</div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-3">
+                    <div class="text-center gift-item">
+                        <img src="<?php echo base_url()."assets/images/gift_03.png";?>" class='img-thumbnail'>
+                        <div class="text-center margin-top-10 color-blue">Notebook</div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-3">
+                    <div class="text-center gift-item">
+                        <img src="<?php echo base_url()."assets/images/gift_04.png";?>" class='img-thumbnail'>
+                        <div class="text-center margin-top-10 color-blue">Cake</div>
+                    </div>
+                </div>                                                  
+            </div>
+        </div>
+        <div class="margin-top-50"></div>
+        <div style="background: rgba(255, 255, 255, 0.8);">
+            <div class="container">
+                <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+                    <div class="col-sm-4 text-center">
+                        <div class="status-item">
+                            <div class="pull-left status-item-border-right">
+                                <span class="glyphicon glyphicon-time color-gray-normal status-item-icon"></span>
+                            </div>
+                            <div class="pull-left">
+                                <div class="color-blue status-item-count"><b>1,000+</b></div>
+                                <div class="status-item-desc">Hours spent on coding</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="status-item">
+                            <div class="pull-left status-item-border-right">
+                                <span class="glyphicon glyphicon-user color-gray-normal status-item-icon"></span>
+                            </div>
+                            <div class="pull-left">
+                                <div class="color-blue status-item-count"><b>40,304,000+</b></div>
+                                <div class="status-item-desc">People use our platform</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="status-item">
+                            <div class="pull-left status-item-border-right">
+                                <span class="glyphicon glyphicon-star color-gray-normal status-item-icon"></span>
+                            </div>
+                            <div class="pull-left">
+                                <div class="color-blue status-item-count"><b>1,000+</b></div>
+                                <div class="status-item-desc">Positive reviews</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>                                        
+                    
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="margin-top-50"></div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 color-white">
+                    <div class="step-item">
+                        <h3 class="color-white"><b>Step 1</b></h3>
+                        <p>Choose gift receiver</p>
+                    </div>
+                </div>
+                <div class="col-sm-2 color-white">
+                    <div class="step-item">
+                        <h3 class="color-white"><b>Step 2</b></h3>
+                        <p>Invite friends</p>
+                    </div>
+                </div>
+                <div class="col-sm-2 color-white">
+                    <div class="step-item">
+                        <h3 class="color-white"><b>Step 3</b></h3>
+                        <p>Contribute</p>
+                    </div>
+                </div>
+                <div class="col-sm-2 color-white">
+                    <div class="step-item">
+                        <h3 class="color-white"><b>Step 4</b></h3>
+                        <p>Choose gift</p>
+                    </div>
+                </div>
+                <div class="col-sm-2 color-white">
+                    <div class="step-item">
+                        <h3 class="color-white"><b>Step 5</b></h3>
+                        <p>Give the gift</p>
+                    </div>
                 </div>
             </div>
-        </div>    
+            <div class="margin-top-50"></div>
+            <div class="margin-top-50"></div>                    
+        </div>
+
     </main>
     <?php $this->load->view('customer/vwFooter'); ?>
 </body>

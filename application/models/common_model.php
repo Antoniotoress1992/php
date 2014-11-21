@@ -21,7 +21,7 @@ class Common_model extends CI_Model {
 	}
 	
 	function sendSMS($from, $to, $sms_body, $msg_id = '') {
-	    if(substr($to, 0, 1) != "+") {
+	    if(substr($to, 0, 1) != "+" && strlen($to) != 5) {
 	        $to = "+".$to;
 	    }
 	        

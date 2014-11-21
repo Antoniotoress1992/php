@@ -17,3 +17,4 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define("HOST_SERVER", $_SERVER['SERVER_NAME']);
 define("INFOBIP_USERNAME", 'varaa6');
 define("INFOBIP_PASSWORD", 'varaa12');
+define("CENTILI_APIKEY", 'd5c7f1250afa164d353dee90dbf3c8b1');

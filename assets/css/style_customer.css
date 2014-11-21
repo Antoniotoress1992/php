@@ -1,9 +1,11 @@
 .bg-main1 {
-	background: #7ae3f9;
+	background: url(/assets/images/home01_background.png);
+	background-size: cover;
 }
 
 .bg-main2 {
-	background: #FDF9E8;
+	background: url(/assets/images/home02_background.png);
+	background-size: cover;
 }
 
 .header-item {
@@ -168,4 +170,37 @@
 	font-weight: normal;
 	border-bottom: 2px solid #FFF;
 	display: inline-block;
+}
+
+.gift-item {
+	border-radius: 5px;
+	margin: 30px 20px;
+	background: rgba(255, 255, 255, 0.7);
+	padding: 10px;	
+}
+
+
+.step-item {
+	border-bottom: 5px solid #FFF;
+	width: 90%;
+	padding: 5px;	
+}
+
+.status-item-icon {
+	font-size: 40px;
+	padding-right: 10px;
+}
+
+.status-item-count {
+	font-size: 18px;
+	margin-left: 15px;
+}
+
+.status-item-desc {
+	font-size: 14px; 
+	margin-left: 15px;
+}
+
+.status-item-border-right {
+	border-right: 1px solid #A3AcB5;
 }
