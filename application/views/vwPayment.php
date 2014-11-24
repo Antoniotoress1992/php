@@ -92,6 +92,16 @@
                 alert('Please enter Amount');
                 return;
             }
+
+            if (Number(amount) != amount * 1 ) {
+                alert('Please enter Amount correctly');
+                return;
+            }
+
+            if (amount > 20 ) {
+                alert('Please enter Amount correctly');
+                return;
+            }
             
             $.ajax({
                 url: "/payment/async_process",
@@ -99,10 +109,8 @@
                 type : "POST",
                 data : { phone : phone, amount : amount, project_id : project_id },
                 success : function(data){
-                    if (data.result == 'success') {
-                        $("#msgConfirm").html("<div class='alert alert-danger'>" + data.msg + "</div>");
-                        $("#msgConfirm").fadeIn();
-                    }
+                    $("#msgConfirm").html("<div class='alert alert-danger'>" + data.msg + "</div>");
+                    $("#msgConfirm").fadeIn();
                 }
             });            
             

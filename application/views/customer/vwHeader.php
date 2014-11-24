@@ -33,8 +33,13 @@
                     <div class="clearfix"></div>
                 </li>
                 <li><a href="<?php echo base_url(); ?>page/how_it_works">How it works?</a></li>
+                <?php if (!$this->session->userdata('user_id')) { ?>
                 <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign in</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signup"?>">Register</a></li>
+                <?php } else { ?>
+                <li><a href="<?php echo base_url()."customer/project/lists"?>">List</a></li>
+                <li><a href="<?php echo base_url()."customer/user/signout"?>">Sign Out</a></li>                
+                <?php } ?>
             </ul>
         </div>
                 

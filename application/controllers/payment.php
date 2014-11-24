@@ -50,33 +50,38 @@ class Payment extends CI_Controller {
         curl_close($ch);
         
         $obj = json_decode($result);
-        $transactionid = $obj->transactionid;
-        
-        $ch = curl_init("https://api.centili.com/api/payment/1_3/transaction/".$transactionid);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array()));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        if ($obj->status == 'ACCEPTED') {
+            $transactionid = $obj->transactionid;
+            
+            $ch = curl_init("https://api.centili.com/api/payment/1_3/transaction/".$transactionid);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array()));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Host: api.centili.com:443' )
-        );
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close($ch);
-        $data = json_decode($result);
-        if ($data->status == 'ACCEPTED') {
-            $return['result'] = 'success';
-            $return['msg'] = $data->premiumInstructions;
+            );
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            $result = curl_exec($ch);
+            curl_close($ch);
+            $data = json_decode($result);
+            if ($data->status == 'ACCEPTED') {
+                $return['result'] = 'success';
+                $return['msg'] = 'Check your phone';
             
-            $this->load->model('transaction_model');
+                $this->load->model('transaction_model');
             
-            $this->transaction_model->add($project_id, $phone, $amount);
+                $this->transaction_model->add($project_id, $phone, $amount);
             
-            $this->load->model('common_model');
-            // $this->common_model->sendSMS($country->prefix.$phone, $data->shortCode, $data->smsBody);
+                $this->load->model('common_model');
+                $this->common_model->sendSMS($data->shortCode, $country->prefix.$phone, "Reply on here '".$data->smsBody."'");
             
+            } else {
+                $return['result'] = 'failed';
+                $return['msg'] = 'Failed';
+            }            
         } else {
             $return['result'] = 'failed';
-            $return['msg'] = '';            
+            $return['msg'] = 'Failed';
         }
 
         die(json_encode($return));

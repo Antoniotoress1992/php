@@ -6,83 +6,85 @@
 </head>
 <body>
     <?php $this->load->view('customer/vwHeader'); ?>
-    <div class="container">
-        <div class="row margin-top-50">
-            <div class="col-sm-6 col-sm-offset-3">    
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="<?php echo base_url()."customer/user/signup";?>">Customer</a></li>
-                    <li role="presentation"><a href="<?php echo base_url()."business/company/signup";?>">Company</a></li>  
-                </ul>
-            </div>
-        </div>
-        
-        <div class="row margin-top-30">
-        </div>
-        
-        <div class="row text-center">
-            <h2>Sign Up For Customer</h2>
-        </div>
-        
-        <div class="row margin-top-10">
-            <div class="col-sm-6 col-sm-offset-3 text-center">
-                <?php if (isset($msg) && $msg != '') {?>
-                    <div class="alert alert-info" role="alert">
-                            <?php echo $msg;?>                            
-                    </div>
-                <?php }?>
-                <?php echo validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
-            </div>
-        </div>
-
-        <form method="POST" action="<?php echo base_url();?>customer/user/signup" role="form" class="form-login">
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="form-group">
-                        <label>Username *</label>
-                        <input class="form-control" name="username" type="text">
-                    </div>
+    <main class="bg-main1" style="color: #FFF;">
+        <div class="container">
+            <div class="row margin-top-50">
+                <div class="col-sm-6 col-sm-offset-3">    
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="<?php echo base_url()."customer/user/signup";?>">Customer</a></li>
+                        <li role="presentation"><a href="<?php echo base_url()."business/company/signup";?>">Company</a></li>  
+                    </ul>
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="form-group">
-                        <label>Password *</label>
-                        <input class="form-control" name="password" type="password">
-                    </div>
-                </div>
+            <div class="row margin-top-30">
             </div>
             
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="form-group">
-                        <label>Phone *</label>
-                        <input class="form-control" name="phone" type="text">
-                    </div>
-                </div>
-            </div>    
+            <div class="row text-center">
+                <h2>Sign Up For Customer</h2>
+            </div>
             
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input class="form-control" name="email" type="text">
-                    </div>
-                </div>
-            </div>                    
-            
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">
-                    <p> Already Registered? Go to the
-                        <a href="<?php echo base_url()."customer/user/signin"?>" >Sign In</a> Page
-                    </p>
-                    &nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-lg btn-danger text-uppercase margin-right-30">Sign Up <span class="glyphicon glyphicon-ok-circle"></span></button>
+            <div class="row margin-top-10">
+                <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <?php if (isset($msg) && $msg != '') {?>
+                        <div class="alert alert-info" role="alert">
+                                <?php echo $msg;?>                            
+                        </div>
+                    <?php }?>
+                    <?php echo validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
                 </div>
             </div>
-        </form>        
-        
-    </div>
+    
+            <form method="POST" action="<?php echo base_url();?>customer/user/signup" role="form" class="form-login">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label>Username *</label>
+                            <input class="form-control" name="username" type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label>Password *</label>
+                            <input class="form-control" name="password" type="password">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input class="form-control" name="phone" type="text">
+                        </div>
+                    </div>
+                </div>    
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input class="form-control" name="email" type="text">
+                        </div>
+                    </div>
+                </div>                    
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">
+                        <p> Already Registered? Go to the
+                            <a href="<?php echo base_url()."customer/user/signin"?>" >Sign In</a> Page
+                        </p>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-lg btn-danger text-uppercase margin-right-30">Sign Up <span class="glyphicon glyphicon-ok-circle"></span></button>
+                    </div>
+                </div>
+            </form>        
+            
+        </div>
+    </main>
     
 
     <?php $this->load->view('customer/vwFooter'); ?>

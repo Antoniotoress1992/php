@@ -1,21 +1,42 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic&subset=latin,latin-ext);
+
+body {
+	font-family: 'Droid Sans';
+}
+
+.font-droid {
+	font-family: 'Droid Sans';
+}
+.color-black {
+	color: #000;
+}
+
+.color-blue {
+	color: #003580;
+}
 .color-white {
 	color: #FFF;
 }
 
-.color-blue {
-	color: #088CE9;
+.color-gray-dark {
+	color: #3c3c3c;
 }
 
-.color-orange {
-	color: #FF6600;
+.color-gray-light {
+	color: #737c85;
 }
 
-.color-sky {
-	color: #79C7D3;
+.color-gray-normal {
+	color: #A3AcB5;
 }
 
 .color-gray {
-	color: #8D8D8D;
+	color: #777;
+}
+
+.color-gray-light {
+	color: #848689;
 }
 
 .font-size-12 {
@@ -40,4 +61,30 @@
 
 .margin-top-30 {
 	margin-top: 30px;
+}
+
+.unshow {
+	display: none;
+}
+
+.how-it-work-step-blue {
+	border-radius: 100px;
+	background: #003580;
+	color: #FFF;
+	text-align: center;
+	line-height: 90px;
+	width: 90px;
+	height: 90px;	
+	font-size: 32px;		
+}
+
+.how-it-work-step-white {
+	border-radius: 100px;
+	background: #FFF;
+	color: #003580;
+	text-align: center;
+	line-height: 90px;
+	width: 90px;
+	height: 90px;	
+	font-size: 32px;		
 }

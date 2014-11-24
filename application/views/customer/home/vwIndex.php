@@ -9,7 +9,7 @@
     <?php $this->load->view('customer/vwHeader'); ?>
     <main class="bg-main1">
         <div class="container">
-            <div class="col-sm-10 col-sm-offset-1 color-white margin-top-50 margin-bottom-50">
+            <div class="col-sm-10 col-sm-offset-1 color-white margin-top-50 margin-bottom-50 text-center">
                 <h2><b>Send someone special an amount, let them choose a gift
                 and deliver it straight to them with a personalised card</b></h2>
             </div>
@@ -17,24 +17,24 @@
                 <div class="process text-center">
                     <div class="process-no">1</div>
                     <img src="<?php echo base_url()."assets/images/icon_step_01.png"?>"/>
-                    <p class="color-blue font-size-12 margin-top-5">
-                        <b>Simply select amount &amp;<br/>personalised message</b>
+                    <p class="color-blue margin-top-5">
+                        Simply select amount &amp;<br/>personalised message
                     </p>
                 </div>
                 
                 <div class="process text-center">
                     <div class="process-no">2</div>
                     <img src="<?php echo base_url()."assets/images/icon_step_02.png"?>"/>
-                    <p class="color-blue font-size-12 margin-top-5">
-                        <b>Recipient receives a text with a<br/>secure link allowing them to<br/>choose any gift for the gifted amount</b>
+                    <p class="color-blue margin-top-5">
+                        Recipient receives a text with a<br/>secure link allowing them to<br/>choose any gift for the gifted amount
                     </p>
                 </div>
                 
                 <div class="process text-center">
                     <div class="process-no">3</div>
                     <img src="<?php echo base_url()."assets/images/icon_step_03.png"?>"/>
-                    <p class="color-blue font-size-12 margin-top-5">
-                        <b>We'll send out your recipients<br/>selected gift next day</b>
+                    <p class="color-blue margin-top-5">
+                        We'll send out your recipients<br/>selected gift next day
                     </p>
                 </div>                
             </div>
@@ -54,43 +54,57 @@
                     <div class="color-blue">
                         <input type="hidden" id="is_login" value="<?php echo ($this->session->userdata('user_id')) ? $this->session->userdata('user_id') : '';?>"/>
                         <form method="POST" action="<?php echo base_url();?>customer/project/add" role="form">
-                            <div class="pull-left line-height-30" style="width: 20%;"><b>Name:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="name"></div>
-                            <div class="clearfix margin-bottom-10"></div>
-                            
-                            <div class="pull-left line-height-30" style="width: 20%;"><b>Phone:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="phone"></div>
-                            <div class="clearfix margin-bottom-10"></div>
-                            
-                            <div class="pull-left line-height-30" style="width: 20%;"><b>Country:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 75%;">
-                                <select class="form-control" name="country_id">
-                                <?php foreach ($countries as $country) {?>
-                                    <option value="<?php echo $country->id;?>"><?php echo $country->name;?></option>
-                                <?php }?>
-                                </select>
+                            <div id="js-div-name">
+                                <div class="pull-left line-height-30" style="width: 20%;"><b>Name:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="name"></div>
+                                <div class="clearfix margin-bottom-10"></div>
                             </div>
-                            <div class="clearfix margin-bottom-10"></div>
                             
-                            <div class="pull-left line-height-30" style="width: 35%;"><b>Expired At:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="expired_at" id="expired_at"></div>
-                            <div class="clearfix margin-bottom-10"></div>                                                    
-                            
-                            <div class="pull-left line-height-30" style="width: 45%;"><b>Amount to collect:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 50%;"><input type="text" class="form-control" name="amount"></div>
-                            <div class="clearfix margin-bottom-10"></div>
-                            
-                            <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors"></div>
-                            <div class="clearfix margin-bottom-10"></div>
-                            
-                            <div class="pull-left line-height-30" style="width: 20%;"><b>Message:</b></div>
-                            <div class="pull-left margin-left-15" style="width: 75%;">
-                                <textarea class="form-control" rows="3" name="message"></textarea>
+                            <div id="js-div-phone" class="unshow">
+                                <div class="pull-left line-height-30" style="width: 20%;"><b>Phone:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="phone"></div>
+                                <div class="clearfix margin-bottom-10"></div>
                             </div>
-                            <div class="clearfix margin-bottom-10"></div>                                                                                                
                             
-                            <button class="btn btn-primary btn-block btn-lg" onclick="return validate();">Send now</button>
+                            <div id="js-div-country" class="unshow">
+                                <div class="pull-left line-height-30" style="width: 20%;"><b>Country:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 75%;">
+                                    <select class="form-control" name="country_id">
+                                    <?php foreach ($countries as $country) {?>
+                                        <option value="<?php echo $country->id;?>"><?php echo $country->name;?></option>
+                                    <?php }?>
+                                    </select>
+                                </div>
+                                <div class="clearfix margin-bottom-10"></div>
+                            </div>
+                            
+                            <div id="js-div-expired" class="unshow">
+                                <div class="pull-left line-height-30" style="width: 35%;"><b>Expired At:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="expired_at" id="expired_at"></div>
+                                <div class="clearfix margin-bottom-10"></div>
+                            </div>                                                    
+                            
+                            <div id="js-div-amount" class="unshow">
+                                <div class="pull-left line-height-30" style="width: 45%;"><b>Amount to collect:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 50%;"><input type="text" class="form-control" name="amount"></div>
+                                <div class="clearfix margin-bottom-10"></div>
+                            </div>
+                            
+                            <div id="js-div-friends" class="unshow">
+                                <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors"></div>
+                                <div class="clearfix margin-bottom-10"></div>
+                            </div>
+                            
+                            <div id="js-div-message" class="unshow">
+                                <div class="pull-left line-height-30" style="width: 20%;"><b>Message:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 75%;">
+                                    <textarea class="form-control" rows="3" name="message"></textarea>
+                                </div>
+                                <div class="clearfix margin-bottom-10"></div>                                                                                                
+
+                                <button class="btn btn-primary btn-block btn-lg" onclick="return validate();">Send now</button>
+                            </div>
                         </form>
                     </div>
                     
