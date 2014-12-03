@@ -15,7 +15,8 @@ define('HTTP_JS_PATH_ADMIN', $config['base_url'].'assets/js/jquery/');
 
 define('HTTP_PHOTO_PATH', $config['base_url'].'assets/photos/');
 define('ABS_PHOTO_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/photos/');
-
+define('HTTP_GIFT_PATH', $config['base_url'].'assets/gifts/');
+define('ABS_GIFT_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/gifts/');
 
 
 /*

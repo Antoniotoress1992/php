@@ -1,3 +1,19 @@
+.DS_Store
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+assets/photos/*
+assets/gifts/*
+.settings
+
+application/language/english/message_lang.php
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
