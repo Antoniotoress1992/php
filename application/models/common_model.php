@@ -20,6 +20,14 @@ class Common_model extends CI_Model {
 		return $str_rndstring;
 	}
 	
+	function phoneNo($phone) {
+	    if(substr($phone, 0, 1) == '0') {
+	        return substr($phone, 1);
+	    } else {
+	        return $phone;
+	    }
+	}
+	
 	function sendSMS($from, $to, $sms_body, $msg_id = '') {
 	    if(substr($to, 0, 1) != "+" && strlen($to) != 5) {
 	        $to = "+".$to;

@@ -33,10 +33,10 @@ class User extends CI_Controller {
     
         $this->load->model('user_model');
     
-        $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+        $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         
-        $result = $this->user_model->signin($name, $password);
+        $result = $this->user_model->signin($phone, $password);
     
         die(json_encode($result));
     }    

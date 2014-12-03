@@ -88,3 +88,8 @@ body {
 	height: 90px;	
 	font-size: 32px;		
 }
+
+.readonly {
+	cursor: pointer !important;
+	background: #FFF !important;
+}

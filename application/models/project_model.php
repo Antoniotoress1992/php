@@ -115,9 +115,21 @@ class Project_model extends CI_Model {
 	             WHERE project_id = ?";
 	   $result = $this->db->query($sql, $id)->result();
 	   if ($result) {
-	       return ['result' => 'success', 'msg' => '', 'invitors' => $result];
+	       return $result;
 	   } else {
-	       return ['result' => 'failed', 'msg' => 'Invalid Project ID', ]; 
+	       return array(); 
 	   }
 	}
+	
+	public function payers($id) {
+	    $sql = "SELECT invitor_tel as tel, amount, created_at
+	              FROM bg_transactions
+	             WHERE project_id = ?";
+	    $result = $this->db->query($sql, $id)->result();
+	    if ($result) {
+	        return $result;
+	    } else {
+	        return array();
+	    }
+	}	
 }

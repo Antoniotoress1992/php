@@ -125,7 +125,9 @@
 .nav-pills > li > a {
 	color: #FFF;
 }
-
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background: #1650A3;
+}
 .nav-pills > li > a:hover, .nav-pills > li > a:focus {
 	background: #1650A3;
 }

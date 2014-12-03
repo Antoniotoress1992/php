@@ -39,8 +39,8 @@
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group">
-                            <label>Username *</label>
-                            <input class="form-control" name="username" type="text">
+                            <label>Phone No*</label>
+                            <input class="form-control" name="phone" type="text">
                         </div>
                     </div>
                 </div>
@@ -57,11 +57,24 @@
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group">
-                            <label>Phone *</label>
-                            <input class="form-control" name="phone" type="text">
+                            <label>Country *</label>
+                            <select class="form-control" name="country_id">
+                                <?php foreach ($countries as $country) {?>
+                                    <option value="<?php echo $country->id;?>"><?php echo $country->name;?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
-                </div>    
+                </div>                
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label>Username *</label>
+                            <input class="form-control" name="username" type="text">
+                        </div>
+                    </div>
+                </div>                
                 
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">

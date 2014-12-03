@@ -80,7 +80,9 @@ class Project extends CI_Controller {
         $this->load->model('project_model');
         
         $result = $this->project_model->detail($project_id);
-        
+        $result = json_decode(json_encode($result), true);
+        $result['invitors'] = $this->project_model->invitors($project_id);
+        $result['payers'] = $this->project_model->payers($project_id);
         die(json_encode($result));
     }
     

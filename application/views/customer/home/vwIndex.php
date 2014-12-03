@@ -12,6 +12,14 @@
             <div class="col-sm-10 col-sm-offset-1 color-white margin-top-50 margin-bottom-50 text-center">
                 <h2><b>Send someone special an amount, let them choose a gift
                 and deliver it straight to them with a personalised card</b></h2>
+                
+                <?php if (isset($message)) {?>
+                <h3>
+                    <div class="text-center alert alert-success" role="alert">
+                        <?php echo $message;?>
+                    </div>
+                </h3>
+                <?php } ?>
             </div>
             <div class="col-sm-3 col-sm-offset-1">
                 <div class="process text-center">
@@ -44,7 +52,7 @@
                         <span class="glyphicon glyphicon-user"></span>
                     </div>
                     <div class="color-blue pull-left form-title">
-                        <b>Recipient Details</b>
+                        <b>Create New Project</b>
                     </div>
                     <div class="clearfix"></div>
                     <div class="color-orange text-center form-desciption">
@@ -53,58 +61,85 @@
                     
                     <div class="color-blue">
                         <input type="hidden" id="is_login" value="<?php echo ($this->session->userdata('user_id')) ? $this->session->userdata('user_id') : '';?>"/>
-                        <form method="POST" action="<?php echo base_url();?>customer/project/add" role="form">
+                        <form method="POST" action="<?php echo base_url();?>customer/project/add" role="form">                            
                             <div id="js-div-name">
-                                <div class="pull-left line-height-30" style="width: 20%;"><b>Name:</b></div>
-                                <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="name"></div>
+                                <div class="pull-left line-height-30" style="width: 35%;"><b>Project Name:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="name" value="<?php echo isset($post) ? $post['name'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>
                             
-                            <div id="js-div-phone" class="unshow">
-                                <div class="pull-left line-height-30" style="width: 20%;"><b>Phone:</b></div>
-                                <div class="pull-left margin-left-15" style="width: 75%;"><input type="text" class="form-control" name="phone"></div>
+                            <div id="js-div-receiver" class="<?php echo isset($post) ? '' : 'unshow'?>">
+                                <div class="pull-left line-height-30" style="width: 35%;"><b>Receiver Phone No:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="receiver" value="<?php echo isset($post) ? $post['receiver'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>
                             
-                            <div id="js-div-country" class="unshow">
-                                <div class="pull-left line-height-30" style="width: 20%;"><b>Country:</b></div>
-                                <div class="pull-left margin-left-15" style="width: 75%;">
+                            <div id="js-div-country" class="<?php echo isset($post) ? '' : 'unshow'?>">
+                                <div class="pull-left line-height-30" style="width: 35%;"><b>Country:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;">
                                     <select class="form-control" name="country_id">
                                     <?php foreach ($countries as $country) {?>
-                                        <option value="<?php echo $country->id;?>"><?php echo $country->name;?></option>
+                                        <option value="<?php echo $country->id;?>" <?php echo (isset($post) && ($post['country_id'] == $country->id)) ? 'selected' :'';?>><?php echo $country->name;?></option>
                                     <?php }?>
                                     </select>
                                 </div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>
                             
-                            <div id="js-div-expired" class="unshow">
+                            <div id="js-div-expired" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Expired At:</b></div>
-                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="expired_at" id="expired_at"></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control readonly" name="expired_at" id="expired_at" readonly value="<?php echo isset($post) ? $post['expired_at'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>                                                    
                             
-                            <div id="js-div-amount" class="unshow">
-                                <div class="pull-left line-height-30" style="width: 45%;"><b>Amount to collect:</b></div>
-                                <div class="pull-left margin-left-15" style="width: 50%;"><input type="text" class="form-control" name="amount"></div>
+                            <div id="js-div-amount" class="<?php echo isset($post) ? '' : 'unshow'?>">
+                                <div class="pull-left line-height-30" style="width: 35%;"><b>Amount to collect:</b></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="amount" value="<?php echo isset($post) ? $post['amount'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>
                             
-                            <div id="js-div-friends" class="unshow">
+                            <div id="js-div-friends" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
-                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors"></div>
+                                <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors" value="<?php echo isset($post) ? $post['invitors'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>
                             
-                            <div id="js-div-message" class="unshow">
+                              
+                            
+                            <div id="js-div-message" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 20%;"><b>Message:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 75%;">
-                                    <textarea class="form-control" rows="3" name="message"></textarea>
+                                    <textarea class="form-control" rows="3" name="message"><?php echo isset($post) ? $post['message'] :'';?></textarea>
                                 </div>
                                 <div class="clearfix margin-bottom-10"></div>                                                                                                
-
+                            </div>
+                            
+                            <div id="js-div-login" class="<?php echo (isset($post) && !$this->session->userdata('user_id'))? '' : 'unshow'?>">
+                                <hr/>
+                                <div class="pull-left line-height-30" style="width: 15%;"><b>Login</b></div>
+                                <div class="pull-left margin-left-15" style="width: 38%;">
+                                    <input type="text" class="form-control" name="phone" placeholder="Phone No">
+                                </div>
+                                <div class="pull-left margin-left-15" style="width: 39%;">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="pull-right">
+                                    <p class="font-size-12 color-black">
+                                        If you are first on here, enter your phone number and <a href="#" id="js-a-click-here">click here</a> to get the password
+                                    </p>
+                                    <div class="text-center font-size-12 alert alert-danger <?php echo isset($post) ? '' : 'unshow'?>" role="alert" style="padding: 7px; margin-bottom: 3px;">
+                                        Login info is incorrect
+                                    </div>
+                                </div>
+                                <div class="clearfix margin-bottom-10"></div>
+                            </div>                            
+                            
+                            <div id="js-div-button" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <button class="btn btn-primary btn-block btn-lg" onclick="return validate();">Send now</button>
                             </div>
+                            
+                                                                                 
                         </form>
                     </div>
                     

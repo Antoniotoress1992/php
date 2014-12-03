@@ -3,4 +3,4 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="<?php echo HTTP_CSS_PATH; ?>favicon.png">
-<title>Kickgifter</title>
+<title><?php echo SITE_NAME;?></title>

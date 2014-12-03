@@ -4,7 +4,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="msgAlertLabel">Kickgifter</h4>
+            <h4 class="modal-title" id="msgAlertLabel"><?php echo SITE_NAME;?></h4>
           </div>
           <div class="modal-body">
               <h4></h4>
@@ -27,17 +27,23 @@
         </div>
         <div class="pull-right">
             <ul class="nav nav-pills nav-top">
-                <li style="width: 300px;">
+                <!-- li style="width: 300px;">
                     <div class="pull-left color-white" style="width:40%; line-height: 38px;">Enter your code : </div>
                     <div class="pull-left" style="width:55%;"><input type="text" class="form-control"/></div>
                     <div class="clearfix"></div>
-                </li>
-                <li><a href="<?php echo base_url(); ?>page/how_it_works">How it works?</a></li>
+                </li -->
+                <?php
+                    if (!isset($pageNo)) { 
+                        $pageNo = 0; 
+                    } 
+                ?>
+                <li <?php echo ($pageNo == 1) ? "class='active'" : "";?>><a href="<?php echo base_url(); ?>page/how_it_works">How it works?</a></li>
                 <?php if (!$this->session->userdata('user_id')) { ?>
                 <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign in</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signup"?>">Register</a></li>
                 <?php } else { ?>
-                <li><a href="<?php echo base_url()."customer/project/lists"?>">List</a></li>
+                <li <?php echo ($pageNo == 2) ? "class='active'" : "";?>><a href="<?php echo base_url()."customer/project/lists"?>">List</a></li>
+                <li <?php echo ($pageNo == 3) ? "class='active'" : "";?>><a href="<?php echo base_url()."customer/user/profile"?>">My Profile</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signout"?>">Sign Out</a></li>                
                 <?php } ?>
             </ul>

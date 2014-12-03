@@ -27,14 +27,15 @@ class Payment extends CI_Controller {
         
         if (substr($phone, 0, 1) == '0') {
             $phone = substr($phone, 1);
-        }
+        }        
+        $client_id = $project_id.":".$phone;
         
         $this->load->model('project_model');
         $this->load->model('country_model');
         $project = $this->project_model->detail($project_id);
         $country = $this->country_model->detail($project->country_id);
         
-        $data = array("apikey" => CENTILI_APIKEY, "msisdn" => $country->prefix.$phone, "price" => $amount, "paymenttype" => "mobile");
+        $data = array("apikey" => CENTILI_APIKEY, "msisdn" => $country->prefix.$phone, "price" => $amount, "paymenttype" => "mobile", "clientid" => $client_id);
         $data_string = json_encode($data);
         
         $ch = curl_init('https://api.centili.com/api/payment/1_3/transaction');
@@ -67,11 +68,7 @@ class Payment extends CI_Controller {
             if ($data->status == 'ACCEPTED') {
                 $return['result'] = 'success';
                 $return['msg'] = 'Check your phone';
-            
-                $this->load->model('transaction_model');
-            
-                $this->transaction_model->add($project_id, $phone, $amount);
-            
+                       
                 $this->load->model('common_model');
                 $this->common_model->sendSMS($data->shortCode, $country->prefix.$phone, "Reply on here '".$data->smsBody."'");
             
@@ -85,5 +82,18 @@ class Payment extends CI_Controller {
         }
 
         die(json_encode($return));
+    }
+    
+    public function notification() {
+        $clientid = isset($_GET['clientid']) ? $_GET['clientid'] : '';
+        if ($clientid != '') {
+            $arr = explode(":", $clientid);
+            $project_id = $arr[0];
+            $phone = $arr[1];
+            $amount = $_GET['amount'];
+            $data = var_export($_GET, true);
+            $this->load->model('transaction_model');
+            $this->transaction_model->add($project_id, $phone, $amount, $data);
+        }
     }
 }

@@ -3,14 +3,10 @@ $(document).ready(function() {
     $('#expired_at').datepicker({format: 'yyyy-mm-dd'});
 
     $("input[name='name']").keyup(function() {
-        if ($("#is_login").val() == '') {
-            bs_alert('You have to login for this');
-        } else {
-            $("#js-div-phone").fadeIn();
-        }
+        $("#js-div-receiver").fadeIn();
     });
 
-    $("input[name='phone']").keyup(function() {
+    $("input[name='receiver']").keyup(function() {
         $("#js-div-country").fadeIn();
         $("#js-div-expired").fadeIn();
     });
@@ -25,27 +21,52 @@ $(document).ready(function() {
 
     $("input[name='invitors']").keyup(function() {
         $("#js-div-message").fadeIn();
-    });    
+        $("#js-div-button").fadeIn();
+        if ($("#is_login").val() == '') {
+            $("#js-div-login").fadeIn();
+        }
+    });
+
+    $("a#js-a-click-here").click(function(event) {
+        event.stopPropagation();
+        var phone = $("input[name='phone']").val();
+        var country_id = $("select[name='country_id']").val();
+        
+        $.ajax({
+            url: "/customer/user/async_generate_password",
+            dataType : "json",
+            type : "POST",
+            data : { phone : phone, country_id : country_id },
+            success : function(data){
+                bs_alert(data.msg);
+            }
+        });
+                
+    });
+    $("input[name='name']").focus();
 });
 
 function validate() {
     if ($("#is_login").val() == '') {
-        bs_alert('You have to login for this');
-        return false;
-    }
-
-    var name = $("input[name='name']").val();
-    var phone = $("input[name='phone']").val();
-    var expired_at = $("input[name='expired_at']").val();
-    var amount = $("input[name='amount']").val();
-    var invitors = $("input[name='invitors']").val();
-    var message = $("input[name='message']").val();
-
-    if (name == '' || phone == '' || expired_at == '' || amount == '') {
-        bs_alert('Please enter forms correctly');
-        return false;
-    }
+        var phone = $("input[name='phone']").val();
+        var password = $("input[name='password']").val();
+        if (phone == '' || password == '') {
+            bs_alert('Please enter correct Phone No and Password');
+            return false;
+        }
+    } else {
+        var name = $("input[name='name']").val();
+        var receiver = $("input[name='receiver']").val();
+        var expired_at = $("input[name='expired_at']").val();
+        var amount = $("input[name='amount']").val();
+        var invitors = $("input[name='invitors']").val();
+        var message = $("input[name='message']").val();
     
-    return true;
+        if (name == '' || receiver == '' || expired_at == '' || amount == '') {
+            bs_alert('Please enter forms correctly');
+            return false;
+        }
+        return true;
+    }
 }
 </script>

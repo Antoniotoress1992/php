@@ -7,7 +7,8 @@ class Page extends CI_Controller {
         parent::__construct();
     }
 
-    public function how_it_works() {        
-        $this->load->view('page/vwHowItWorks');
+    public function how_it_works() {
+        $param['pageNo'] = 1;
+        $this->load->view('page/vwHowItWorks', $param);
     }
 }
