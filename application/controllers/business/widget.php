@@ -8,7 +8,7 @@ class Widget extends CI_Controller {
     }
     
     public function index() {
-        $param['pageNo'] = 4;
+        $param['pageNo'] = 14;
         $this->load->view('business/widget/vwIndex', $param);
     }
 }

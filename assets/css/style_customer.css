@@ -67,22 +67,6 @@
 	margin-bottom: 12px;	
 }
 
-.margin-left-15 {
-	margin-left: 15px;
-}
-
-.line-height-30 {
-	line-height: 30px;
-}
-
-.margin-top-15 {
-	margin-top: 15px;
-}
-
-.margin-bottom-10 {
-	margin-bottom: 10px;
-}
-
 .introduction {
 	border-radius: 20px; 
 	background: #E9E6D8;
@@ -95,19 +79,6 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 165px;
-}
-
-.footerArea {
-	background: #FDF9E8;
-}
-
-.footerArea ul {
-	list-style-type: none;
-}
-
-.footerArea ul li {
-	float: left;
-	margin-right: 20px;
 }
 
 .form-login {
@@ -138,6 +109,19 @@
 
 .nav-pills > li > a {
 	margin-left: 20px;
+}
+
+.footerArea {
+	background: #FDF9E8;
+}
+
+.footerArea ul {
+	list-style-type: none;
+}
+
+.footerArea ul li {
+	float: left;
+	margin-right: 20px;
 }
 
 .footerArea {

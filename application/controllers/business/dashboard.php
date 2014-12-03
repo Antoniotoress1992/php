@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller {
     }
     
     public function index() {
-        $param['pageNo'] = 1;
+        $param['pageNo'] = 11;
         $this->load->view('business/dashboard/vwIndex', $param);
     }
 }

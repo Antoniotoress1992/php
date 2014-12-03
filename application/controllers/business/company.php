@@ -76,7 +76,12 @@ class Company extends CI_Controller {
     }
     
     public function setting() {
-        $param['pageNo'] = 3;
+        $param['pageNo'] = 13;
         $this->load->view('business/company/vwSetting', $param);        
     }
+    
+    public function profile() {
+        $param['pageNo'] = 15;
+        $this->load->view('business/company/vwProfile', $param);
+    }    
 }

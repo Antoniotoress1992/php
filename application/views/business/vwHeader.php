@@ -4,7 +4,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="msgAlertLabel">Kickgifter</h4>
+            <h4 class="modal-title" id="msgAlertLabel"><?php echo SITE_NAME;?></h4>
           </div>
           <div class="modal-body">
               <h4></h4>
@@ -18,30 +18,29 @@
 
 
 <header class="navi">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3 text-center header-item">
+    <div style="background: #003580; height: 65px;">
+        <div class="container">
+            <div class="navi-header pull-left" style="margin-top: 5px;">
                 <a class="navi-logo" href="<?php echo base_url(); ?>">
                     <img src="<?php echo base_url(); ?>assets/images/logo.png"/>
                 </a>
             </div>
-            <div class="col-sm-2 text-center header-item">
-                <b>FAQ</b>
+            <div class="pull-right">
+                <ul class="nav nav-pills nav-top">
+                    <?php
+                        if (!isset($pageNo)) { 
+                            $pageNo = 0; 
+                        } 
+                    ?>
+                    
+                    <?php if (!$this->session->userdata('company_id')) { ?>
+                        <li><a href="<?php echo base_url()."business/company/signin"?>">Sign in</a></li>
+                        <li><a href="<?php echo base_url()."business/company/signup"?>">Register</a></li>
+                    <?php } else { ?>
+                        <li><a href="<?php echo base_url()."business/company/signout"?>">Sign Out</a></li>                
+                    <?php } ?>
+                </ul>
             </div>
-            <div class="col-sm-2 text-center header-item">
-                <b>Costs</b>
-            </div>
-            <div class="col-sm-2 text-center header-item">
-                <b>Contact Us</b>
-            </div>            
-            <div class="col-sm-3 text-center header-item">
-                <?php if (!$this->session->userdata('company_id')) { ?>
-                    <a href="<?php echo base_url()."business/company/signin"?>" class="btn btn-primary">Sign In</a>
-                    <a href="<?php echo base_url()."business/company/signup"?>" class="btn btn-info">Sign Up</a>                
-                <?php } else { ?>
-                    <a href="<?php echo base_url()."business/company/signout"?>" class="btn btn-danger">Sign Out</a>                
-                <?php } ?>
-            </div>                        
         </div>
-    </div>
+    </div>        
 </header>

@@ -8,7 +8,7 @@ class Gift extends CI_Controller {
     }
     
     public function index() {
-        $param['pageNo'] = 2;
-        $this->load->view('business/gift/vwIndex', $param);
+        $param['pageNo'] = 12;
+        $this->load->view('business/gift/vwList', $param);
     }    
 }

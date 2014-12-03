@@ -65,22 +65,6 @@
 	margin-bottom: 12px;	
 }
 
-.margin-left-15 {
-	margin-left: 15px;
-}
-
-.line-height-30 {
-	line-height: 30px;
-}
-
-.margin-top-15 {
-	margin-top: 15px;
-}
-
-.margin-bottom-10 {
-	margin-bottom: 10px;
-}
-
 .introduction {
 	border-radius: 20px; 
 	background: #E9E6D8;
@@ -93,19 +77,6 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 165px;
-}
-
-.footerArea {
-	background: #FDF9E8;
-}
-
-.footerArea ul {
-	list-style-type: none;
-}
-
-.footerArea ul li {
-	float: left;
-	margin-right: 20px;
 }
 
 .navi {
@@ -122,4 +93,69 @@
 
 .form-login input {
 	height: 42px;
+}
+
+.nav-pills > li > a {
+	color: #FFF;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background: #1650A3;
+}
+.nav-pills > li > a:hover, .nav-pills > li > a:focus {
+	background: #1650A3;
+}
+
+.nav-top {
+	margin-top: 13px;
+}
+
+.nav-pills > li > a {
+	margin-left: 20px;
+}
+
+.footerArea {
+	background: #FDF9E8;
+}
+
+.footerArea ul {
+	list-style-type: none;
+}
+
+.footerArea ul li {
+	float: left;
+	margin-right: 20px;
+}
+
+.footerArea {
+	background-color: #003580;
+	color: #FFF;
+	margin-top: 30px;
+	padding-bottom: 30px;
+}
+
+.footerArea a{
+	color: #FFF;
+	text-decoration: none;
+}
+
+.footerMenu a {
+	text-decoration: none;
+}
+
+.footerMenu ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.footerMenu ul li{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.footerLogo {
+	margin-top: 20px;
+	font-size: 24px;
+	font-weight: normal;
+	border-bottom: 2px solid #FFF;
+	display: inline-block;
 }
