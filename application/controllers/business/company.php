@@ -76,12 +76,38 @@ class Company extends CI_Controller {
     }
     
     public function setting() {
+        $this->load->model('company_model');
+        $company_id = $this->session->userdata('company_id');
         $param['pageNo'] = 13;
-        $this->load->view('business/company/vwSetting', $param);        
+        $param['company'] = $this->company_model->detail($company_id);
+        
+        if($alert = $this->session->flashdata('alert')) {
+            $param['alert'] = $alert;
+        }
+        
+        $this->load->view('business/company/vwSetting', $param);
     }
     
-    public function profile() {
-        $param['pageNo'] = 15;
-        $this->load->view('business/company/vwProfile', $param);
-    }    
+    public function update() {
+        $this->load->model('company_model');
+        
+        $company_id = $this->session->userdata('company_id');
+        
+        $name = isset($_POST['name']) ? $_POST['name'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $vat_number = isset($_POST['vat_number']) ? $_POST['vat_number'] : '';
+        $address = isset($_POST['address']) ? $_POST['address'] : '';
+        $postal_code = isset($_POST['postal_code']) ? $_POST['postal_code'] : '';
+        $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $bank_number = isset($_POST['bank_number']) ? $_POST['bank_number'] : '';
+        
+        $this->company_model->update($company_id, $name, $password, $vat_number, $address, $postal_code, $phone, $email, $bank_number);
+        
+        $alert['msg'] = 'Company setting has been changed successfully';       
+        $alert['type'] = 'success';
+        $this->session->set_flashdata('alert', $alert);
+        
+        redirect('business/company/setting');
+    }
 }

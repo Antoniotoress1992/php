@@ -1,0 +1,161 @@
+.bg-main1 {
+	background: #7ae3f9;
+}
+
+.bg-main2 {
+	background: #FDF9E8;
+}
+
+.header-item {
+	border-right: 1px solid #DCDCDC;
+	height: 110px;
+	line-height: 110px;
+}
+
+.header-item:last-child {
+	border-right: none;
+}
+
+.process {
+	width: 100%;
+	border-radius: 10px;
+	border: 1px solid #D6D6D6;
+	background: #FFF;
+	position: relative;
+	padding: 8px;
+	margin-bottom: 30px;	
+}
+
+.process-no {
+	position: absolute;
+	width: 32px;
+	height: 28px;
+	background: #088CE9;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bold;
+	text-align:center;
+	line-height: 28px;
+}
+
+.margin-top-5 {
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+.process-user {
+	background: #088CE9;
+	border-radius: 20px;
+	text-align: center;
+	line-height: 40px;
+	width: 40px;
+	height: 40px;
+	color: #FFF;
+}
+
+.form-title {
+	margin-left: 20px;
+	line-height: 40px;
+}
+
+.form-desciption {
+	font-size: 18px;
+	width: 100%;
+	margin-top: 7px;
+	margin-bottom: 12px;	
+}
+
+.introduction {
+	border-radius: 20px; 
+	background: #E9E6D8;
+	width: 31%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.introduction img{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 165px;
+}
+
+.navi {
+	border-bottom: 1px solid #8C8A80;
+}
+
+.form-login {
+	margin-bottom: 50px;
+}
+
+.form-login label {
+	margin-top: 30px;
+}
+
+.form-login input {
+	height: 42px;
+}
+
+.nav-pills > li > a {
+	color: #FFF;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background: #1650A3;
+}
+.nav-pills > li > a:hover, .nav-pills > li > a:focus {
+	background: #1650A3;
+}
+
+.nav-top {
+	margin-top: 13px;
+}
+
+.nav-pills > li > a {
+	margin-left: 20px;
+}
+
+.footerArea {
+	background: #FDF9E8;
+}
+
+.footerArea ul {
+	list-style-type: none;
+}
+
+.footerArea ul li {
+	float: left;
+	margin-right: 20px;
+}
+
+.footerArea {
+	background-color: #003580;
+	color: #FFF;
+	margin-top: 30px;
+	padding-bottom: 30px;
+}
+
+.footerArea a{
+	color: #FFF;
+	text-decoration: none;
+}
+
+.footerMenu a {
+	text-decoration: none;
+}
+
+.footerMenu ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.footerMenu ul li{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.footerLogo {
+	margin-top: 20px;
+	font-size: 24px;
+	font-weight: normal;
+	border-bottom: 2px solid #FFF;
+	display: inline-block;
+}

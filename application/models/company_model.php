@@ -38,4 +38,42 @@ class Company_model extends CI_Model {
 	    }
 	    return $result;
 	}
+	
+	public function detail($id) {
+	    $sql = "SELECT *
+	              FROM bg_companies
+	             WHERE id = ?";
+	    $result = $this->db->query($sql, $id)->result();
+	    if ($result) {
+	        return $result[0];
+	    } else {
+	        return;
+	    }
+	}
+	
+	public function update($company_id, $name, $password, $vat_number, $address, $postal_code, $phone, $email, $bank_number) {
+	    $this->load->model('common_model');
+	    if ($password == '') {
+	        $company = $this->detail($company_id);
+	        
+	        $salt = $company->salt;
+	        $secure_key = $company->secure_key;
+	    } else {
+	        $salt = $this->common_model->generateSalt(16);
+	        $secure_key = md5($salt.$password);	        
+	    }
+	    
+	    $sql = "UPDATE bg_companies
+	               SET name = ?
+	                 , vat_number = ?
+	                 , address = ?
+	                 , postal_code = ?
+	                 , phone = ?
+	                 , email = ?
+	                 , bank_number = ?
+	                 , salt = ?
+	                 , secure_key = ?
+	             WHERE id = ?";
+	    $this->db->query($sql, array($name, $vat_number, $address, $postal_code, $phone, $email, $bank_number, $salt, $secure_key, $company_id));
+	}
 }

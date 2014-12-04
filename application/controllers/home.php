@@ -13,7 +13,7 @@ class Home extends CI_Controller {
         } elseif ($this->session->userdata('company_id')) {
             redirect('business/dashboard');
         } elseif ($this->session->userdata('admin_id')) { 
-            $this->load->view('admin/home/vwIndex');
+            redirect('backend/dashboard');
         } else {
             redirect('customer/home');
         }
