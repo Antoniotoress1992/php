@@ -60,6 +60,8 @@ class Project extends CI_Controller {
         $this->load->model('project_model');
 
         $param['project'] = $this->project_model->detail($id);
+        $param['invitors'] = $this->project_model->invitors($id);
+        $param['payers'] = $this->project_model->payers($id);
         $param['pageNo'] = 2;
     
         $this->load->view('customer/project/vwDetail', $param);

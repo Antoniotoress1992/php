@@ -16,57 +16,102 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
                     <div class="form-horizontal" role="form">
-                    
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" value="<?php echo $project->name;?>">
+                        <?php
+                        $fields = [ 'name' => 'Name',
+                                    'receiver_tel' => 'Receiver',
+                                    'country_name' => 'Country',
+                                    'amount' => 'Amount',
+                                    'crowded_amount' => 'Crowded Amount',
+                                    'message' => 'Message',
+                                    'created_at' => 'Created At',
+                                    'updated_at' => 'Updated At',
+                                  ];
+                        foreach ($fields as $key => $value) { 
+                        ?>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><?php echo $value;?></label>
+                                <div class="col-sm-9">
+                                <?php if ($key == 'message') { ?>
+                                    <textarea class="form-control" rows="5"><?php echo $project->{$key};?></textarea>
+                                <?php } else {?>
+                                    <p class="form-control-static"><?php echo $project->{$key};?></p>
+                                <?php }?>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Phone</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" value="<?php echo $project->receiver_tel;?>">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Country</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" value="<?php echo $project->country_name;?>">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Amount</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" value="<?php echo $project->amount;?>">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Crowded Amount</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" value="<?php echo $project->crowded_amount;?>">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Message</label>
-                            <div class="col-sm-9">
-                                <textarea class="form-control" rows="5"><?php echo $project->message;?></textarea>
-                            </div>
-                        </div>
-                        
+                        <?php } ?>
                         <div class="form-group">
                             <div class="col-sm-12 text-right">
-                                <a class="btn btn-success" href="<?php echo base_url()."customer/project/lists"?>">List</a>
+                                <a class="btn btn-success" href="<?php echo base_url()."customer/project/lists"?>">
+                                    <span class="glyphicon glyphicon-list"></span>
+                                    List
+                                </a>
                                 &nbsp;
-                                <a class="btn btn-info" href="<?php echo base_url()."customer/home"?>">Home</a>
+                                <a class="btn btn-info" href="<?php echo base_url()."customer/home"?>">
+                                    <span class="glyphicon glyphicon-home"></span>
+                                    Home
+                                </a>
                             </div>
                         </div>                        
-
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h3>Invitors</h3>
+                                
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Phone</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $i = 1; 
+                                        foreach ($invitors as $invitor) {?>
+                                        <tr>
+                                            <td><?php echo $i++;?></td>
+                                            <td><?php echo $invitor->invitor_tel;?></td>
+                                        </tr>
+                                        <?php }
+                                        if (count($invitors) == 0) { ?>
+                                        <tr>
+                                            <td colspan="2" class="text-center">There is no invitors</td>
+                                        </tr>                                        
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-8">
+                                <h3>Payers</h3>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Phone</th>
+                                            <th>Amount</th>
+                                            <th>Payed At</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $i = 1; 
+                                        foreach ($payers as $payer) {?>
+                                        <tr>
+                                            <td><?php echo $i++;?></td>
+                                            <td><?php echo $payer->tel;?></td>
+                                            <td><?php echo $payer->amount;?></td>
+                                            <td><?php echo $payer->created_at;?></td>
+                                        </tr>
+                                        <?php }
+                                        if (count($payers) == 0) { ?>
+                                        <tr>
+                                            <td colspan="4" class="text-center">There is no payers</td>
+                                        </tr>                                        
+                                        <?php } ?>
+                                    </tbody>
+                                </table>                                
+                            </div>                            
+                        </div>
                     </div>                    
                 </div>
             </div>

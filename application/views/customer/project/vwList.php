@@ -43,7 +43,11 @@
                                 <td><?php echo $project->cnt_invitors;?></td>
                                 <td><?php echo $project->expired_at;?></td>
                                 <td><?php echo $project->created_at;?></td>
-                                <td><a class="btn btn-info btn-sm" href="<?php echo base_url()."customer/project/detail/".$project->id;?>">Detail</a></td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="<?php echo base_url()."customer/project/detail/".$project->id;?>">
+                                        <span class="glyphicon glyphicon-share"></span> Detail
+                                    </a>
+                                </td>
                             </tr>
                             <?php } ?>
                         </tbody>

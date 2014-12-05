@@ -21,3 +21,9 @@ define("INFOBIP_PASSWORD", 'varaa12');
 define("CENTILI_APIKEY", '74b885dcac47d253d1af4186e0ba55cc');
 
 define("DEFAULT_GIFT_IMAGE", 'default.jpg');
+
+define("DEFAULT_WIDGET_LOGO", "default.png");
+define("DEFAULT_WIDGET_WIDTH", 800);
+define("DEFAULT_WIDGET_HEIGHT", 600);
+define("DEFAULT_WIDGET_COLOR", "#000000");
+define("DEFAULT_WIDGET_BACKGROUND", "#FFFFFF");

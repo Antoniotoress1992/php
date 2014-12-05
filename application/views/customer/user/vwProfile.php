@@ -15,7 +15,6 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
                     <form class="form-horizontal" role="form" method="post" action="<?php echo base_url()."customer/user/save";?>">
-                    
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Phone *</label>
                             <div class="col-sm-6">
@@ -80,10 +79,16 @@
                         
                         
                         <div class="form-group">
-                            <div class="col-sm-12 text-right">
-                                <button class="btn btn-success">Save</button>
+                            <div class="col-sm-12 text-center">
+                                <button class="btn btn-success">
+                                    <span class="glyphicon glyphicon-floppy-saved"></span>
+                                    Save
+                                </button>
                                 &nbsp;
-                                <a class="btn btn-info" href="<?php echo base_url()."customer/home"?>">Home</a>
+                                <a class="btn btn-info" href="<?php echo base_url()."customer/home"?>">
+                                    <span class="glyphicon glyphicon-home"></span>
+                                    Home
+                                </a>
                             </div>
                         </div>                        
 

@@ -10,10 +10,14 @@ class Company_model extends CI_Model {
 	    $salt = $this->common_model->generateSalt(16);
 	    $secure_key = md5($salt.$password);
 	    
-	    $sql = "INSERT INTO bg_companies(name, vat_number, address, postal_code, phone, email, bank_number, secure_key, salt, is_active, created_at, updated_at)
-	             VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, TRUE, NOW(), NOW())";
+	    $token = $this->common_model->generateSalt(16);
 	    
-	    $this->db->query($sql, array($name, $vat_number, $address, $postal_code, $phone, $email, $bank_number, $secure_key, $salt));
+	    $sql = "INSERT INTO bg_companies(name, vat_number, address, postal_code, phone, email, bank_number, token, secure_key, salt,
+                                        w_name, w_logo, w_width, w_height, w_color, w_background, is_active, created_at, updated_at)
+	             VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, TRUE, NOW(), NOW())";
+	    
+	    $this->db->query($sql, array($name, $vat_number, $address, $postal_code, $phone, $email, $bank_number, $token, $secure_key, $salt,
+	                                 $name, DEFAULT_WIDGET_LOGO, DEFAULT_WIDGET_WIDTH, DEFAULT_WIDGET_HEIGHT, DEFAULT_WIDGET_COLOR, DEFAULT_WIDGET_BACKGROUND));
 	    return ['result' => 'success', 'msg' => ''];
 	}
 	

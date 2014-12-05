@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group">
-                            <label>Phone No*</label>
+                            <label>Phone No *</label>
                             <input class="form-control" name="phone" type="text">
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <input class="form-control" name="email" type="text">
                         </div>
                     </div>
-                </div>                    
+                </div>
                 
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">
