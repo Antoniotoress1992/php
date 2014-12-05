@@ -134,6 +134,48 @@ class Project_model extends CI_Model {
 	}
 
 	public function amount_status($id) {
+	    $sql = "SELECT IFNULL(SUM(amount), 0) as crowded_amount
+	              FROM bg_transactions
+	             WHERE project_id = ?";
+	    $result_crowded = $this->db->query($sql, $id)->result();
 	    
+	    $sql = "SELECT *
+	              FROM bg_bank_transfers
+	             WHERE project_id = ?";
+	    $result_bank_transfers = $this->db->query($sql, $id)->result();
+	    
+	    $sql = "SELECT t1.*, t2.w_name as company_name
+	              FROM bg_coupon_codes t1, bg_companies t2
+	             WHERE t1.project_id = ?
+	               AND t1.company_id = t2.id";
+	    $result_coupon_codes = $this->db->query($sql, $id)->result();
+	    
+	    $sql = "SELECT t1.*, t2.name as gift_name, t2.price as amount
+	              FROM bg_gift_buys t1, bg_gifts t2
+	             WHERE t1.project_id = ?
+	               AND t1.gift_id = t2.id";
+	    $result_gift_buys = $this->db->query($sql, $id)->result();
+	    
+	    $result_crowded = $result_crowded[0]->crowded_amount;
+	    $result_wasted = 0;
+	    foreach ($result_bank_transfers as $item) {
+	        $result_wasted += $item->amount;
+	    }
+	    
+	    foreach ($result_coupon_codes as $item) {
+	        $result_wasted += $item->amount;
+	    }
+
+	    foreach ($result_gift_buys as $item) {
+	        $result_wasted += $item->amount;
+	    }
+	    return ['crowded' => $result_crowded, 'wasted' => $result_wasted, 'avaiable' => $result_crowded * (100 - FEE) / 100 - $result_wasted, 
+	            'bank_transfers' => $result_bank_transfers, 'coupon_codes' => $result_coupon_codes, 'gift_buys' => $result_gift_buys, ];
+	}
+	
+	public function submit_bank($project_id, $amount, $bank_info) {
+	    $sql = "INSERT INTO bg_bank_transfers(project_id, amount, bank_info, is_delivered, created_at, updated_at)
+	             VALUE (?, ?, ?, FALSE, NOW(), NOW())";
+	    $this->db->query($sql, array($project_id, $amount, $bank_info));
 	}
 }

@@ -62,9 +62,108 @@ class Project extends CI_Controller {
         $param['project'] = $this->project_model->detail($id);
         $param['invitors'] = $this->project_model->invitors($id);
         $param['payers'] = $this->project_model->payers($id);
+        $param['amount_status'] = $this->project_model->amount_status($id);
         $param['pageNo'] = 2;
+        
+        if($alert = $this->session->flashdata('alert')) {
+            $param['alert'] = $alert;
+        }        
     
         $this->load->view('customer/project/vwDetail', $param);
     }    
     
+    public function shop($id) {
+        $this->load->model('project_model');
+        $this->load->model('gift_model');
+        $param['pageNo'] = 2;
+        $param['amount_status'] = $this->project_model->amount_status($id);
+        $param['project_id'] = $id;
+        
+        $param['gifts'] = $this->gift_model->lists();
+
+        if($alert = $this->session->flashdata('alert')) {
+            $param['alert'] = $alert;
+        }        
+        $this->load->view('customer/project/vwShop', $param);
+    }
+    
+    public function transfer($id) {
+        $this->load->model('project_model');
+        $param['pageNo'] = 2;
+        $param['amount_status'] = $this->project_model->amount_status($id);
+        $param['project_id'] = $id;
+        if($alert = $this->session->flashdata('alert')) {
+            $param['alert'] = $alert;
+        }
+        $this->load->view('customer/project/vwTransfer', $param);
+    }
+    
+    public function submit_bank() {
+        $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
+        $amount = isset($_POST['amount']) ? $_POST['amount'] : '';
+        $bank_info = isset($_POST['bank_info']) ? $_POST['bank_info'] : '';
+        $this->load->model('project_model');
+        $amount_status = $this->project_model->amount_status($project_id);
+        
+        if ($project_id == '' || $amount == '') {
+            $alert['msg'] = 'Enter Amount Correctly';
+            $alert['type'] = 'danger';
+            $this->session->set_flashdata('alert', $alert);
+        } elseif($bank_info == '') {
+            $alert['msg'] = 'Enter Bank Info Correctly';
+            $alert['type'] = 'danger';
+            $this->session->set_flashdata('alert', $alert);
+        }elseif ($amount != $amount * 1) {
+            $alert['msg'] = 'Amount should be number format';
+            $alert['type'] = 'danger';
+            $this->session->set_flashdata('alert', $alert);            
+        } elseif ($amount * 1 > $amount_status['avaiable'] * 1) {
+            $alert['msg'] = 'Amount can not big than maximum avaiable';
+            $alert['type'] = 'danger';
+            $this->session->set_flashdata('alert', $alert);            
+        } else {
+            $this->project_model->submit_bank($project_id, $amount, $bank_info);
+            $alert['msg'] = 'Successfully submited';
+            $alert['type'] = 'success';
+            $this->session->set_flashdata('alert', $alert);
+        }
+        if ($alert['type'] == 'success') {
+            redirect('customer/project/detail/'.$project_id);
+        } else {
+            redirect('customer/project/transfer/'.$project_id);
+        }
+    }
+    
+    public function submit_gift() {
+        $this->load->model('project_model');
+        $this->load->model('gift_buy_model');
+        $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
+        $gift_ids = isset($_POST['gift_ids']) ? $_POST['gift_ids'] : '';
+        
+        if ($project_id == '' || $gift_ids == '') {
+            $alert['msg'] = 'Invalid Request';
+            $alert['type'] = 'danger';
+            $this->session->set_flashdata('alert', $alert);            
+        }
+        
+        $total = $this->gift_buy_model->total_by_gifts($project_id);
+        $amount_status = $this->project_model->amount_status($project_id);
+        
+        if ($total * 1 > $amount_status['avaiable'] * 1 ) {
+            $alert['msg'] = 'Too many gifts than avaiable amount';
+            $alert['type'] = 'danger';
+            $this->session->set_flashdata('alert', $alert);            
+        } else {
+            $this->gift_buy_model->add($project_id, $gift_ids);
+            $alert['msg'] = 'You have been purchase the gift successfully';
+            $alert['type'] = 'success';
+            $this->session->set_flashdata('alert', $alert);
+        }
+        
+        if ($alert['type'] == 'success') {
+            redirect('customer/project/detail/'.$project_id);
+        } else {
+            redirect('customer/project/shop/'.$project_id);
+        }        
+    }
 }

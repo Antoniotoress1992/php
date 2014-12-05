@@ -24,7 +24,7 @@
 
 
 <header class="navi">
-	<div style="background: #003580; height: 65px;">
+	<div style="background: #003580; padding-bottom: 12px;">
 		<div class="container">
 			<div class="navi-header pull-left" style="margin-top: 5px;">
 				<a class="navi-logo" href="<?php echo base_url(); ?>"> 

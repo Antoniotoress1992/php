@@ -21,5 +21,22 @@ class Gift_buy_model extends CI_Model {
 	               AND t3.user_id = t4.id
 	             ORDER BY t1.created_at DESC";
 	    return $this->db->query($sql, $company_id)->result();
-	}	
+	}
+
+	public function total_by_gifts($gift_ids) {
+	    $sql = "SELECT SUM(price) as total
+	               FROM bg_gifts
+	              WHERE id IN ($gift_ids)";
+	    $result = $this->db->query($sql)->result();
+	    return $result[0]->total;
+	}
+	
+	public function add($project_id, $gift_ids) {
+	    $arr = explode(",", $gift_ids);
+	    foreach ($arr as $item) {
+	        $sql = "INSERT INTO bg_gift_buys(project_id, gift_id, is_delivered, created_at, updated_at)
+	                 VALUE (?, ?, FALSE, NOW(), NOW())";
+	        $this->db->query($sql, array($project_id, $item));
+	    }
+	}
 }
