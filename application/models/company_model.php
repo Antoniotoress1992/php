@@ -80,4 +80,30 @@ class Company_model extends CI_Model {
 	             WHERE id = ?";
 	    $this->db->query($sql, array($name, $vat_number, $address, $postal_code, $phone, $email, $bank_number, $salt, $secure_key, $company_id));
 	}
+	
+	public function update_widget($company_id, $name, $width, $height, $color, $background, $notification_url, $logo) {
+	    
+	    if ($logo['name'] == '') {
+	        $widget = $this->detail($company_id);
+	        $w_logo = $widget->w_logo;
+	    } else {
+	        $ext = pathinfo( $logo['name'] )['extension'];
+	        $w_logo = $company_id."_".time().".$ext";
+	        if (!move_uploaded_file($logo['tmp_name'], ABS_LOGO_PATH.$w_logo)) {
+	            $widget = $this->detail($company_id);
+	            $w_logo = $widget->w_logo;
+	        }
+	    }
+	     
+	    $sql = "UPDATE bg_companies
+	               SET w_name = ?
+	                 , w_width = ?
+	                 , w_height = ?
+	                 , w_color = ?
+	                 , w_background = ?
+	                 , w_notification_url = ?
+	                 , w_logo = ?
+	             WHERE id = ?";
+	    $this->db->query($sql, array($name, $width, $height, $color, $background, $notification_url, $w_logo, $company_id));	    
+	}
 }

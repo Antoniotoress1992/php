@@ -131,5 +131,9 @@ class Project_model extends CI_Model {
 	    } else {
 	        return array();
 	    }
-	}	
+	}
+
+	public function amount_status($id) {
+	    
+	}
 }

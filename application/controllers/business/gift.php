@@ -76,6 +76,20 @@ class Gift extends CI_Controller {
         $alert['msg'] = 'Gift has been deleted successfully';
         $alert['type'] = 'success';
         $this->session->set_flashdata('alert', $alert);
-        redirect('business/gift');        
+        redirect('business/gift');
+    }
+    
+    public function history() {
+        $this->load->model('gift_buy_model');
+        $company_id = $this->session->userdata('company_id');
+        $param['pageNo'] = 15;
+        $param['histories'] = $this->gift_buy_model->history($company_id);
+        $this->load->view('business/gift/vwHistory', $param);
+    }
+    
+    public function delivered($id) {
+        $this->load->model('gift_buy_model');
+        $param['histories'] = $this->gift_buy_model->deliver($id);
+        redirect('business/gift/history');
     }
 }
