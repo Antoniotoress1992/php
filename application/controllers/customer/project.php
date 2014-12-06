@@ -105,7 +105,7 @@ class Project extends CI_Controller {
         $this->load->model('project_model');
         $amount_status = $this->project_model->amount_status($project_id);
         
-        if ($project_id == '' || $amount == '') {
+        if ($project_id == '' || $amount == '' || $amount * 1 == 0) {
             $alert['msg'] = 'Enter Amount Correctly';
             $alert['type'] = 'danger';
             $this->session->set_flashdata('alert', $alert);

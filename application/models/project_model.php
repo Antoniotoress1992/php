@@ -169,7 +169,7 @@ class Project_model extends CI_Model {
 	    foreach ($result_gift_buys as $item) {
 	        $result_wasted += $item->amount;
 	    }
-	    return ['crowded' => $result_crowded, 'wasted' => $result_wasted, 'avaiable' => $result_crowded * (100 - FEE) / 100 - $result_wasted, 
+	    return ['crowded' => $result_crowded, 'wasted' => $result_wasted, 'avaiable' => $result_crowded * (100 - FEE) / 100 - $result_wasted, 'fee' => FEE,  
 	            'bank_transfers' => $result_bank_transfers, 'coupon_codes' => $result_coupon_codes, 'gift_buys' => $result_gift_buys, ];
 	}
 	

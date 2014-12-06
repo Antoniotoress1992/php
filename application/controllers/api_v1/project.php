@@ -83,6 +83,7 @@ class Project extends CI_Controller {
         $result = json_decode(json_encode($result), true);
         $result['invitors'] = $this->project_model->invitors($project_id);
         $result['payers'] = $this->project_model->payers($project_id);
+        $result['amount_status'] = $this->project_model->amount_status($project_id);
         die(json_encode($result));
     }
     
@@ -94,4 +95,57 @@ class Project extends CI_Controller {
         $result = $this->project_model->invitors($project_id);
         die(json_encode($result));
     }
+    
+    public function submit_bank() {
+        $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
+        $amount = isset($_POST['amount']) ? $_POST['amount'] : '';
+        $bank_info = isset($_POST['bank_info']) ? $_POST['bank_info'] : '';
+        $this->load->model('project_model');
+        $amount_status = $this->project_model->amount_status($project_id);
+    
+        if ($project_id == '' || $amount == '' || $amount * 1 == 0) {
+            $result['msg'] = "Enter Amount Correctly";
+            $result['result'] = "failed";
+        } elseif($bank_info == '') {
+            $result['msg'] = "Enter Bank Info Correctly";
+            $result['result'] = "failed";
+        }elseif ($amount != $amount * 1) {
+            $result['msg'] = "Amount should be number format";
+            $result['result'] = "failed";
+        } elseif ($amount * 1 > $amount_status['avaiable'] * 1) {
+            $result['msg'] = "Amount can not big than maximum avaiable";
+            $result['result'] = "failed";
+        } else {
+            $result['msg'] = "Successfully submited";
+            $result['result'] = "success";
+        }
+        
+        die(json_encode($result));
+    }
+    
+    public function submit_gift() {
+        $this->load->model('project_model');
+        $this->load->model('gift_buy_model');
+        $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
+        $gift_ids = isset($_POST['gift_ids']) ? $_POST['gift_ids'] : '';
+    
+        if ($project_id == '' || $gift_ids == '') {
+            $result['msg'] = "Invalid Request";
+            $result['result'] = "failed";
+        }
+    
+        $total = $this->gift_buy_model->total_by_gifts($project_id);
+        $amount_status = $this->project_model->amount_status($project_id);
+    
+        if ($total * 1 > $amount_status['avaiable'] * 1 ) {
+            $result['msg'] = "Too many gifts than avaiable amount";
+            $result['result'] = "failed";            
+        } else {
+            $this->gift_buy_model->add($project_id, $gift_ids);
+            $result['msg'] = "You have been purchase the gift successfully";
+            $result['result'] = "success";
+        }
+    
+        die(json_encode($result));
+    }    
 }
