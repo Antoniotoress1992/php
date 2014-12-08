@@ -1,32 +1,7 @@
 <script>
 $(document).ready(function() {
-    $('#expired_at').datepicker({format: 'yyyy-mm-dd'});
-
-    $("input[name='name']").keyup(function() {
-        $("#js-div-receiver").fadeIn();
-    });
-
-    $("input[name='receiver']").keyup(function() {
-        $("#js-div-country").fadeIn();
-        $("#js-div-expired").fadeIn();
-    });
-
-    $("input[name='expired_at']").blur(function() {
-        $("#js-div-amount").fadeIn();
-    });
-
-    $("input[name='amount']").keyup(function() {
-        $("#js-div-friends").fadeIn();
-    });
-
-    $("input[name='invitors']").keyup(function() {
-        $("#js-div-message").fadeIn();
-        $("#js-div-button").fadeIn();
-        if ($("#is_login").val() == '') {
-            $("#js-div-login").fadeIn();
-        }
-    });
-
+    $("input[name='expired_at']").datepicker({format: 'yyyy-mm-dd'});
+    
     $("a#js-a-click-here").click(function(event) {
         event.stopPropagation();
         var phone = $("input[name='phone']").val();
@@ -41,8 +16,7 @@ $(document).ready(function() {
                 bs_alert(data.msg);
             }
         });
-    });
-    $("input[name='name']").focus();
+    });    
 });
 
 function validate() {

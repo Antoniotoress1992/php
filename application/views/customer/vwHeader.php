@@ -42,7 +42,7 @@
                 <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign in</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signup"?>">Register</a></li>
                 <?php } else { ?>
-                <li <?php echo ($pageNo == 2) ? "class='active'" : "";?>><a href="<?php echo base_url()."customer/project/lists"?>">List</a></li>
+                <li <?php echo ($pageNo == 2) ? "class='active'" : "";?>><a href="<?php echo base_url()."customer/project/lists"?>">Projects</a></li>
                 <li <?php echo ($pageNo == 3) ? "class='active'" : "";?>><a href="<?php echo base_url()."customer/user/profile"?>">My Profile</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signout"?>">Sign Out</a></li>                
                 <?php } ?>

@@ -57,9 +57,10 @@
                                 <label class="col-sm-2 col-sm-offset-1 control-label">Embed URL</label>
                                 <div class="col-sm-6">
                                     <?php
-                                        $url = "http://".HOST_SERVER."/embed/project/$company->token";
+                                        $embed = "http://".HOST_SERVER."/embed/main/".$company->token;
+                                        $embed = "<iframe width='".$company->w_width."' height='".$company->w_height."' src='$embed' frameborder='0'></iframe>";
                                     ?>
-                                    <input type="text" class="form-control" style="cursor: pointer;" readonly value="<?php echo $url;?>"/>
+                                    <textarea class="form-control" style="cursor: pointer;" readonly rows="3"><?php echo $embed;?></textarea>
                                 </div>                            
                             </div>      
                                                         

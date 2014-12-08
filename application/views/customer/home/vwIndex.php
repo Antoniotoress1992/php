@@ -103,9 +103,7 @@
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors" value="<?php echo isset($post) ? $post['invitors'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-10"></div>
                             </div>
-                            
-                              
-                            
+
                             <div id="js-div-message" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 20%;"><b>Message:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 75%;">
@@ -126,7 +124,7 @@
                                 <div class="clearfix margin-bottom-10"></div>
                                 <div class="pull-right">
                                     <p class="font-size-12 color-black">
-                                        If you are first on here, enter your phone number and <a href="#" id="js-a-click-here">click here</a> to get the password
+                                        If you are new here or forgot password, <a id="js-a-click-here" style="cursor: pointer;">click here</a> to get the password
                                     </p>
                                     <div class="text-center font-size-12 alert alert-danger <?php echo isset($post) ? '' : 'unshow'?>" role="alert" style="padding: 7px; margin-bottom: 3px;">
                                         Login info is incorrect
@@ -137,9 +135,7 @@
                             
                             <div id="js-div-button" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <button class="btn btn-primary btn-block btn-lg" onclick="return validate();">Send now</button>
-                            </div>
-                            
-                                                                                 
+                            </div>                                                  
                         </form>
                     </div>
                     

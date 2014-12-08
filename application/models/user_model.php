@@ -42,25 +42,30 @@ class User_model extends CI_Model {
 	
 	public function generate_password($phone, $country_id) {
 	    $this->load->model('common_model');
+	    $phone = $this->common_model->phoneNo($phone);
 	    
 	    $sql = "SELECT *
 	              FROM bg_users
 	             WHERE phone = ?";
 	    $result = $this->db->query($sql, $phone)->result();
 	    
-	    if ($result) {
-	        return ['result' => 'failed', 'msg' => 'You are already registered on here', ];
+	    $password = $this->common_model->generateSalt(5, TRUE);
+	    $salt = $this->common_model->generateSalt(16);
+	    $secure_key = md5($salt.$password);	    
+	    
+	    if ($result) {	        
+	        $sql = "UPDATE bg_users
+	                   SET secure_key = ?
+	                     , salt = ?
+	                 WHERE id = ?";
+	        $this->db->query($sql, array($secure_key, $salt, $result[0]->id));	        
+	        
 	    } else {
-    	    $password = $this->common_model->generateSalt(5, TRUE);
-    	    $salt = $this->common_model->generateSalt(16);
-    	    $secure_key = md5($salt.$password);
-    	    
     	    $sql = "INSERT INTO bg_users(name, email, phone, country_id, secure_key, salt, is_active, created_at, updated_at)
     	             VALUE ('', '', ?, ?, ?, ?, TRUE, NOW(), NOW())";
-    	     
     	    $this->db->query($sql, array($phone, $country_id, $secure_key, $salt));
-    	    return ['result' => 'success', 'msg' => 'Check your phone to get Password', 'password' => $password, ];
 	    }
+	    return ['result' => 'success', 'msg' => 'Check your phone to get Password', 'password' => $password, ];
 	}
 	
 	public function detail($id) {

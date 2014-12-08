@@ -106,4 +106,16 @@ class Company_model extends CI_Model {
 	             WHERE id = ?";
 	    $this->db->query($sql, array($name, $width, $height, $color, $background, $notification_url, $w_logo, $company_id));	    
 	}
+	
+	public function detailByToken($token) {
+	    $sql = "SELECT *
+	              FROM bg_companies
+	             WHERE token = ?";
+	    $result = $this->db->query($sql, $token)->result();
+	    if ($result) {
+	        return $result[0];
+	    } else {
+	        return null;
+	    }
+	}
 }
