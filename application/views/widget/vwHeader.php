@@ -43,15 +43,15 @@ if ($this->session->userdata('business_id')) {
                 <ul class="nav nav-pills nav-top">
                     <?php
                         if (!isset($pageNo)) { 
-                            $pageNo = 0; 
+                            $pageNo = 91; 
                         } 
                     ?>
-                    <li <?php echo ($pageNo == 2) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/project/add"?>">Home</a></li>                
+                    <li <?php echo ($pageNo == 91) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/project/add"?>">Home</a></li>                
                     <?php if (!$this->session->userdata('user_id')) { ?>
-                    <li><a href="<?php echo base_url()."widget/user/signin"?>">Sign In</a></li>
+                    <li <?php echo ($pageNo == 92) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/user/signin"?>">Sign In</a></li>
                     <li><a href="<?php echo base_url()."customer/user/signup"?>" target="_blank">Register</a></li>
                     <?php } else { ?>
-                    <li <?php echo ($pageNo == 2) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/project/lists"?>">Projects</a></li>
+                    <li <?php echo ($pageNo == 93) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/project/lists"?>">Projects</a></li>
                     <li><a href="<?php echo base_url()."widget/user/signout"?>">Sign Out</a></li>                
                     <?php } ?>
                 </ul>

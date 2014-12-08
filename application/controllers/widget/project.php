@@ -7,6 +7,15 @@ class Project extends CI_Controller {
         parent::__construct();
     }
     
+    public function lists() {
+        $this->load->model('project_model');
+        $user_id = $this->session->userdata('user_id');
+        
+        $param['pageNo'] = 93;
+        $param['projects'] = $this->project_model->lists($user_id);
+        $this->load->view('widget/project/vwList', $param);
+    }
+    
     public function add() {
         $this->load->model('country_model');
         $param['countries'] = $this->country_model->lists();
@@ -18,7 +27,7 @@ class Project extends CI_Controller {
         if ($alert = $this->session->flashdata('alert')) {
             $param['alert'] = $alert;
         }        
-                
+        $param['pageNo'] = 91; 
         $this->load->view('widget/project/vwAdd', $param);
     }
     

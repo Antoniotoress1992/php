@@ -18,7 +18,8 @@ class User extends CI_Controller {
         $password = isset($_POST['password']) ? $_POST['password'] : '';
     
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('widget/user/vwSignIn');
+            $result['pageNo'] = 92;
+            $this->load->view('widget/user/vwSignIn', $result);
         } else {
             $result = $this->user_model->signin($phone, $password);
             if ($result['result'] == 'success') {
@@ -26,6 +27,7 @@ class User extends CI_Controller {
                 $this->session->set_userdata(['user_id' => $result['user_id']] );
                 redirect('widget/project/add');
             } else {
+                $result['pageNo'] = 92;
                 $this->load->view('widget/user/vwSignIn', $result);
             }
     
