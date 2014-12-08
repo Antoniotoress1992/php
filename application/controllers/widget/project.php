@@ -152,9 +152,13 @@ class Project extends CI_Controller {
     
     public function submit_coupon() {
         $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
-        $user_id = $this->session->userdata('wuser_id');
         $amount = isset($_POST['amount']) ? $_POST['amount'] : '';
+        $is_sms = isset($_POST['is_sms']) ? TRUE : FALSE;
+        $user_id = $this->session->userdata('wuser_id');
+        
         $this->load->model('project_model');
+        $this->load->model('common_model');
+        
         $amount_status = $this->project_model->amount_status($project_id);
         
         if ($project_id == '' || $amount == '' || $amount * 1 == 0) {
@@ -173,6 +177,20 @@ class Project extends CI_Controller {
             if ($this->session->userdata('business_id')) {
                 $business_id = $this->session->userdata('business_id');
                 $coupon_code = $this->project_model->submit_coupon($project_id, $business_id, $amount);
+                
+                $business = $this->company_model->detail($business_id);
+                
+                if ($business->w_notification_url != '') {
+                    // $this->common_model->httpPOST($business->w_notification_url, ['coupon_code' => $coupon_code, 'amount' => $amount, ]);
+                }
+                
+                if ($is_sms) {
+                    // $this->load->model('country_model');
+                    // $project = $this->project_model->detail($project_id);
+                    // $country = $this->country_model->detail($project->country_id);
+                    // sendSMS(SITE_NAME, $country->prefix.$project->receiver_tel, "Congratulation! Coupon Code : ".$coupon_code.", Store : ".$business->w_name);
+                }
+                
                 $alert['msg'] = "Coupon Code : <b>".$coupon_code."</b>";
                 $alert['type'] = 'success';
                 $this->session->set_flashdata('alert', $alert);                

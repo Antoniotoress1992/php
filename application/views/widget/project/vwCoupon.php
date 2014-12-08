@@ -25,9 +25,16 @@
                     <form method="post" action="<?php echo base_url()."widget/project/submit_coupon";?>">
                         <input type="hidden" name="project_id" value="<?php echo $project_id;?>"/>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Coupon Amount</label>
-                            <div class="col-sm-5">
+                            <label class="col-sm-3 control-label">Coupon Price</label>
+                            <div class="col-sm-4">
                                 <input name="amount" class="form-control text-center" value="<?php echo $amount_status['avaiable'];?>"/>
+                            </div>
+                            <div class="col-sm-5">
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="is_sms"> Send Coupon Code To Receiver
+                                </label>
+                              </div>                            
                             </div>
                         </div>
                         
