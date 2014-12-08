@@ -24,7 +24,7 @@ class User extends CI_Controller {
             $result = $this->user_model->signin($phone, $password);
             if ($result['result'] == 'success') {
     
-                $this->session->set_userdata(['user_id' => $result['user_id']] );
+                $this->session->set_userdata(['wuser_id' => $result['user_id']] );
                 redirect('widget/project/add');
             } else {
                 $result['pageNo'] = 92;
@@ -35,7 +35,7 @@ class User extends CI_Controller {
     }
 
     public function signout() {
-        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('wuser_id');
         // $this->session->sess_destroy();
     
         $this->load->helper('cookie');

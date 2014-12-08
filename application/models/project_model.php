@@ -178,4 +178,14 @@ class Project_model extends CI_Model {
 	             VALUE (?, ?, ?, FALSE, NOW(), NOW())";
 	    $this->db->query($sql, array($project_id, $amount, $bank_info));
 	}
+	
+	public function submit_coupon($project_id, $business_id, $amount) {
+	    $this->load->model('common_model');	     
+	    $coupon_code = $this->common_model->generateSalt(6, TRUE);
+	    	    
+	    $sql = "INSERT INTO bg_coupon_codes(project_id, company_id, amount, coupon_code, is_used, created_at, updated_at)
+	             VALUE (?, ?, ?, ?, FALSE, NOW(), NOW())";
+	    $this->db->query($sql, array($project_id, $business_id, $amount, $coupon_code));
+	    return $coupon_code;
+	}	
 }

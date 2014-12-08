@@ -18,7 +18,7 @@
                 </div>                
                                     
                 <form class="form-horizontal" method="POST" action="<?php echo base_url();?>widget/project/save" role="form">
-                    <input type="hidden" id="is_login" value="<?php echo ($this->session->userdata('user_id')) ? $this->session->userdata('user_id') : '';?>"/>
+                    <input type="hidden" id="is_login" value="<?php echo ($this->session->userdata('wuser_id')) ? $this->session->userdata('wuser_id') : '';?>"/>
                     <?php
                     $fields = [ 'name' => 'Project Name',
                                 'receiver' => 'Receiver Phone No',
@@ -47,7 +47,7 @@
                     </div>                        
                     <?php }?>
                     
-                    <?php if (!$this->session->userdata('user_id')) {?>
+                    <?php if (!$this->session->userdata('wuser_id')) {?>
                     <hr/>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Phone</label>

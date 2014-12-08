@@ -5,7 +5,12 @@ if ($this->session->userdata('business_id')) {
     $company = $ci->company_model->detail($this->session->userdata('business_id'));
 }
 ?>
-
+<style>
+body {
+    color: <?php echo $company->w_color;?>;
+    background: <?php echo $company->w_background;?>;
+}
+</style>
 <!-- Modal -->
     <div class="modal fade" id="msgAlert" tabindex="-1" role="dialog" aria-labelledby="msgAlertLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -47,7 +52,7 @@ if ($this->session->userdata('business_id')) {
                         } 
                     ?>
                     <li <?php echo ($pageNo == 91) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/project/add"?>">Home</a></li>                
-                    <?php if (!$this->session->userdata('user_id')) { ?>
+                    <?php if (!$this->session->userdata('wuser_id')) { ?>
                     <li <?php echo ($pageNo == 92) ? "class='active'" : "";?>><a href="<?php echo base_url()."widget/user/signin"?>">Sign In</a></li>
                     <li><a href="<?php echo base_url()."customer/user/signup"?>" target="_blank">Register</a></li>
                     <?php } else { ?>
