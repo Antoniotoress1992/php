@@ -53,7 +53,7 @@
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $amountCollect;?>
-                                <div class="text-center margin-top-10">Money Collected</div>
+                                <div class="text-center margin-top-10">Total Money Collected</div>
                             </div>
                             
                         </div>
@@ -61,24 +61,25 @@
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $countUser;?>
-                                <div class="text-center margin-top-10">User Collected</div>
+                                <div class="text-center margin-top-10">Total User Collected</div>
                             </div>
                         </div>
                         
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $countProject;?>
-                                <div class="text-center margin-top-10">Project Collected</div>
+                                <div class="text-center margin-top-10">Total Project Collected</div>
                             </div>
                         </div>
                                             
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $countInvitor;?>
-                                <div class="text-center margin-top-10">Invitations</div>
+                                <div class="text-center margin-top-10">Total Invitations</div>
                             </div>
                         </div>
                     </div>
+                    
                     <hr/>
                     <div class="row">
                         <div id="container1" class="chart-container"></div>
@@ -89,7 +90,6 @@
                         <hr/>
                         <div id="container4" class="chart-container"></div>                        
                     </div>
-                    
                 </div>
             </div>
         </div>
