@@ -61,7 +61,11 @@ class Project extends CI_Controller {
         $expired_at = isset($_POST['expired_at']) ? trim($_POST['expired_at']) : '';
         $invitors = isset($_POST['invitors']) ? trim($_POST['invitors']) : '';
         
-        $project_id = $this->project_model->add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at);
+        if (!($company_id = $this->session->userdata('business_id'))) {
+            $company_id = 0;
+        }
+        
+        $project_id = $this->project_model->add($user_id, $name, $receiver_tel, $company_id, $country_id, $amount, $message, $expired_at);
         
         $this->project_model->invite($project_id, $invitors);
         $this->session->set_flashdata('message', 'Project has been added successfully');

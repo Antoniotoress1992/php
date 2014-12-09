@@ -4,14 +4,14 @@ class Project_model extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at) {
+	public function add($user_id, $name, $receiver_tel, $company_id, $country_id, $amount, $message, $expired_at) {
 	    $this->load->model('common_model');
 	    $token = $this->common_model->generateSalt(16);
 	    
-	    $sql = "INSERT INTO bg_projects(user_id, name, receiver_tel, country_id, amount, message, token, expired_at, created_at, updated_at)
-	             VALUE (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
+	    $sql = "INSERT INTO bg_projects(user_id, name, receiver_tel, company_id, country_id, amount, message, token, expired_at, created_at, updated_at)
+	             VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
 	    
-	    $result = $this->db->query($sql, array($user_id, $name, $receiver_tel, $country_id, $amount, $message, $token, $expired_at));
+	    $result = $this->db->query($sql, array($user_id, $name, $receiver_tel, $company_id, $country_id, $amount, $message, $token, $expired_at));
 	    return $this->db->insert_id();
 	}
 	

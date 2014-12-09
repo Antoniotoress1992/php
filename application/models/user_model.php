@@ -40,7 +40,7 @@ class User_model extends CI_Model {
 	    return $result;
 	}
 	
-	public function generate_password($phone, $country_id) {
+	public function generate_password($phone, $country_id, $company_id = 0) {
 	    $this->load->model('common_model');
 	    $phone = $this->common_model->phoneNo($phone);
 	    
@@ -61,9 +61,9 @@ class User_model extends CI_Model {
 	        $this->db->query($sql, array($secure_key, $salt, $result[0]->id));	        
 	        
 	    } else {
-    	    $sql = "INSERT INTO bg_users(name, email, phone, country_id, secure_key, salt, is_active, created_at, updated_at)
-    	             VALUE ('', '', ?, ?, ?, ?, TRUE, NOW(), NOW())";
-    	    $this->db->query($sql, array($phone, $country_id, $secure_key, $salt));
+    	    $sql = "INSERT INTO bg_users(name, email, phone, company_id, country_id, secure_key, salt, is_active, created_at, updated_at)
+    	             VALUE ('', '', ?, ?, ?, ?, ?, TRUE, NOW(), NOW())";
+    	    $this->db->query($sql, array($phone, $company_id, $country_id, $secure_key, $salt));
 	    }
 	    return ['result' => 'success', 'msg' => 'Check your phone to get Password', 'password' => $password, ];
 	}

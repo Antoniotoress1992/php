@@ -82,10 +82,14 @@ class User extends CI_Controller {
         $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
         $country_id = isset($_POST['country_id']) ? $_POST['country_id'] : '';
         
+        if (!($company_id = $this->session->userdata('business_id'))) {
+            $company_id = 0;
+        }
+        
         if ($phone == '' || $country_id == '') {
             die(json_encode(['result' => 'failed', 'msg' => 'Invalid request', ]));
         }
-        $result = $this->user_model->generate_password($phone, $country_id);
+        $result = $this->user_model->generate_password($phone, $country_id, $company_id);
         
         if ($result['result'] == 'success') {
             $country = $this->country_model->detail($country_id);
