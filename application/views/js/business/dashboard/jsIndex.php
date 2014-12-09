@@ -1,4 +1,33 @@
 <script>
+var data1 = [], data2 = [], data3 = [], data4 = [];
+<?php 
+        $i = 0; 
+        foreach ($userList as $item) {?>
+        var temp = [Date.UTC(<?php echo $item->y;?>, <?php echo $item->m;?>, <?php echo $item->d;?>), <?php echo $item->cnt?>]
+        data1[<?php echo $i++;?>] = temp;
+<?php } ?>
+
+<?php 
+        $i = 0; 
+        foreach ($projectList as $item) {?>
+        var temp = [Date.UTC(<?php echo $item->y;?>, <?php echo $item->m;?>, <?php echo $item->d;?>), <?php echo $item->cnt?>]
+        data2[<?php echo $i++;?>] = temp;
+<?php } ?>
+
+<?php 
+        $i = 0; 
+        foreach ($invitorList as $item) {?>
+        var temp = [Date.UTC(<?php echo $item->y;?>, <?php echo $item->m;?>, <?php echo $item->d;?>), <?php echo $item->cnt?>]
+        data3[<?php echo $i++;?>] = temp;
+<?php } ?>
+
+<?php
+        $i = 0;
+        foreach ($moneyList as $item) {?>
+        var temp = [Date.UTC(<?php echo $item->y;?>, <?php echo $item->m;?>, <?php echo $item->d;?>), <?php echo $item->amount?>]
+        data4[<?php echo $i++;?>] = temp;
+<?php } ?>
+
 $(document).ready(function() {
     $('#startDate, #endDate').datepicker({format: 'yyyy-mm-dd'});
     var startDate = $("#startDate").val();
@@ -32,6 +61,43 @@ $(document).ready(function() {
         $("#startDate").val(getFormattedDate(startDate));
         $("#endDate").val(getFormattedDate(endDate));        
     });
+    
+    $('#container1').highcharts({
+        chart: { type: 'spline' },
+        title: { text: 'How many user registered per day?' },
+        xAxis: { type: 'datetime', dateTimeLabelFormats: { month: '%e. %b', year: '%b' }, title: { text: 'Date' } },
+        yAxis: { title: {text: ' '}, min: 0 },
+        tooltip: { headerFormat: '<b>{series.name}</b><br>', pointFormat: '{point.x:%e. %b}: {point.y:.0f}' },
+        series: [{name: 'Count', data: data1}]
+    });
+
+    $('#container2').highcharts({
+        chart: { type: 'spline' },
+        title: { text: 'How many project registered per day?' },
+        xAxis: { type: 'datetime', dateTimeLabelFormats: { month: '%e. %b', year: '%b' }, title: { text: 'Date' } },
+        yAxis: { title: {text: ' '}, min: 0 },
+        tooltip: { headerFormat: '<b>{series.name}</b><br>', pointFormat: '{point.x:%e. %b}: {point.y:.0f}' },
+        series: [{name: 'Count', data: data2}]
+    });
+
+    $('#container3').highcharts({
+        chart: { type: 'spline' },
+        title: { text: 'How many invitations has been sent per day?' },
+        xAxis: { type: 'datetime', dateTimeLabelFormats: { month: '%e. %b', year: '%b' }, title: { text: 'Date' } },
+        yAxis: { title: {text: ' '}, min: 0 },
+        tooltip: { headerFormat: '<b>{series.name}</b><br>', pointFormat: '{point.x:%e. %b}: {point.y:.0f}' },
+        series: [{name: 'Count', data: data3}]
+    });
+
+    $('#container4').highcharts({
+        chart: { type: 'spline' },
+        title: { text: 'How much has been collected per day?' },
+        xAxis: { type: 'datetime', dateTimeLabelFormats: { month: '%e. %b', year: '%b' }, title: { text: 'Date' } },
+        yAxis: { title: {text: ' '}, min: 0 },
+        tooltip: { headerFormat: '<b>{series.name}</b><br>', pointFormat: '{point.x:%e. %b}: {point.y:.2f}' },
+        series: [{name: 'Euro', data: data4}]
+    });    
+    
 });
 
 function getFormattedDate(date) {

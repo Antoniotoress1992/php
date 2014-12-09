@@ -18,7 +18,7 @@
                 <div class="col-sm-9 text-center">
                     <h2>Dashboard</h2>
                     <div class="row">
-                        <form class="form-horizontal" method="post" action="<?php echo base_url();?>backend/dashboard">
+                        <form class="form-horizontal" method="post" action="<?php echo base_url();?>business/dashboard">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Search Date</label>
                                 <div class="col-sm-2">
@@ -47,7 +47,49 @@
                                 </div>
                             </div>                        
                         </form>
-                    </div>                     
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="text-center alert alert-info">
+                                <?php echo $amountCollect;?>
+                                <div class="text-center margin-top-10">Money Collected</div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="text-center alert alert-info">
+                                <?php echo $countUser;?>
+                                <div class="text-center margin-top-10">User Collected</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="text-center alert alert-info">
+                                <?php echo $countProject;?>
+                                <div class="text-center margin-top-10">Project Collected</div>
+                            </div>
+                        </div>
+                                            
+                        <div class="col-md-3">
+                            <div class="text-center alert alert-info">
+                                <?php echo $countInvitor;?>
+                                <div class="text-center margin-top-10">Invitations</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div id="container1" class="chart-container"></div>
+                        <hr/>
+                        <div id="container2" class="chart-container"></div>
+                        <hr/>
+                        <div id="container3" class="chart-container"></div>
+                        <hr/>
+                        <div id="container4" class="chart-container"></div>                        
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -55,5 +97,7 @@
 </body>
 <?php $this->load->view('business/vwJs'); ?>
 <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo base_url();?>assets/js/highcharts/highcharts.js"></script>
+<script src="<?php echo base_url();?>assets/js/highcharts/modules/exporting.js"></script>
 <?php $this->load->view('js/business/dashboard/jsIndex'); ?>
 </html>
