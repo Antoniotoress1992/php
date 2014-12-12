@@ -187,5 +187,13 @@ class Project_model extends CI_Model {
 	             VALUE (?, ?, ?, ?, FALSE, NOW(), NOW())";
 	    $this->db->query($sql, array($project_id, $business_id, $amount, $coupon_code));
 	    return $coupon_code;
-	}	
+	}
+
+	public function all() {
+	    $sql = "SELECT t1.*, t2.phone as creator_tel, t3.name as country_name
+	              FROM bg_projects t1, bg_users t2, bg_countries t3
+	             WHERE t1.user_id = t2.id
+	               AND t1.country_id = t3.id";
+	    return $this->db->query($sql)->result();
+	}
 }
