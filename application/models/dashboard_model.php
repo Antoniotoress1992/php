@@ -132,8 +132,8 @@ class Dashboard_model extends CI_Model {
 	    if ($company_id == 0) {
 	        $sql = "SELECT ifnull(sum(t1.amount), 0) as amount
 	                  FROM bg_transactions t1, bg_projects t2
-	                   AND t1.project_id = t2.id
-	                 WHERE (DATE(t2.created_at) BETWEEN ? AND ?)";
+	                 WHERE (DATE(t2.created_at) BETWEEN ? AND ?)
+	                   AND t1.project_id = t2.id";
 	        $result = $this->db->query($sql, array($startDate, $endDate))->result();
 	    } else{
 	        $sql = "SELECT ifnull(sum(t1.amount), 0) as amount
