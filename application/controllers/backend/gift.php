@@ -7,6 +7,13 @@ class Gift extends CI_Controller {
         parent::__construct();
     }
     
+    public function index() {
+        $this->load->model('gift_model');
+        $param['pageNo'] = 55;
+        $param['gifts'] = $this->gift_model->lists();
+        $this->load->view('backend/gift/vwList', $param);
+    }
+    
     public function history() {
         $this->load->model('gift_buy_model');
         $param['pageNo'] = 56;

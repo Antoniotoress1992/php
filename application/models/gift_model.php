@@ -6,9 +6,10 @@ class Gift_model extends CI_Model {
 	
 	public function lists($company_id = 0) {
 	    if ($company_id == 0) {
-	        $sql = "SELECT *
-	                  FROM bg_gifts
-	                 ORDER BY created_at DESC";
+	        $sql = "SELECT t1.*, t2.name as company_name
+	                  FROM bg_gifts t1, bg_companies t2
+	                 WHERE t1.company_id = t2.id
+	                 ORDER BY t1.created_at DESC";
 	        return $this->db->query($sql)->result();
 	    } else {
 	        $sql = "SELECT *
