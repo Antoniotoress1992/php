@@ -118,4 +118,10 @@ class Company_model extends CI_Model {
 	        return null;
 	    }
 	}
+	
+	public function lists() {
+	    $sql = "SELECT *
+	              FROM bg_companies";
+	    return $this->db->query($sql)->result();	    
+	}
 }
