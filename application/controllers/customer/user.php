@@ -118,8 +118,8 @@ class User extends CI_Controller {
         $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $country_id = isset($_POST['country_id']) ? $_POST['country_id'] : 1;
-        
-        $result = $this->user_model->update($name, $password, $email, $phone, $country_id);
+        $user_id = $this->session->userdata('user_id');
+        $result = $this->user_model->update($user_id, $name, $password, $email, $phone, $country_id);
         
         redirect('customer/user/profile');
     }

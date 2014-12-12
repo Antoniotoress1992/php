@@ -16,43 +16,37 @@
                 </div>
                 <div class="col-sm-9 text-center">
                 
-                    <h2>Bank Transfer History</h2>
+                    <h2>User List</h2>
                     
                     <div class="row">
                         <table class="table table-strip">
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th class="text-center">Project Name</th>
-                                    <th class="text-center">Amount</th>
-                                    <th class="text-center">Bank Info</th>                                    
-                                    <th class="text-center">Request At</th>
-                                    <th class="text-center">Delivered</th>                                    
-                                    <th class="text-center">Receiver</th>
-                                    <th class="text-center">Creator</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Country</th>                                    
+                                    <th class="text-center">Created At</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                     $i = 1; 
-                                    foreach ($histories as $history) {?>
+                                    foreach ($users as $user) {?>
                                 <tr>
                                     <td><?php echo $i++;?></td>
-                                    <td><?php echo $history->project_name;?></td>
-                                    <td><?php echo $history->amount;?></td>
-                                    <td><?php echo $history->bank_info;?></td>
-                                    <td><?php echo $history->created_at;?></td>
+                                    <td><?php echo $user->phone;?></td>
+                                    <td><?php echo $user->country_name;?></td>
+                                    <td><?php echo $user->created_at;?></td>
                                     <td>
-                                        <a class="btn btn-info btn-sm" href="<?php echo base_url()."backend/bank/delivered/".$history->id;?>">
-                                            <?php echo ($history->is_delivered) ? 'Yes' : 'No';?>
-                                        </a>                                        
+                                        <a href="<?php echo base_url()."backend/user/detail/".$user->id;?>" class="btn btn-info btn-sm">
+                                            <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+                                        </a>
                                     </td>
-                                    <td><?php echo $history->receiver_tel;?></td>
-                                    <td><?php echo $history->creator_tel;?></td>
                                 </tr>
                                 <?php }
-                                if (count($histories) == 0) { ?>
-                                    <tr><td colspan="8">There is no bank transfers</td></tr>
+                                if (count($users) == 0) { ?>
+                                    <tr><td colspan="5">There is no users</td></tr>
                                 <?php } ?>
                             </tbody>
                         </table>

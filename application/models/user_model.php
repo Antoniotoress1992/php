@@ -80,10 +80,9 @@ class User_model extends CI_Model {
 	    }
 	}
 	
-	public function update($name, $password, $email, $phone, $country_id = 1) {
+	public function update($user_id, $name, $password, $email, $phone, $country_id = 1) {
 	    $this->load->model('common_model');
-	     
-	    $user_id = $this->session->userdata('user_id');
+
 	    if ($password == '') {
 	        $user = $this->detail($user_id);
 	        $salt = $user->salt;
@@ -105,5 +104,12 @@ class User_model extends CI_Model {
 	                 , updated_at = NOW()
 	             WHERE id = ?";
 	    $this->db->query($sql, array($name, $email, $phone, $country_id, $secure_key, $salt, $user_id));
+	}
+	
+	public function lists() {
+	    $sql = "SELECT t1.*, t2.name as country_name
+	              FROM bg_users t1, bg_countries t2
+	             WHERE t1.country_id = t2.id";
+	    return $this->db->query($sql)->result();
 	}
 }
