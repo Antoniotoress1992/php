@@ -195,7 +195,7 @@
                             </div>
                             <div class="pull-left">
                                 <div class="color-blue status-item-count"><b>1,000+</b></div>
-                                <div class="status-item-desc">Hours spent on coding</div>
+                                <div class="status-item-desc">Gift are ready</div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -206,7 +206,7 @@
                                 <span class="glyphicon glyphicon-user color-gray-normal status-item-icon"></span>
                             </div>
                             <div class="pull-left">
-                                <div class="color-blue status-item-count"><b>40,304,000+</b></div>
+                                <div class="color-blue status-item-count"><b>304,000+</b></div>
                                 <div class="status-item-desc">People use our platform</div>
                             </div>
                             <div class="clearfix"></div>
@@ -219,7 +219,7 @@
                             </div>
                             <div class="pull-left">
                                 <div class="color-blue status-item-count"><b>1,000+</b></div>
-                                <div class="status-item-desc">Positive reviews</div>
+                                <div class="status-item-desc">Projects are active</div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
