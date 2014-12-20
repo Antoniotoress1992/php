@@ -7,7 +7,7 @@ class Coupon extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         if (!$this->session->userdata('company_id')) {
-            redirect("home");
+            redirect("business/company/signin");
         }
     }
     
