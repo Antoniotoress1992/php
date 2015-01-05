@@ -19,7 +19,7 @@
                     <img src="<?php echo base_url(); ?>assets/images/logo.png"/>
                 </div>
                 <input type="hidden" id="project_id" value="<?php echo $project->id;?>"/>
-                <div style="background: url(<?php echo base_url(); ?>assets/images/mobile.png); padding: 15px; background-size: cover;">
+                <div style="background: url(<?php echo base_url(); ?>assets/images/mobile.jpg); padding: 15px; background-size: cover;">
                     <div style="padding: 10px; background: rgba(255, 255, 255, 0.6); border-radius: 5px;">
                         <div class="row">
                             <div class="col-sm-6"><p class="form-control-static"><b>Your Phone Number : </b></p></div>

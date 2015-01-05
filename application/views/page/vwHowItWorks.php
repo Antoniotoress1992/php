@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php $this->load->view('customer/vwHeader'); ?>
-    <main style="background: url(/assets/images/how_it_works_background.png); background-size: cover;">
+    <main style="background: url(/assets/images/how_it_works_background.jpg); background-size: cover;">
         <div class="container" style="font-family: 'Bitter';">
             <div class="row margin-top-30">
                 <h1 class="text-center color-blue">How it works?</h1>
