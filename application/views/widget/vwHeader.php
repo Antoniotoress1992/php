@@ -36,8 +36,8 @@ body {
             <div class="navi-header pull-left" style="margin-top: 5px;">
                 <div class="navi-logo">
                     <?php if (isset($company)) {?>
-                        <img src="<?php echo HTTP_LOGO_PATH.$company->w_logo; ?>" style="height: 50px;"/>
-                        <span class="font-size-20"><?php echo $company->w_name; ?></span>
+                        <img src="<?php echo HTTP_LOGO_PATH.$company->w_logo; ?>" style="height: 100%;"/>
+                        <span class="font-size-20 navi-company-name"><?php echo $company->w_name; ?></span>
                     <?php } else {?>
                         <img src="<?php echo HTTP_LOGO_PATH."default.png"; ?>" style="height: 50px;"/>
                         <span class="font-size-20">Kickgifter</span>

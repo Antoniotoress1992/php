@@ -22,6 +22,11 @@
 	height: 50px;
 }
 
+.navi-company-name {
+	padding-left: 20px;
+	line-height: 50px;
+}
+
 .font-size-20 {
 	font-size: 20px;
 }
