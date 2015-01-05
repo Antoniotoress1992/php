@@ -5,9 +5,6 @@ if (!defined('BASEPATH'))
 class Project extends CI_Controller {
     public function __construct() {
         parent::__construct();
-        if (!$this->session->userdata('user_id')) {
-            redirect("customer/user/signin");
-        }        
     }
     
     public function add() {
@@ -41,7 +38,7 @@ class Project extends CI_Controller {
         $expired_at = isset($_POST['expired_at']) ? trim($_POST['expired_at']) : '';
         $invitors = isset($_POST['invitors']) ? trim($_POST['invitors']) : '';
 
-        $project_id = $this->project_model->add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at);
+        $project_id = $this->project_model->add($user_id, $name, $receiver_tel, 0, $country_id, $amount, $message, $expired_at);
         
         $this->project_model->invite($project_id, $invitors);
         $this->session->set_flashdata('message', 'Project has been added successfully');
@@ -49,6 +46,10 @@ class Project extends CI_Controller {
     }
     
     public function lists() {
+        if (!$this->session->userdata('user_id')) {
+            redirect("customer/user/signin");
+        }        
+        
         $this->load->model('project_model');
         
         $user_id = $this->session->userdata('user_id');
@@ -60,6 +61,11 @@ class Project extends CI_Controller {
     }
     
     public function detail($id) {
+        
+        if (!$this->session->userdata('user_id')) {
+            redirect("customer/user/signin");
+        }
+                
         $this->load->model('project_model');
 
         $param['project'] = $this->project_model->detail($id);
@@ -76,6 +82,11 @@ class Project extends CI_Controller {
     }    
     
     public function shop($id) {
+        
+        if (!$this->session->userdata('user_id')) {
+            redirect("customer/user/signin");
+        }        
+        
         $this->load->model('project_model');
         $this->load->model('gift_model');
         $param['pageNo'] = 2;
@@ -91,6 +102,11 @@ class Project extends CI_Controller {
     }
     
     public function transfer($id) {
+        
+        if (!$this->session->userdata('user_id')) {
+            redirect("customer/user/signin");
+        }
+                
         $this->load->model('project_model');
         $param['pageNo'] = 2;
         $param['amount_status'] = $this->project_model->amount_status($id);

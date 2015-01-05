@@ -27,7 +27,7 @@ class Project extends CI_Controller {
         if ($name == '' || $user_id == '' || $receiver_tel == '' || $country_id == '' || $amount == '' || $message == '' || $expired_at == '') {
             $result =  ['result' => 'failed', 'msg' => 'Please enter forms correctly', ];
         } else {
-            $project_id = $this->project_model->add($user_id, $name, $receiver_tel, $country_id, $amount, $message, $expired_at);
+            $project_id = $this->project_model->add($user_id, $name, $receiver_tel, 0, $country_id, $amount, $message, $expired_at);
             $result = $this->inviting($project_id, $invitors);
         }
         
