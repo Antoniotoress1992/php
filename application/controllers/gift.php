@@ -20,6 +20,7 @@ class Gift extends CI_Controller {
         if (!isset($project->id)) {
             $param['result'] = 'failed';
         } else {
+            $this->session->set_userdata(['token' => $token] );            
             $param['amount_status'] = $this->project_model->amount_status($project->id);
             $param['gifts'] = $this->gift_model->lists();
             $param['result'] = 'success';
@@ -58,13 +59,15 @@ class Gift extends CI_Controller {
                     $this->load->model('country_model');
                     $creator = $this->user_model->detail($project->user_id);
                     $country = $this->country_model->detail($project->country_id);
-                    $this->common_model->sendSMS($project->receiver_tel, $country->prefix.$this->common_model->phoneNo($creator->phone), 'Your friend('.$project->receiver_tel.') choose the gift successfully.');
+                    $this->common_model->sendSMS(SITE_NAME, $country->prefix.$this->common_model->phoneNo($creator->phone), 'Your friend('.$project->receiver_tel.') choose the gift successfully.');
                 }
-            }    
+            }
+            redirect('gift/choose/'.$token);
         } else {
             $alert['msg'] = 'Invalid Request';
-            $alert['type'] = 'danger';            
+            $alert['type'] = 'danger';      
+            redirect('gift/choose/111');
         }
-        redirect('gift/choose/'.$token);
+        
     }
 }
