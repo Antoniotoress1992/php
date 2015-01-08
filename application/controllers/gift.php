@@ -58,7 +58,7 @@ class Gift extends CI_Controller {
                     $this->load->model('country_model');
                     $creator = $this->user_model->detail($project->user_id);
                     $country = $this->country_model->detail($project->country_id);
-                    $this->common_model->sendSMS($project->receiver_tel, $country->prefix.$creator->phone, 'Your friend('.$project->receiver_tel.') choose the gift successfully.');
+                    $this->common_model->sendSMS($project->receiver_tel, $country->prefix.$this->common_model->phoneNo($creator->phone), 'Your friend('.$project->receiver_tel.') choose the gift successfully.');
                 }
             }    
         } else {

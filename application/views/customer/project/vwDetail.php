@@ -29,10 +29,15 @@
                                     <span class="glyphicon glyphicon-shopping-cart"></span>
                                     Go Shopping
                                 </a>
-                                <a class="btn btn-info" href="<?php echo base_url()."customer/project/transfer/".$project->id;?>">
+                                <a class="btn btn-success" href="<?php echo base_url()."customer/project/transfer/".$project->id;?>">
                                     <span class="glyphicon glyphicon-credit-card"></span>
                                     Bank Transfer
                                 </a>
+                                &nbsp;&nbsp;|&nbsp;&nbsp;
+                                <button class="btn btn-info" id="js-btn-choose-gift">
+                                    <span class="glyphicon glyphicon-gift"></span>
+                                    Friend Choose the Gift
+                                </button>
                             </div>
                         </div>
                         <?php
@@ -261,5 +266,5 @@
 </body>
 <?php $this->load->view('customer/vwJs'); ?>
 <script src="<?php echo base_url()."assets/js/bootstrap-datepicker.js"?>"></script>
-<?php $this->load->view('js/customer/home/jsIndex'); ?>
+<?php $this->load->view('js/customer/project/jsDetail'); ?>
 </html>
