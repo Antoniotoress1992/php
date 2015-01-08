@@ -18,9 +18,9 @@ class User_model extends CI_Model {
 	    return ['result' => 'success', 'msg' => ''];
 	}
 	
-	public function signin($phone, $password) {
+	public function signin($phone1, $password) {
 	    $this->load->model('common_model');
-	    $phone = $this->common_model->phoneNo($phone);
+	    $phone = $this->common_model->phoneNo($phone1);
 	    $sql = "SELECT *
 	              FROM bg_users
 	             WHERE phone = ?
