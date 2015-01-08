@@ -97,7 +97,7 @@ class Project extends CI_Controller {
 
         if($alert = $this->session->flashdata('alert')) {
             $param['alert'] = $alert;
-        }        
+        }
         $this->load->view('customer/project/vwShop', $param);
     }
     
