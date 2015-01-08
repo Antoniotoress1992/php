@@ -128,6 +128,7 @@ class Project extends CI_Controller {
         $this->load->model('gift_buy_model');
         $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
         $gift_ids = isset($_POST['gift_ids']) ? $_POST['gift_ids'] : '';
+        $is_creator = isset($_POST['is_creator']) ? $_POST['is_creator'] : TRUE;
     
         if ($project_id == '' || $gift_ids == '') {
             $result['msg'] = "Invalid Request";
@@ -141,7 +142,7 @@ class Project extends CI_Controller {
             $result['msg'] = "Too many gifts than avaiable amount";
             $result['result'] = "failed";            
         } else {
-            $this->gift_buy_model->add($project_id, $gift_ids);
+            $this->gift_buy_model->add($project_id, $gift_ids, $is_creator);
             $result['msg'] = "You have been purchase the gift successfully";
             $result['result'] = "success";
         }

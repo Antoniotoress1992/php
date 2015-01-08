@@ -14,6 +14,7 @@
             <form method="post" action="<?php echo base_url()."customer/project/submit_gift";?>" class="form-horizontal" role="form">
                 <input type="hidden" name="project_id" value="<?php echo $project_id;?>"/>
                 <input type="hidden" name="gift_ids" value=""/>
+                <input type="hidden" name="is_creator" value="1"/>
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-horizontal" role="form">
@@ -60,10 +61,15 @@
                         </table>
                     </div>
                     <div class="col-sm-12 text-center">
-                        <button class="btn btn-primary" onclick="return onBtnBuy();">
+                        <button class="btn btn-primary" onclick="return onBtnBuy(1);">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
-                            Buy
+                            Deliver To Me
                         </button>
+                        <button class="btn btn-info" onclick="return onBtnBuy(0);">
+                            <span class="glyphicon glyphicon-gift"></span>
+                            Deliver To Friend
+                        </button>
+                        &nbsp;&nbsp;&nbsp;
                         <a class="btn btn-success" href="<?php echo base_url()."customer/project/detail/".$project_id;?>">
                             <span class="glyphicon glyphicon-share-alt"></span>
                             Back

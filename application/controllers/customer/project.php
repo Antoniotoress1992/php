@@ -158,7 +158,7 @@ class Project extends CI_Controller {
         $this->load->model('gift_buy_model');
         $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
         $gift_ids = isset($_POST['gift_ids']) ? $_POST['gift_ids'] : '';
-        
+        $is_creator = isset($_POST['is_creator']) ? $_POST['is_creator'] : TRUE;
         if ($project_id == '' || $gift_ids == '') {
             $alert['msg'] = 'Invalid Request';
             $alert['type'] = 'danger';
@@ -173,7 +173,7 @@ class Project extends CI_Controller {
             $alert['type'] = 'danger';
             $this->session->set_flashdata('alert', $alert);            
         } else {
-            $this->gift_buy_model->add($project_id, $gift_ids);
+            $this->gift_buy_model->add($project_id, $gift_ids, $is_creator);
             $alert['msg'] = 'You have been purchase the gift successfully';
             $alert['type'] = 'success';
             $this->session->set_flashdata('alert', $alert);

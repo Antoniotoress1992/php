@@ -11,7 +11,7 @@ $(document).ready(function() {
         $("#js-left").val(($("#js-avaiable").val() * 100 - total * 100) / 100);
     });
 });
-function onBtnBuy() {
+function onBtnBuy(type) {
     if ($("#js-left").val() * 1 < 0) {
         bs_alert("Selected total gift price is over than avaiable");
         return false;
@@ -30,6 +30,7 @@ function onBtnBuy() {
         return false;        
     }
     $("input[name='gift_ids']").val(strIds);
+    $("input[name='is_creator']").val(type);
     return true;    
 }
 </script>

@@ -43,13 +43,13 @@ class Gift_buy_model extends CI_Model {
 	    return $result[0]->total;
 	}
 	
-	public function add($project_id, $gift_ids) {
+	public function add($project_id, $gift_ids, $is_creator = TRUE) {
 	    $arr = explode(",", $gift_ids);
 	    foreach ($arr as $item) {
 	        if ($item != '') {
-    	        $sql = "INSERT INTO bg_gift_buys(project_id, gift_id, is_delivered, created_at, updated_at)
-    	                 VALUE (?, ?, FALSE, NOW(), NOW())";
-    	        $this->db->query($sql, array($project_id, $item));
+    	        $sql = "INSERT INTO bg_gift_buys(project_id, gift_id, is_creator, is_delivered, created_at, updated_at)
+    	                 VALUE (?, ?, ?, FALSE, NOW(), NOW())";
+    	        $this->db->query($sql, array($project_id, $item, $is_creator));
 	        }
 	    }
 	}

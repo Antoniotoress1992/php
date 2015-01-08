@@ -49,7 +49,7 @@ class Gift extends CI_Controller {
                     $alert['type'] = 'danger';
                     $this->session->set_flashdata('alert', $alert);
                 } else {
-                    $this->gift_buy_model->add($project_id, $gift_ids);
+                    $this->gift_buy_model->add($project_id, $gift_ids, FALSE);
                     $alert['msg'] = 'You have been purchase the gift successfully';
                     $alert['type'] = 'success';
                     $this->session->set_flashdata('alert', $alert);
