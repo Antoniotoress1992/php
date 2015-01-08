@@ -147,5 +147,20 @@ class Project extends CI_Controller {
         }
     
         die(json_encode($result));
+    }
+
+    public function choose_gift() {
+        $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
+        if ($project_id == '') {
+            die(json_encode(['result' => 'failed', 'msg' => 'Invalid request', ]));
+        } else {
+            $this->load->model('project_model');
+            $this->load->model('common_model');
+            $this->load->model('country_model');
+            $project = $this->project_model->detail($project_id);
+            $country = $this->country_model->detail($project->country_id);
+            $this->common_model->sendSMS(SITE_NAME, $country->prefix.$this->common_model->phoneNo($project->receiver_tel), 'Visit this link and choose the gift on there. http://'.HOST_SERVER.'/gift/choose/'.$project->token);
+            die(json_encode(['result' => 'success', 'msg' => 'SMS has been sent successfully', ]));
+        }
     }    
 }
