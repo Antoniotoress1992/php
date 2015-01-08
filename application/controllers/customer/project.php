@@ -196,7 +196,7 @@ class Project extends CI_Controller {
             $this->load->model('country_model');
             $project = $this->project_model->detail($project_id);
             $country = $this->country_model->detail($project->country_id);
-            $this->common_model->sendSMS(SITE_NAME, $country->prefix.$this->common_model->phoneNo($project->receiver_tel), 'Visit this link and choose the gift on there.     http://'.HOST_SERVER.'/gift/choose/'.$project->token);
+            $this->common_model->sendSMS(SITE_NAME, $country->prefix.$this->common_model->phoneNo($project->receiver_tel), 'Visit this link and choose the gift on there. http://'.HOST_SERVER.'/gift/choose/'.$project->token);
             die(json_encode(['result' => 'success', 'msg' => 'SMS has been sent successfully', ]));
         }
     }
