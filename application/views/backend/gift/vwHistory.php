@@ -32,6 +32,7 @@
                                     <th class="text-center">Project Name</th>                                    
                                     <th class="text-center">Receiver</th>
                                     <th class="text-center">Creator</th>
+                                    <th class="text-center">Deliver To</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,7 @@
                                     <td><?php echo $history->project_name;?></td>
                                     <td><?php echo $history->receiver_tel;?></td>
                                     <td><?php echo $history->creator_tel;?></td>
+                                    <td><?php echo ($history->is_creator) ? 'Creator' : 'Receiver';?></td>
                                 </tr>
                                 <?php }
                                 if (count($histories) == 0) { ?>

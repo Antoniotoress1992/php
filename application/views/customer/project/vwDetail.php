@@ -34,7 +34,7 @@
                                     Bank Transfer
                                 </a>
                                 &nbsp;&nbsp;|&nbsp;&nbsp;
-                                <button class="btn btn-info" id="js-btn-choose-gift">
+                                <button class="btn btn-info" id="js-btn-choose-gift" >
                                     <span class="glyphicon glyphicon-gift"></span>
                                     Friend Choose the Gift
                                 </button>
@@ -266,5 +266,6 @@
 </body>
 <?php $this->load->view('customer/vwJs'); ?>
 <script src="<?php echo base_url()."assets/js/bootstrap-datepicker.js"?>"></script>
+<script src="<?php echo base_url()."assets/js/bootbox.js"?>"></script>
 <?php $this->load->view('js/customer/project/jsDetail'); ?>
 </html>
