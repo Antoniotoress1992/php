@@ -112,4 +112,11 @@ class User_model extends CI_Model {
 	             WHERE t1.country_id = t2.id";
 	    return $this->db->query($sql)->result();
 	}
+	
+	public function count() {
+	    $sql = "SELECT COUNT(*) as cnt
+	              FROM bg_users";
+	    $result = $this->db->query($sql)->result();
+	    return $result[0]->cnt;
+	}	
 }

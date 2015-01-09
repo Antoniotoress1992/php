@@ -205,4 +205,11 @@ class Project_model extends CI_Model {
 	               AND t1.company_id = ?";
 	    return $this->db->query($sql, $companyId)->result();	    
 	}
+	
+	public function count() {
+	    $sql = "SELECT COUNT(*) as cnt
+	              FROM bg_projects";
+	    $result = $this->db->query($sql)->result();
+	    return $result[0]->cnt;
+	}
 }

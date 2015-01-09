@@ -74,4 +74,11 @@ class Gift_model extends CI_Model {
 	        $this->db->query($sql, array($name, $thumb, $price, $id));	        
 	    }
 	}
+	
+	public function count() {
+	    $sql = "SELECT COUNT(*) as cnt
+	              FROM bg_gifts";
+	    $result = $this->db->query($sql)->result();
+	    return $result[0]->cnt;
+	}
 }

@@ -194,7 +194,7 @@
                                 <span class="glyphicon glyphicon-time color-gray-normal status-item-icon"></span>
                             </div>
                             <div class="pull-left">
-                                <div class="color-blue status-item-count"><b>1,000+</b></div>
+                                <div class="color-blue status-item-count"><b><?php echo number_format($count['gift']);?> +</b></div>
                                 <div class="status-item-desc">Gift are ready</div>
                             </div>
                             <div class="clearfix"></div>
@@ -206,7 +206,7 @@
                                 <span class="glyphicon glyphicon-user color-gray-normal status-item-icon"></span>
                             </div>
                             <div class="pull-left">
-                                <div class="color-blue status-item-count"><b>304,000+</b></div>
+                                <div class="color-blue status-item-count"><b><?php echo number_format($count['user']);?> +</b></div>
                                 <div class="status-item-desc">People use our platform</div>
                             </div>
                             <div class="clearfix"></div>
@@ -218,7 +218,7 @@
                                 <span class="glyphicon glyphicon-star color-gray-normal status-item-icon"></span>
                             </div>
                             <div class="pull-left">
-                                <div class="color-blue status-item-count"><b>1,000+</b></div>
+                                <div class="color-blue status-item-count"><b><?php echo number_format($count['project']);?> +</b></div>
                                 <div class="status-item-desc">Projects are active</div>
                             </div>
                             <div class="clearfix"></div>
