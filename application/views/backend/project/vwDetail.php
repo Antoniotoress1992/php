@@ -195,7 +195,7 @@
                                                 <?php }
                                                 if (count($invitors) == 0) { ?>
                                                 <tr>
-                                                    <td colspan="2" class="text-center">There is no invitors</td>
+                                                    <td colspan="2" class="text-center">There is no inviters</td>
                                                 </tr>                                        
                                                 <?php } ?>
                                             </tbody>

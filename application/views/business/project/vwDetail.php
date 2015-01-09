@@ -175,7 +175,7 @@
                                 <hr/>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <h3>Invitors (<?php echo count($invitors);?> People)</h3>
+                                        <h3>Inviters (<?php echo count($invitors);?> People)</h3>
                                         
                                         <table class="table">
                                             <thead>
@@ -195,7 +195,7 @@
                                                 <?php }
                                                 if (count($invitors) == 0) { ?>
                                                 <tr>
-                                                    <td colspan="2" class="text-center">There is no invitors</td>
+                                                    <td colspan="2" class="text-center">There is no inviters</td>
                                                 </tr>                                        
                                                 <?php } ?>
                                             </tbody>

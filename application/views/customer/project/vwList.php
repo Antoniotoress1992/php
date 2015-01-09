@@ -23,7 +23,7 @@
                                 <th>Country</th>
                                 <th>Amount</th>
                                 <th>Collected</th>
-                                <th>Invitors</th>
+                                <th>Inviters</th>
                                 <th>Expired At</th>
                                 <th>Created At</th>
                                 <th></th>
