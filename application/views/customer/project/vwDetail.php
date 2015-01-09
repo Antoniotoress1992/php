@@ -200,7 +200,7 @@
                         <hr/>
                         <div class="row">
                             <div class="col-sm-4">
-                                <h3>Invitors</h3>
+                                <h3>Invitors (<?php echo count($invitors);?> People)</h3>
                                 
                                 <table class="table">
                                     <thead>
@@ -227,7 +227,7 @@
                                 </table>
                             </div>
                             <div class="col-sm-8">
-                                <h3>Payers</h3>
+                                <h3>Payers (<?php echo count($payers);?> People)</h3>
                                 <table class="table">
                                     <thead>
                                         <tr>
