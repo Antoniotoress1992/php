@@ -57,9 +57,9 @@
                                         'message' => 'Message',
                                       ];
                             foreach ($fields as $key => $value) { ?>
-                            <?php if ($i % 2 == 0) {?>
-                                <div class="form-group">
-                            <?php } ?>
+                            <?php if ($i % 2 == 0) {
+                                echo '<div class="form-group">';
+                             } ?>
                                     <?php if ($key != 'message') { ?>
                                         <label class="col-sm-2 control-label"><?php echo $value;?></label>
                                         <div class="col-sm-4">
