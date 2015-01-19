@@ -6,8 +6,8 @@
 </head>
 <body>
     <?php $this->load->view('customer/vwHeader'); ?>
-        
-        <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+        <div class="background-dashboard"></div>
+        <div class="container" style="margin-top: 70px; margin-bottom: 30px;">
             <div class="row">
                 <div class="col-sm-3">
                     <h1>&nbsp;</h1>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-sm-9 text-center">
                     <div class="row">
-                        <h2>Bank Transfer</h2>
+                        <h2 class="color-white">Bank Transfer</h2>
                         <div class="margin-top-20"></div>
                     </div>
                     <div class="row">

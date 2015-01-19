@@ -7,8 +7,8 @@
 </head>
 <body>
     <?php $this->load->view('customer/vwHeader'); ?>
-        
-        <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+        <div class="background-dashboard"></div>
+        <div class="container" style="margin-top: 70px; margin-bottom: 30px;">
             <div class="row">
                 <div class="col-sm-3">
                     <h1>&nbsp;</h1>
@@ -18,10 +18,10 @@
                 </div>
                 <div class="col-sm-9 text-center">
                     <div class="row text-center">
-                        <h2>Project List</h2>
+                        <h2 class="color-white">Project List</h2>
                     </div>
                     <div class="row">
-                        <table class="table">
+                        <table class="table table-striped" style="background: #FFF;">
                             <thead>
                                 <tr>
                                     <th>#</th>

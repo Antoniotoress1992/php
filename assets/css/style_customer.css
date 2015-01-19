@@ -195,3 +195,14 @@
 	margin-left: 0px;
 	margin-top: 0px;
 }
+
+.background-dashboard {
+	background: url(/assets/images/dashboard_background.jpg);
+	height: 247px;
+	background-size: cover;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	border-top: 2px solid #00419d;
+	border-bottom: 12px solid #1878FF;
+}
