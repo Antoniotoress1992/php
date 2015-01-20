@@ -109,11 +109,17 @@ class Project_model extends CI_Model {
 	    }
 	}	
 	
-	public function invitors($id) {
-	    $sql = "SELECT invitor_tel
-	              FROM bg_invitors
+	public function invitors($id) {	    
+	    $sql = "SELECT SUM(amount) as amount, invitor_tel, created_at
+	              FROM bg_transactions
 	             WHERE project_id = ?";
-	   $result = $this->db->query($sql, $id)->result();
+	    
+	    $sql = "SELECT t1.invitor_tel, t2.amount, t2.created_at
+	              FROM bg_invitors t1
+	              LEFT JOIN ($sql) t2
+	                ON t1.invitor_tel = t2.invitor_tel
+	             WHERE t1.project_id = ?";
+	   $result = $this->db->query($sql, array($id, $id))->result();
 	   if ($result) {
 	       return $result;
 	   } else {

@@ -27,5 +27,23 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("button#js-btn-resend").click(function() {
+        var invitor = $(this).attr("data-invitor-tel");
+        bootbox.confirm("Are you sure?", function(result) {
+            if (result) {
+                var project_id = "<?php echo $project->id?>";
+                $.ajax({
+                    url: "/customer/project/async_resend",
+                    dataType : "json",
+                    type : "POST",
+                    data : { project_id : project_id, invitor : invitor },
+                    success : function(data){
+                        bs_alert(data.msg);
+                    }
+                });
+            }
+        });
+    });
 });
 </script>

@@ -22,7 +22,7 @@
                         <h2 class='color-white'>Dashboard</h2>
                         <div class="margin-top-20"></div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="min-height: 450px;">
 
                     </div>
                 </div>
