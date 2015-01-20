@@ -45,7 +45,7 @@ class Project extends CI_Controller {
         redirect('customer/home');
     }
     
-    public function lists() {
+    public function lists($type = 'all') {
         if (!$this->session->userdata('user_id')) {
             redirect("customer/user/signin");
         }        
@@ -54,8 +54,11 @@ class Project extends CI_Controller {
         
         $user_id = $this->session->userdata('user_id');
         
-        $param['projects'] = $this->project_model->lists($user_id);
+        $t = ($type == 'all') ? 0 : (($type == 'now') ? 1 : 2);
+        
+        $param['projects'] = $this->project_model->lists($user_id, $t);
         $param['pageNo'] = 2;
+        $param['type'] = $type;
         
         $this->load->view('customer/project/vwList', $param);
     }
@@ -80,6 +83,19 @@ class Project extends CI_Controller {
     
         $this->load->view('customer/project/vwDetail', $param);
     }    
+    
+    public function invite() {
+        $project_id = isset($_POST['project_id']) ? $_POST['project_id'] : '';
+        $invitors = isset($_POST['invitors']) ? $_POST['invitors'] : '';
+        
+        $this->load->model('project_model');
+        $this->project_model->invite($project_id, $invitors);
+
+        $alert['msg'] = 'People has invited more successfully';
+        $alert['type'] = 'success';
+        $this->session->set_flashdata('alert', $alert);
+        redirect("customer/project/detail/".$project_id);
+    }
     
     public function shop($id) {
         

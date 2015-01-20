@@ -16,5 +16,16 @@ $(document).ready(function() {
             }
         });        
     });
+    
+    $("button#js-btn-add-more").click(function() {
+        bootbox.prompt("Enter Phone Number by separating comma", function(result) {
+            if (result === null) {
+                
+            } else {
+                $("input[name='invitors']").val(result);
+                $("form#frmAddInvitors").submit();                      
+            }
+        });
+    });
 });
 </script>

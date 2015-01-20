@@ -215,8 +215,9 @@
                             <hr/>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <h3>Inviters (<?php echo count($invitors);?> People)</h3>
-                                    
+                                    <h4 class="text-left pull-left">Inviters (<?php echo count($invitors);?> People)</h4>
+                                    <button class="btn btn-info btn-sm pull-right" id="js-btn-add-more">+ Add More</button>
+                                    <div class="clearfix"></div>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -242,7 +243,7 @@
                                     </table>
                                 </div>
                                 <div class="col-sm-8">
-                                    <h3>Payers (<?php echo count($payers);?> People)</h3>
+                                    <h4 class="text-left">Payers (<?php echo count($payers);?> People)</h4>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -277,7 +278,10 @@
                 </div>
             </div>
         </div>
-    
+        <form method="post" action="<?php echo base_url()."customer/project/invite";?>" class="hidden" id="frmAddInvitors">
+            <input type="hidden" name="project_id" value="<?php echo $project->id;?>">
+            <input type="hidden" name="invitors" value=""/>
+        </form>
     <?php $this->load->view('customer/vwFooter'); ?>
 </body>
 <?php $this->load->view('customer/vwJs'); ?>

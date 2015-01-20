@@ -206,3 +206,7 @@
 	border-top: 2px solid #00419d;
 	border-bottom: 12px solid #1878FF;
 }
+
+.width-100 {
+	width: 100px;
+}
