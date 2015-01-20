@@ -48,42 +48,42 @@
                 <div class="col-sm-8">
                     <h2 class="color-blue">Invite other friends to contribute</h2>
                     <p class="font-droid">Select the other friends to create the suprise together by</p>
-                    <p class="font-droid color-white">putting their information in the Web system, or simply choose</p>
-                    <p class="font-droid color-white">from your phone contact lists. Our system will automatically</p>
-                    <p class="font-droid color-white">send them SMS invitations to join your project.</p>
+                    <p class="font-droid">putting their information in the Web system, or simply choose</p>
+                    <p class="font-droid">from your phone contact lists. Our system will automatically</p>
+                    <p class="font-droid">send them SMS invitations to join your project.</p>
                 </div>
             </div>
             
             <div class="row margin-top-20">
                 <div class="col-sm-2 col-sm-offset-1">
-                    <div class="how-it-work-step-white">
+                    <div class="how-it-work-step-blue">
                     4
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <h2 class="color-white">Fundraise for the surprise</h2>
-                    <p class="font-droid color-white">Your friends can simultaneously confirm their participation</p>
-                    <p class="font-droid color-white">and contribute their shares by simply replying "OK" by SMS to</p>
-                    <p class="font-droid color-white">our system. Money for your gift-giving project will be collected</p>
-                    <p class="font-droid color-white">automatically since it will be added to your friends' next phone</p>
-                    <p class="font-droid color-white">bills</p>
+                    <h2 class="color-blue">Fundraise for the surprise</h2>
+                    <p class="font-droid">Your friends can simultaneously confirm their participation</p>
+                    <p class="font-droid">and contribute their shares by simply replying "OK" by SMS to</p>
+                    <p class="font-droid">our system. Money for your gift-giving project will be collected</p>
+                    <p class="font-droid">automatically since it will be added to your friends' next phone</p>
+                    <p class="font-droid">bills</p>
                 </div>
             </div>
             
             <div class="row margin-top-20">
                 <div class="col-sm-2 col-sm-offset-1">
-                    <div class="how-it-work-step-white">
+                    <div class="how-it-work-step-blue">
                     5
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <h2 class="color-white">Send the love</h2>
-                    <p class="font-droid color-white">One the money is collected; we will deliver the SMS gift</p>
-                    <p class="font-droid color-white">notification on your behalf to the recipient. Afterwards, the</p>
-                    <p class="font-droid color-white">recipient can freely choose how to spend the money by</p>
-                    <p class="font-droid color-white">choosing from a huge variety of gifts in our system. They can</p>
-                    <p class="font-droid color-white">select either online gift card code to redeem online or physical</p>
-                    <p class="font-droid color-white">gift card sent via post.</p>
+                    <h2 class="color-blue">Send the love</h2>
+                    <p class="font-droid">One the money is collected; we will deliver the SMS gift</p>
+                    <p class="font-droid">notification on your behalf to the recipient. Afterwards, the</p>
+                    <p class="font-droid">recipient can freely choose how to spend the money by</p>
+                    <p class="font-droid">choosing from a huge variety of gifts in our system. They can</p>
+                    <p class="font-droid">select either online gift card code to redeem online or physical</p>
+                    <p class="font-droid">gift card sent via post.</p>
                 </div>
             </div>
             <div class="margin-top-50">&nbsp;</div>
