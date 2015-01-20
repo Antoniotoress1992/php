@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <table class="table table-striped" style="background: #FFF;">
+                        <table class="table table-striped" style="background: #FFF; font-size: 12px;">
                             <thead>
                                 <tr>
                                     <th>#</th>
