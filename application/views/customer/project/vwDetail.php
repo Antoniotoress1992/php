@@ -22,7 +22,7 @@
                         <div class="margin-top-20"></div>
                     </div>
                     <div class="row">
-                        <div class="form-horizontal" role="form">
+                        <div class="form-horizontal form-horizontal-custom" role="form">
                             <div class="row">
                                 <?php if (isset($alert)) { ?>
                                     <div class="alert alert-<?php echo $alert['type'];?>"><?php echo $alert['msg'];?></div>
@@ -30,20 +30,23 @@
                             </div>
                                                 
                             <div class="form-group">
-                                <div class="col-sm-12 text-right">
-                                    <a class="btn btn-success" href="<?php echo base_url()."customer/project/shop/".$project->id;?>">
-                                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                                        Go Shopping
-                                    </a>
-                                    <a class="btn btn-success" href="<?php echo base_url()."customer/project/transfer/".$project->id;?>">
-                                        <span class="glyphicon glyphicon-credit-card"></span>
-                                        Bank Transfer
-                                    </a>
-                                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <button class="btn btn-info" id="js-btn-choose-gift" >
-                                        <span class="glyphicon glyphicon-gift"></span>
-                                        Friend Choose the Gift
-                                    </button>
+                                <div class="row">
+                                    <div class="col-sm-6 text-center">
+                                        <a class="btn btn-success" href="<?php echo base_url()."customer/project/shop/".$project->id;?>">
+                                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                                            Go Shopping
+                                        </a>
+                                        <a class="btn btn-success" href="<?php echo base_url()."customer/project/transfer/".$project->id;?>">
+                                            <span class="glyphicon glyphicon-credit-card"></span>
+                                            Bank Transfer
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6 text-center">
+                                        <button class="btn btn-info" id="js-btn-choose-gift" >
+                                            <span class="glyphicon glyphicon-gift"></span>
+                                            Friend Choose the Gift
+                                        </button>                                
+                                    </div>
                                 </div>
                             </div>
                             <?php
@@ -102,7 +105,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Buy Gifts</label>
                                 <div class="col-sm-9">
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -135,7 +138,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Coupon Codes</label>
                                 <div class="col-sm-9">
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -168,7 +171,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Bank Trasfers</label>
                                 <div class="col-sm-9">
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -218,7 +221,7 @@
                                     <h4 class="text-left pull-left">Inviters (<?php echo count($invitors);?> People)</h4>
                                     <button class="btn btn-info btn-sm pull-right" id="js-btn-add-more">+ Add More</button>
                                     <div class="clearfix"></div>
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -244,7 +247,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <h4 class="text-left">Payers (<?php echo count($payers);?> People)</h4>
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

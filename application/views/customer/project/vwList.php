@@ -22,13 +22,13 @@
                     </div>
                     <div class="row text-right margin-bottom-10">
                         <div class="btn-group">
-                            <a href="<?php echo base_url()."customer/project/lists";?>" class="width-100 btn <?php echo ($type == 'all') ? 'btn-primary' : 'btn-default';?>">All</a>
-                            <a href="<?php echo base_url()."customer/project/lists/now";?>" class="width-100 btn <?php echo ($type == 'now') ? 'btn-primary' : 'btn-default';?>">Now</a>
-                            <a href="<?php echo base_url()."customer/project/lists/expired";?>" class="width-100 btn <?php echo ($type == 'expired') ? 'btn-primary' : 'btn-default';?>">Expired</a>
+                            <a href="<?php echo base_url()."customer/project/lists";?>" class="btn-project-type btn <?php echo ($type == 'all') ? 'btn-primary' : 'btn-default';?>">All</a>
+                            <a href="<?php echo base_url()."customer/project/lists/now";?>" class="btn-project-type btn <?php echo ($type == 'now') ? 'btn-primary' : 'btn-default';?>">Now</a>
+                            <a href="<?php echo base_url()."customer/project/lists/expired";?>" class="btn-project-type btn <?php echo ($type == 'expired') ? 'btn-primary' : 'btn-default';?>">Expired</a>
                         </div>
                     </div>
                     <div class="row">
-                        <table class="table table-striped" style="background: #FFF; font-size: 12px;">
+                        <table class="table table-striped table-project-list table-responsive">
                             <thead>
                                 <tr>
                                     <th>#</th>

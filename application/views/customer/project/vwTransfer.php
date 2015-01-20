@@ -87,7 +87,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Buy Gifts</label>
                                 <div class="col-sm-9">
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -120,7 +120,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Coupon Codes</label>
                                 <div class="col-sm-9">
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -153,7 +153,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Bank Trasfers</label>
                                 <div class="col-sm-9">
-                                    <table class="table">
+                                    <table class="table table-mobile">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
