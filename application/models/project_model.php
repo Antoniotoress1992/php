@@ -218,4 +218,42 @@ class Project_model extends CI_Model {
 	    $result = $this->db->query($sql)->result();
 	    return $result[0]->cnt;
 	}
+	
+	public function countCreatedWeek($user_id) {
+	    $sql = "SELECT COUNT(*) as cnt
+                  FROM bg_projects
+                 WHERE user_id = ?
+                   AND YEAR(NOW()) = YEAR(created_at)
+                   AND WEEK(NOW()) = WEEK(created_at)";
+	    $result = $this->db->query($sql, $user_id)->result();
+	    return $result[0]->cnt;
+	}
+
+	public function countExpiredWeek($user_id) {
+	    $sql = "SELECT COUNT(*) as cnt
+                  FROM bg_projects
+                 WHERE user_id = ?
+                   AND YEAR(NOW()) = YEAR(expired_at)
+                   AND WEEK(NOW()) = WEEK(expired_at)";
+	    $result = $this->db->query($sql, $user_id)->result();
+	    return $result[0]->cnt;
+	}
+
+	public function createdToday($user_id) {
+	    $sql = "SELECT *
+                  FROM bg_projects
+                 WHERE user_id = ?
+                   AND DATE(NOW()) = DATE(created_at)";
+	    $result = $this->db->query($sql, $user_id)->result();
+	    return $result;
+	}
+	
+	public function expiredToday($user_id) {
+	    $sql = "SELECT *
+                  FROM bg_projects
+                 WHERE user_id = ?
+                   AND DATE(NOW()) = DATE(expired_at)";
+	    $result = $this->db->query($sql, $user_id)->result();
+	    return $result;
+	}
 }

@@ -3,7 +3,6 @@
 <head>
     <?php $this->load->view('customer/vwMeta'); ?>
     <?php $this->load->view('customer/vwCss'); ?>
-    <link href="<?php echo base_url()."assets/css/datepicker.css"?>" rel="stylesheet">
 </head>
 <body>
     <?php $this->load->view('customer/vwHeader'); ?>
@@ -22,8 +21,93 @@
                         <h2 class='color-white'>Dashboard</h2>
                         <div class="margin-top-20"></div>
                     </div>
-                    <div class="row" style="min-height: 450px;">
-
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="alert alert-info" role="alert">
+                                <h4>Opened Projects<br/><br/></h4>
+                                <?php echo $openedProjects;?>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="alert alert-info" role="alert">
+                                <h4>Paid Today<br/><br/></h4>
+                                <?php echo $paidToday;?>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="alert alert-info" role="alert">
+                                <h4>Project Created This Week</h4>
+                                <?php echo $countCreatedWeek;?>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="alert alert-info" role="alert">
+                                <h4>Project Expired This Week</h4>
+                                <?php echo $countExpiredWeek;?>
+                            </div>
+                        </div>                                                                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4 class="text-left pull-left">Opened Project Today</h4>
+                            <table class="table table-mobile">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th>Expired At</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $i = 1; 
+                                    foreach ($createdToday as $item) {?>
+                                    <tr>
+                                        <td><?php echo $i++;?></td>
+                                        <td><a href="<?php echo base_url()."customer/project/detail/".$item->id;?>"><?php echo $item->name;?></a></td>
+                                        <td><?php echo $item->amount;?></td>
+                                        <td><?php echo $item->expired_at;?></td>
+                                    </tr>
+                                    <?php }
+                                    if (count($createdToday) == 0) { ?>
+                                    <tr>
+                                        <td colspan="4" class="text-center">There is no projects created today</td>
+                                    </tr>                                        
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 class="text-left pull-left">Expires Project Today</h4>
+                            <table class="table table-mobile">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th>Created At</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $i = 1; 
+                                    foreach ($expiredToday as $item) {?>
+                                    <tr>
+                                        <td><?php echo $i++;?></td>
+                                        <td><a href="<?php echo base_url()."customer/project/detail/".$item->id;?>"><?php echo $item->name;?></a></td>
+                                        <td><?php echo $item->amount;?></td>
+                                        <td><?php echo substr($item->created_at, 0, 10);?></td>
+                                    </tr>
+                                    <?php }
+                                    if (count($expiredToday) == 0) { ?>
+                                    <tr>
+                                        <td colspan="4" class="text-center">There is no projects expires today</td>
+                                    </tr>                                        
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>                           
                     </div>
                 </div>
             </div>
@@ -32,7 +116,4 @@
     <?php $this->load->view('customer/vwFooter'); ?>
 </body>
 <?php $this->load->view('customer/vwJs'); ?>
-<script src="<?php echo base_url()."assets/js/bootstrap-datepicker.js"?>"></script>
-<script src="<?php echo base_url()."assets/js/bootbox.js"?>"></script>
-<?php $this->load->view('js/customer/project/jsDetail'); ?>
 </html>
