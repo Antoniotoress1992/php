@@ -2,23 +2,25 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Gift extends CI_Controller {
+class Contact extends CI_Controller {
     public function __construct() {
         parent::__construct();
     }
     
-    public function index() {
+    public function upload() {
+        $this->load->model('contact_model');
         
-    }
-    
-    public function lists() {
-        
-        $this->load->model('gift_model');
-        $gifts = $this->gift_model->lists();
-        for ($i = 0; $i < count($gifts); $i++) {
-            $gifts[$i]->thumb = HTTP_GIFT_PATH.$gifts[$i]->thumb;
+        $user_id = isset($_POST['user_id']) ? $_POST['user_id'] : '';
+        $contacts = isset($_POST['contacts']) ? $_POST['contacts'] : '';
+        if ($user_id == '' || $contacts == '') {
+            $result['result'] = 'failed';
+            $result['msg'] = 'Invalid Request';            
+        } else {
+            $this->contact_model->upload($user_id, $contacts);
+            $result['result'] = 'success';
+            $result['msg'] = '';            
         }
-        $result =  ['result' => 'success', 'msg' => '', 'gifts' => $gifts, ];
+
         die(json_encode($result));
     }
 }
