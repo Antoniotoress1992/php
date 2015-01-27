@@ -1,4 +1,4 @@
-<div style="background: #171717; padding-top: 30px;">
+<div style="background: #2b2b2b;" class="padding-top-50">
 <div class="container footerMenu">
     <div class="row color-white">
         <div class="col-sm-3">
@@ -34,16 +34,8 @@
             
         </div>                                    
     </div>
-</div>
-<footer class="footerArea">
-    <div class="container">
-        <div class="footerLogo pull-left">
-            <a href="<?php echo base_url();?>">Kickgifter</a>
-        </div>
-        <div class="pull-right" style="margin-top: 20px;">
-            <!-- a href="<?php echo base_url()?>admin/dashboard" class="btn btn-danger">Backend</a -->
-        </div>
-        <div class="clearfix"></div>
+    <div class="row color-white text-center padding-top-30 margin-bottom-10">
+        &copy; KickGifter, Inc.
     </div>
-</footer>
+</div>
 </div>
