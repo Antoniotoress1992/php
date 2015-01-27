@@ -14,7 +14,7 @@ class Contact extends CI_Controller {
         $contacts = isset($_POST['contacts']) ? $_POST['contacts'] : '';
         if ($user_id == '' || $contacts == '') {
             $result['result'] = 'failed';
-            $result['msg'] = 'Invalid Request';            
+            $result['msg'] = 'Invalid Request';
         } else {
             $this->contact_model->upload($user_id, $contacts);
             $result['result'] = 'success';

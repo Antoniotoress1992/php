@@ -154,34 +154,57 @@
     
     <main class="bg-main2">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="text-center gift-item">
-                        <img src="<?php echo base_url()."assets/images/gift_01.png";?>" class='img-thumbnail'>
-                        <div class="text-center margin-top-10 color-blue">Pooh</div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="text-center gift-item">
-                        <img src="<?php echo base_url()."assets/images/gift_02.png";?>" class='img-thumbnail'>
-                        <div class="text-center margin-top-10 color-blue">Flower</div>
+            <div class="row padding-top-50">
+                <div class="col-sm-2 col-sm-offset-1">
+                    <div class="text-center step-front-item">
+                        <img src="<?php echo base_url()."assets/images/icon_blue_01.png";?>" class="step-front-item-img">
+                        <div class="text-center margin-top-10 color-gray-dark"><b>Kick-off</b></div>
+                        <div class="step-front-item-no">
+                            1
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-sm-3">
-                    <div class="text-center gift-item">
-                        <img src="<?php echo base_url()."assets/images/gift_03.png";?>" class='img-thumbnail'>
-                        <div class="text-center margin-top-10 color-blue">Notebook</div>
+                <div class="col-sm-2">
+                    <div class="text-center step-front-item">
+                        <img src="<?php echo base_url()."assets/images/icon_blue_02.png";?>" class="step-front-item-img">
+                        <div class="text-center margin-top-10 color-gray-dark"><b>Invite friends</b></div>
+                        <div class="step-front-item-no">
+                            2
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-sm-3">
-                    <div class="text-center gift-item">
-                        <img src="<?php echo base_url()."assets/images/gift_04.png";?>" class='img-thumbnail'>
-                        <div class="text-center margin-top-10 color-blue">Cake</div>
+                <div class="col-sm-2">
+                    <div class="text-center step-front-item">
+                        <img src="<?php echo base_url()."assets/images/icon_blue_03.png";?>" class="step-front-item-img">
+                        <div class="text-center margin-top-10 color-gray-dark"><b>Money collected</b></div>
+                        <div class="step-front-item-no">
+                            3
+                        </div>
                     </div>
-                </div>                                                  
+                </div>
+                
+                <div class="col-sm-2">
+                    <div class="text-center step-front-item">
+                        <img src="<?php echo base_url()."assets/images/icon_blue_04.png";?>" class="step-front-item-img">
+                        <div class="text-center margin-top-10 color-gray-dark"><b>Spend money</b></div>
+                        <div class="step-front-item-no">
+                            4
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-2">
+                    <div class="text-center step-front-item">
+                        <img src="<?php echo base_url()."assets/images/icon_blue_05.png";?>" class="step-front-item-img">
+                        <div class="text-center margin-top-10 color-gray-dark"><b>Give the love</b></div>
+                        <div class="step-front-item-no">
+                            5
+                        </div>
+                    </div>
+                </div>
+                                
             </div>
         </div>
         <div class="margin-top-50"></div>
@@ -231,36 +254,52 @@
         </div>
         
         <div class="container">
-            <div class="margin-top-50"></div>
+            <div class="row padding-top-50 padding-bottom-50 text-center color-white">
+                <h2>CHOOSE TO SPEND THE MONEY ON YOUR OWN WAYS!</h2>
+            </div>
             <div class="row">
-                <div class="col-sm-2 col-sm-offset-1 color-white">
-                    <div class="step-item">
-                        <h3 class="color-white"><b>Step 1</b></h3>
-                        <p>Choose gift receiver</p>
-                    </div>
-                </div>
-                <div class="col-sm-2 color-white">
-                    <div class="step-item">
-                        <h3 class="color-white"><b>Step 2</b></h3>
-                        <p>Invite friends</p>
-                    </div>
-                </div>
-                <div class="col-sm-2 color-white">
-                    <div class="step-item">
-                        <h3 class="color-white"><b>Step 3</b></h3>
-                        <p>Contribute</p>
-                    </div>
-                </div>
-                <div class="col-sm-2 color-white">
-                    <div class="step-item">
-                        <h3 class="color-white"><b>Step 4</b></h3>
-                        <p>Choose gift</p>
-                    </div>
-                </div>
-                <div class="col-sm-2 color-white">
-                    <div class="step-item">
-                        <h3 class="color-white"><b>Step 5</b></h3>
-                        <p>Give the gift</p>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="working-item" style="border-top: 5px solid #9b59b6;">
+                                <div class="padding-top-30 text-center color-gray-light">
+                                    <h4>
+                                        Choose a gift from<br/>
+                                        our selections
+                                    </h4>
+                                </div>
+                                <div class="padding-top-30 padding-bottom-30 text-center">
+                                    <img src="<?php echo base_url()."assets/images/icon_01.png";?>" style="width: 50%;"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="working-item" style="border-top: 5px solid #fea621;">
+                                <div class="padding-top-30 text-center color-gray-light">
+                                    <h4>
+                                        Let the recipient choose<br/>
+                                        the gift they want
+                                    </h4>
+                                </div>
+                                <div class="padding-top-30 padding-bottom-30 text-center">
+                                    <img src="<?php echo base_url()."assets/images/icon_02.png";?>" style="width: 50%;"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4">
+                            <div class="working-item" style="border-top: 5px solid #2ecc71;">
+                                <div class="padding-top-30 text-center color-gray-light">
+                                    <h4>
+                                        Withdraw the money<br/><br/>
+                                    </h4>
+                                </div>
+                                <div class="padding-top-30 padding-bottom-30 text-center">
+                                    <img src="<?php echo base_url()."assets/images/icon_03.png";?>" style="width: 50%;"/>
+                                </div>
+                            </div>
+                        </div>                                                
                     </div>
                 </div>
             </div>

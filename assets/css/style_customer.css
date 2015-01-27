@@ -158,13 +158,32 @@
 	display: inline-block;
 }
 
-.gift-item {
-	border-radius: 5px;
-	margin: 30px 20px;
-	background: rgba(255, 255, 255, 0.7);
-	padding: 10px;	
+.step-front-item {
+	border-radius: 200px;
+	background: #FFF;
+	width: 140px;
+	height: 140px;
+	position: relative;
 }
 
+.step-front-item-no {
+	background: #FFF;
+	border: 2px solid #003580;
+	border-radius: 70px;
+	width: 35px;
+	height: 35px;
+	top: 0px;
+	left: 0px;
+	line-height: 35px;
+	position: absolute;
+	font-weight: bold;
+}
+
+.step-front-item-img {
+	width: 45%;
+	height: 45%;
+	margin-top: 15%;
+}
 
 .step-item {
 	border-bottom: 5px solid #FFF;
@@ -216,6 +235,11 @@
 	font-size: 12px;
 }
 
+.working-item {
+	background: #FFF;
+	font-weight: bold;
+}
+
 @media only screen and (max-width: 1000px) {
 	table.table-project-list td:nth-child(4), 
 	table.table-project-list th:nth-child(4),
@@ -256,5 +280,4 @@
     	text-align: center;
     	font-size: 12px;
     }
-	
 }
