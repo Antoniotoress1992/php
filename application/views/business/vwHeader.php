@@ -1,56 +1,43 @@
-
-<!-- Modal -->
-<div class="modal fade" id="msgAlert" tabindex="-1" role="dialog"
-	aria-labelledby="msgAlertLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				</button>
-				<h4 class="modal-title" id="msgAlertLabel">
-					<?php echo SITE_NAME;?>
-				</h4>
-			</div>
-			<div class="modal-body">
-				<h4></h4>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
+<div class="page-header navbar navbar-fixed-top">
+	<!-- BEGIN HEADER INNER -->
+	<div class="page-header-inner">
+		<!-- BEGIN LOGO -->
+		<div class="page-logo">
+			<a href="/admin/dashboard">
+			    <img src="<?php echo base_url(); ?>assets/images/logo.png" alt="logo" class="logo-default" style="height: 32px; margin-top: 10px;"/>
+			</a>
 		</div>
+		<!-- END LOGO -->
+		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+		</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
+		<!-- BEGIN TOP NAVIGATION MENU -->
+		<div class="top-menu">
+			<ul class="nav navbar-nav pull-right">
+			    <?php if (!$this->session->userdata('company_id')) { ?>
+				<li class="dropdown dropdown-quick-sidebar-toggler">
+					<a href="<?php echo base_url()."business/company/signin"?>" class="dropdown-toggle">
+				        Sign In
+					</a>
+				</li>
+				<li class="dropdown dropdown-quick-sidebar-toggler">
+					<a href="<?php echo base_url()."business/company/signup"?>" class="dropdown-toggle">
+				        Register
+					</a>
+				</li>
+				<?php } else { ?>
+				<li class="dropdown dropdown-quick-sidebar-toggler">
+					<a href="<?php echo base_url()."business/company/signout"?>" class="dropdown-toggle">
+				        <i class="icon-logout"></i> Sign Out
+					</a>
+				</li>
+				<?php } ?>		
+			</ul>
+		</div>
+		<!-- END TOP NAVIGATION MENU -->
 	</div>
+	<!-- END HEADER INNER -->
 </div>
 
-
-<header class="navi">
-	<div style="background: #003580; padding-bottom: 12px;">
-		<div class="container">
-			<div class="navi-header pull-left" style="margin-top: 5px;">
-				<a class="navi-logo" href="<?php echo base_url(); ?>"> 
-				    <img src="<?php echo base_url(); ?>assets/images/logo.png" /> 
-				</a>
-				<span style="padding-left: 30px; font-size: 30px; color: #FFF;">Company</span>
-			</div>
-			<div class="pull-right">
-				<ul class="nav nav-pills nav-top">
-					<?php
-					if (!isset($pageNo)) {
-                            $pageNo = 0;
-                        }
-                        ?>
-
-					<?php if (!$this->session->userdata('company_id')) { ?>
-					<li><a href="<?php echo base_url()."business/company/signin"?>">Sign
-							in</a></li>
-					<li><a href="<?php echo base_url()."business/company/signup"?>">Register</a>
-					</li>
-					<?php } else { ?>
-					<li><a href="<?php echo base_url()."business/company/signout"?>">Sign
-							Out</a></li>
-					<?php } ?>
-				</ul>
-			</div>
-		</div>
-	</div>
-</header>
+<div class="clearfix"></div>

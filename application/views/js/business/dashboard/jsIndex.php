@@ -114,7 +114,7 @@ function validate() {
     var endDate = $("#endDate").val();
 
     if (startDate == '' || endDate == '' || endDate < startDate) {
-        bs_alert('Please select Start Date & End Date Correctly.');
+        bootbox.alert('Please select Start Date & End Date Correctly.');
         return false;
     }
     return true;

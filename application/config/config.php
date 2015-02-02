@@ -4,7 +4,8 @@ $im_root  = "http://".$_SERVER['HTTP_HOST'];
 $im_root .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 $config['base_url']	= $im_root;
 
-
+define('HTTP_PATH', $config['base_url'].'assets/');
+define('HTTP_METRONIC_PATH', $config['base_url'].'assets/metronic/');
 define('HTTP_CSS_PATH', $config['base_url'].'assets/css/');
 define('HTTP_IMAGES_PATH', $config['base_url'].'assets/images/');
 define('HTTP_JS_PATH', $config['base_url'].'assets/js/');
