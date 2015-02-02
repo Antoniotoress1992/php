@@ -32,8 +32,13 @@
     			        <div class="portlet box blue">
         			        <div class="portlet-title">
     							<div class="caption">
-    								<i class="fa fa-navicon"></i> Project Detail
+    								<i class="fa fa-pencil-square-o"></i> Project Detail
     							</div>
+    							<div class="actions">
+								    <a href="<?php echo base_url(); ?>business/project" class="btn btn-default btn-sm">
+								        <i class="fa fa-pencil-square-o"></i>&nbsp;List
+								    </a>								    
+							    </div>     							
     						</div>
     						<div class="portlet-body">
                                 <div class="form-horizontal" role="form">
