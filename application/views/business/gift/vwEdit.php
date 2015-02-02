@@ -76,7 +76,7 @@
             
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-offset-1 control-label"></label>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6 text-center">
                                             <button class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;Save</button>
                                             <a class="btn btn-success" href="<?php echo base_url();?>business/gift"><span class="glyphicon glyphicon-new-window"></span>&nbsp;Back</a>
                                         </div>                            
