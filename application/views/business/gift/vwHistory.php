@@ -32,7 +32,7 @@
     			        <div class="portlet box blue">
         			        <div class="portlet-title">
     							<div class="caption">
-    								<i class="fa fa-navicon"></i> Coupon Saled History
+    								<i class="fa fa-navicon"></i> Gift Saled History
     							</div>
     						</div>
     						<div class="portlet-body">

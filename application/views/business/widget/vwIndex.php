@@ -30,7 +30,7 @@
     			        <div class="portlet box blue">
         			        <div class="portlet-title">
     							<div class="caption">
-    								<i class="fa fa-pencil-square-o"></i> Project Detail
+    								<i class="fa fa-pencil-square-o"></i> Widget
     							</div>     							
     						</div>
     						<div class="portlet-body">

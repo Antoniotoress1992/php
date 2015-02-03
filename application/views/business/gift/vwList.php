@@ -32,7 +32,7 @@
     			        <div class="portlet box blue">
         			        <div class="portlet-title">
     							<div class="caption">
-    								<i class="fa fa-navicon"></i> Project List
+    								<i class="fa fa-navicon"></i> Gift List
     							</div>
     							<div class="actions">
 								    <a href="<?php echo base_url(); ?>business/gift/add" class="btn btn-default btn-sm">

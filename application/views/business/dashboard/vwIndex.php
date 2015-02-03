@@ -3,6 +3,7 @@
 <head>
     <?php $this->load->view('business/vwMeta'); ?>
     <?php $this->load->view('business/vwCss'); ?>
+    <link rel='stylesheet' href="<?php echo base_url();?>assets/css/datepicker.css" type='text/css' media='all'/>
 </head>
 <body class="page-header-fixed page-quick-sidebar-over-content">
     <?php $this->load->view('business/vwHeader'); ?>
@@ -12,18 +13,14 @@
     		<div class="page-content">
     			<div class="row">
     				<div class="col-md-12">
-    					<h3 class="page-title">iFrame Projects</h3>
+    					<h3 class="page-title">Dashboard</h3>
     					<ul class="page-breadcrumb breadcrumb">
     						<li>
     							<i class="fa fa-home"></i>
-    							<span>Project</span>
+    							<span>Dashboard</span>
     							<i class="fa fa-angle-right"></i>
     						</li>
-    						<li>
-    							<span>Detail</span>
-    						</li>
     					</ul>
-    					
     				</div>
     			</div>    		
     		
@@ -32,13 +29,8 @@
     			        <div class="portlet box blue">
         			        <div class="portlet-title">
     							<div class="caption">
-    								<i class="fa fa-pencil-square-o"></i> Project Detail
+    								<i class="fa fa-pencil-square-o"></i> Dashboard
     							</div>
-    							<div class="actions">
-								    <a href="<?php echo base_url(); ?>business/project" class="btn btn-default btn-sm">
-								        <i class="fa fa-pencil-square-o"></i>&nbsp;List
-								    </a>								    
-							    </div>     							
     						</div>
     						<div class="portlet-body">
                                 <form class="form-horizontal" method="post" action="<?php echo base_url();?>business/dashboard">
@@ -74,32 +66,67 @@
                                 <hr/>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="text-center alert alert-info">
-                                            <?php echo $amountCollect;?>
-                                            <div class="text-center margin-top-10">Total Money Collected</div>
-                                        </div>
-                                        
+                                        <div class="dashboard-stat blue">
+        									<div class="visual">
+        										<i class="fa fa-euro"></i>
+        									</div>
+        									<div class="details">
+        										<div class="number">
+        											 <?php echo $amountCollect;?>
+        										</div>
+        										<div class="desc">
+        											 Total Money Collected
+        										</div>
+        									</div>
+        								</div>
                                     </div>
                                     
                                     <div class="col-md-3">
-                                        <div class="text-center alert alert-info">
-                                            <?php echo $countUser;?>
-                                            <div class="text-center margin-top-10">Total User Collected</div>
-                                        </div>
+                                        <div class="dashboard-stat blue">
+        									<div class="visual">
+        										<i class="fa fa-group"></i>
+        									</div>
+        									<div class="details">
+        										<div class="number">
+        											 <?php echo $countUser;?>
+        										</div>
+        										<div class="desc">
+        											 Total User Collected
+        										</div>
+        									</div>
+        								</div>
                                     </div>
                                     
                                     <div class="col-md-3">
-                                        <div class="text-center alert alert-info">
-                                            <?php echo $countProject;?>
-                                            <div class="text-center margin-top-10">Total Project Collected</div>
-                                        </div>
+                                        <div class="dashboard-stat blue">
+        									<div class="visual">
+        										<i class="fa fa-bar-chart-o"></i>
+        									</div>
+        									<div class="details">
+        										<div class="number">
+        											 <?php echo $countProject;?>
+        										</div>
+        										<div class="desc">
+        											 <div class="text-center margin-top-10">Total Project Collected</div>
+        										</div>
+        									</div>
+        								</div>                                    
                                     </div>
                                                         
                                     <div class="col-md-3">
-                                        <div class="text-center alert alert-info">
-                                            <?php echo $countInvitor;?>
-                                            <div class="text-center margin-top-10">Total Invitations</div>
-                                        </div>
+                                        <div class="dashboard-stat blue">
+        									<div class="visual">
+        										<i class="fa fa-cloud"></i>
+        									</div>
+        									<div class="details">
+        										<div class="number">
+        											 <?php echo $countInvitor;?>
+        										</div>
+        										<div class="desc">
+        											 Total Invitations
+        										</div>
+        									</div>
+        								</div>                                    
                                     </div>
                                 </div>
                                 
