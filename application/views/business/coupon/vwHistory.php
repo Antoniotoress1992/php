@@ -61,9 +61,6 @@
                                             <td><?php echo $history->receiver_tel;?></td>
                                             <td><?php echo $history->creator_tel;?></td>
                                         </tr>
-                                        <?php }
-                                        if (count($histories) == 0) { ?>
-                                            <tr><td colspan="7">There is no coupon saled</td></tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -77,4 +74,54 @@
     <?php $this->load->view('business/vwFooter'); ?>
 </body>
 <?php $this->load->view('business/vwJs'); ?>
+
+<script>
+$(document).ready(function() {
+    // begin first table
+    $('#js-tbl-data').dataTable({
+        "columns": [{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        }, {
+            "orderable": false
+        }],
+        "lengthMenu": [
+            [5, 15, 20, -1],
+            [5, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 15,            
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "  _MENU_ records",
+            "paginate": {
+                "previous":"Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [{  // set default column settings
+            'orderable': false,
+            'targets': [0]
+        }, {
+            "searchable": false,
+            "targets": [0]
+        }],
+        "order": [
+            [0, "asc"]
+        ] // set first column as a default sort by asc
+    });
+});
+</script>
+
 </html>

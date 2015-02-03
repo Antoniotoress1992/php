@@ -67,9 +67,6 @@
                                                 </a>                                    
                                             </td>
                                         </tr>
-                                        <?php }
-                                        if (count($projects) == 0) { ?>
-                                            <tr><td colspan="8">There is no projects</td></tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -84,5 +81,56 @@
 </body>
 <?php $this->load->view('business/vwJs'); ?>
 
+
+<script>
+$(document).ready(function() {
+    // begin first table
+    $('#js-tbl-data').dataTable({
+        "columns": [{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        }, {
+            "orderable": false
+        }],
+        "lengthMenu": [
+            [5, 15, 20, -1],
+            [5, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 15,            
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "  _MENU_ records",
+            "paginate": {
+                "previous":"Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [{  // set default column settings
+            'orderable': false,
+            'targets': [0]
+        }, {
+            "searchable": false,
+            "targets": [0]
+        }],
+        "order": [
+            [0, "asc"]
+        ] // set first column as a default sort by asc
+    });
+});
+</script>
 
 </html>
