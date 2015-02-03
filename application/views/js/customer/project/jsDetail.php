@@ -10,7 +10,7 @@ $(document).ready(function() {
                     type : "POST",
                     data : { project_id : project_id },
                     success : function(data){
-                        bs_alert(data.msg);
+                        bootbox.alert(data.msg);
                     }
                 });
             }
@@ -39,7 +39,7 @@ $(document).ready(function() {
                     type : "POST",
                     data : { project_id : project_id, invitor : invitor },
                     success : function(data){
-                        bs_alert(data.msg);
+                        bootbox.alert(data.msg);
                     }
                 });
             }

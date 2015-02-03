@@ -38,7 +38,7 @@ $(document).ready(function() {
             type : "POST",
             data : { phone : phone, country_id : country_id },
             success : function(data){
-                bs_alert(data.msg);
+                bootbox.alert(data.msg);
             }
         });
     });
@@ -50,7 +50,7 @@ function validate() {
         var phone = $("input[name='phone']").val();
         var password = $("input[name='password']").val();
         if (phone == '' || password == '') {
-            bs_alert('Please enter correct Phone No and Password');
+            bootbox.alert('Please enter correct Phone No and Password');
             return false;
         }
     }
@@ -62,7 +62,7 @@ function validate() {
     var message = $("input[name='message']").val();
 
     if (name == '' || receiver == '' || expired_at == '' || amount == '') {
-        bs_alert('Please enter forms correctly');
+        bootbox.alert('Please enter forms correctly');
         return false;
     }
     return true;

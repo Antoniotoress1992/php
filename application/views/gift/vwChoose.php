@@ -73,25 +73,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="modal fade" id="msgAlert" tabindex="-1" role="dialog" aria-labelledby="msgAlertLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="msgAlertLabel"><?php echo SITE_NAME;?></h4>
-          </div>
-          <div class="modal-body">
-              <h4></h4>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-            
+    </div>            
 </body>
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -101,5 +83,6 @@
 <![endif]-->
 <script src="<?php echo HTTP_JS_PATH; ?>jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/bootstrap.js"?>"></script>
+<script src="<?php echo base_url()."assets/js/bootbox.js"?>"></script>
 <?php $this->load->view('js/gift/jsChoose'); ?>
 </html>

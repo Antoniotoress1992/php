@@ -1,10 +1,5 @@
 <script>
 
-function bs_alert(msg) {
-    $("#msgAlert").find("div.modal-body").html('<h4>' + msg + '</h4>');
-    $("#msgAlert").modal();
-}
-
 $(document).ready(function() {
     $("input#js-checkbox-item").click(function() {
         var objList = $("input#js-checkbox-item");
@@ -20,7 +15,7 @@ $(document).ready(function() {
 
     $("button#js-btn-buy").click(function() {
         if ($("#b-amount-avaiable").text() * 1 < 0) {
-            bs_alert("Selected total gift price is over than avaiable");
+            bootbox.alert("Selected total gift price is over than avaiable");
             return false;
         }
         var objList = $("input#js-checkbox-item");
@@ -33,7 +28,7 @@ $(document).ready(function() {
         if (strIds != "") {
             strIds = strIds.substring(0, strIds.length - 1);
         } else {
-            bs_alert("Please select gift");
+            bootbox.alert("Please select gift");
             return false;        
         }
         $("input[name='gift_ids']").val(strIds);

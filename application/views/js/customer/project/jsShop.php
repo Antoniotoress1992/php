@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 function onBtnBuy(type) {
     if ($("#js-left").val() * 1 < 0) {
-        bs_alert("Selected total gift price is over than avaiable");
+        bootbox.alert("Selected total gift price is over than avaiable");
         return false;
     }
     var objList = $("input#js-checkbox-item");
@@ -26,7 +26,7 @@ function onBtnBuy(type) {
     if (strIds != "") {
         strIds = strIds.substring(0, strIds.length - 1);
     } else {
-        bs_alert("Please select gift");
+        bootbox.alert("Please select gift");
         return false;        
     }
     $("input[name='gift_ids']").val(strIds);
