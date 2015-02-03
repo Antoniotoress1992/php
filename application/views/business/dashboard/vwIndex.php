@@ -107,7 +107,7 @@
         											 <?php echo $countProject;?>
         										</div>
         										<div class="desc">
-        											 <div class="text-center margin-top-10">Total Project Collected</div>
+        											 <div class="text-center margin-top-xs">Total Project Collected</div>
         										</div>
         									</div>
         								</div>                                    

@@ -43,7 +43,7 @@
                                 </div>                    
                                 
                                 <div class="row">
-                                    <form method="POST" action="<?php echo base_url();?>business/company/update" class="form-horizontal margin-top-30" role="form">
+                                    <form method="POST" action="<?php echo base_url();?>business/company/update" class="form-horizontal margin-top-normal" role="form">
                                         <?php
                                         $fields = [ 'name' => 'Name',
                                                     'password' => 'Password',

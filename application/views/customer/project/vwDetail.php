@@ -19,7 +19,7 @@
                 <div class="col-sm-9 text-center">        
                     <div class="row text-center">
                         <h2 class="color-white">Project Detail</h2>
-                        <div class="margin-top-20"></div>
+                        <div class="margin-top-sm"></div>
                     </div>
                     <div class="row">
                         <div class="form-horizontal form-horizontal-custom" role="form">

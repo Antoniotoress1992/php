@@ -3,7 +3,7 @@
 	<div class="page-header-inner">
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
-			<a href="/admin/dashboard">
+			<a href="/">
 			    <img src="<?php echo base_url(); ?>assets/images/logo.png" alt="logo" class="logo-default" style="height: 32px; margin-top: 10px;"/>
 			</a>
 		</div>
@@ -16,14 +16,21 @@
 		<div class="top-menu">
 			<ul class="nav navbar-nav pull-right">
 			    <?php if (!$this->session->userdata('company_id')) { ?>
+			    
+				<li class="dropdown dropdown-quick-sidebar-toggler">
+					<a href="/" class="dropdown-toggle">
+				        <i class="icon-home"></i> Home
+					</a>
+				</li>			    
+			    
 				<li class="dropdown dropdown-quick-sidebar-toggler">
 					<a href="<?php echo base_url()."business/company/signin"?>" class="dropdown-toggle">
-				        Sign In
+				        <i class="fa fa-sign-in"></i> Sign In
 					</a>
 				</li>
 				<li class="dropdown dropdown-quick-sidebar-toggler">
 					<a href="<?php echo base_url()."business/company/signup"?>" class="dropdown-toggle">
-				        Register
+				        <i class="fa fa-pencil-square-o"></i> Register
 					</a>
 				</li>
 				<?php } else { ?>

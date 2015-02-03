@@ -7,14 +7,14 @@
 <body>
     <?php $this->load->view('backend/vwHeader'); ?>
     <div class="container">       
-        <div class="row margin-top-30">
+        <div class="row margin-top-normal">
         </div>
         
         <div class="row text-center">
             <h2>Sign In For Backend</h2>
         </div>
         
-        <div class="row margin-top-10">
+        <div class="row margin-top-xs">
             <div class="col-sm-6 col-sm-offset-3 text-center">
                 <?php if (isset($alert)) {?>
                     <div class="alert alert-<?php echo $alert['type']?>" role="alert">
@@ -44,7 +44,7 @@
             </div>
             
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">                    
+                <div class="col-sm-6 col-sm-offset-3 text-right margin-top-lg">                    
                     <button class="btn btn-lg btn-danger text-uppercase margin-right-30">Sign In <span class="glyphicon glyphicon-ok-circle"></span></button>
                 </div>
             </div>

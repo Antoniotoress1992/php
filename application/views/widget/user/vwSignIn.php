@@ -7,7 +7,7 @@
 <body>
     <?php $this->load->view('widget/vwHeader'); ?>
     <div class="container">
-        <div class="row margin-top-10">
+        <div class="row margin-top-xs">
             <div class="col-sm-6 col-sm-offset-3 text-center">
                 <?php if (isset($msg) && $msg != '') {?>
                     <div class="alert alert-info" role="alert">
@@ -38,7 +38,7 @@
             </div>
             
             <div class="row" style="margin-bottom: 20px;">
-                <div class="col-sm-6 col-sm-offset-3 text-right margin-top-50">
+                <div class="col-sm-6 col-sm-offset-3 text-right margin-top-lg">
                     <p> New Customer? Go to the
                         <a href="<?php echo base_url()."customer/user/signup"?>" target="_blank">Sign Up</a> Page
                     </p>

@@ -53,7 +53,7 @@
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $amountCollect;?>
-                                <div class="text-center margin-top-10">Total Money Collected</div>
+                                <div class="text-center margin-top-xs">Total Money Collected</div>
                             </div>
                             
                         </div>
@@ -61,21 +61,21 @@
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $countUser;?>
-                                <div class="text-center margin-top-10">Total User Collected</div>
+                                <div class="text-center margin-top-xs">Total User Collected</div>
                             </div>
                         </div>
                         
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $countProject;?>
-                                <div class="text-center margin-top-10">Total Project Collected</div>
+                                <div class="text-center margin-top-xs">Total Project Collected</div>
                             </div>
                         </div>
                                             
                         <div class="col-md-3">
                             <div class="text-center alert alert-info">
                                 <?php echo $countInvitor;?>
-                                <div class="text-center margin-top-10">Total Invitations</div>
+                                <div class="text-center margin-top-xs">Total Invitations</div>
                             </div>
                         </div>
                     </div>

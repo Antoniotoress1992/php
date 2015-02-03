@@ -20,7 +20,7 @@
                     <div class="row text-center">
                         <h2 class="color-white">Project List</h2>
                     </div>
-                    <div class="row text-right margin-bottom-10">
+                    <div class="row text-right margin-bottom-xs">
                         <div class="btn-group">
                             <a href="<?php echo base_url()."customer/project/lists";?>" class="btn-project-type btn <?php echo ($type == 'all') ? 'btn-primary' : 'btn-default';?>">All</a>
                             <a href="<?php echo base_url()."customer/project/lists/now";?>" class="btn-project-type btn <?php echo ($type == 'now') ? 'btn-primary' : 'btn-default';?>">Now</a>

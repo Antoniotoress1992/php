@@ -1,4 +1,4 @@
-<div style="background: #2b2b2b;" class="padding-top-50">
+<div style="background: #2b2b2b;" class="padding-top-lg">
 <div class="container footerMenu">
     <div class="row color-white">
         <div class="col-sm-3">
@@ -34,7 +34,7 @@
             
         </div>                                    
     </div>
-    <div class="row color-white text-center padding-top-30 margin-bottom-10">
+    <div class="row color-white text-center padding-top-normal margin-bottom-xs">
         &copy; KickGifter, Inc.
     </div>
 </div>

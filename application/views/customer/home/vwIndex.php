@@ -9,7 +9,7 @@
     <?php $this->load->view('customer/vwHeader'); ?>
     <main class="bg-main1">
         <div class="container">
-            <div class="col-sm-10 col-sm-offset-1 color-white margin-top-50 margin-bottom-50 text-center">
+            <div class="col-sm-10 col-sm-offset-1 color-white margin-top-lg margin-bottom-lg text-center">
                 <h2><b>Send someone special an amount, let them choose a gift
                 and deliver it straight to them with a personalised card</b></h2>
                 
@@ -65,13 +65,13 @@
                             <div id="js-div-name">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Project Name:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="name" value="<?php echo isset($post) ? $post['name'] :'';?>"></div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>
                             
                             <div id="js-div-receiver" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Receiver Phone No:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="receiver" value="<?php echo isset($post) ? $post['receiver'] :'';?>"></div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>
                             
                             <div id="js-div-country" class="<?php echo isset($post) ? '' : 'unshow'?>">
@@ -83,25 +83,25 @@
                                     <?php }?>
                                     </select>
                                 </div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>
                             
                             <div id="js-div-expired" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Expired At:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control readonly" name="expired_at" id="expired_at" readonly value="<?php echo isset($post) ? $post['expired_at'] :'';?>"></div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>                                                    
                             
                             <div id="js-div-amount" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Amount to collect:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="amount" value="<?php echo isset($post) ? $post['amount'] :'';?>"></div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>
                             
                             <div id="js-div-friends" class="<?php echo isset($post) ? '' : 'unshow'?>">
                                 <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors" value="<?php echo isset($post) ? $post['invitors'] :'';?>"></div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>
 
                             <div id="js-div-message" class="<?php echo isset($post) ? '' : 'unshow'?>">
@@ -109,7 +109,7 @@
                                 <div class="pull-left margin-left-15" style="width: 75%;">
                                     <textarea class="form-control" rows="3" name="message"><?php echo isset($post) ? $post['message'] :'';?></textarea>
                                 </div>
-                                <div class="clearfix margin-bottom-10"></div>                                                                                                
+                                <div class="clearfix margin-bottom-xs"></div>                                                                                                
                             </div>
                             
                             <div id="js-div-login" class="<?php echo (isset($post) && !$this->session->userdata('user_id'))? '' : 'unshow'?>">
@@ -121,7 +121,7 @@
                                 <div class="pull-left margin-left-15" style="width: 39%;">
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                 </div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                                 <div class="pull-right">
                                     <p class="font-size-12 color-black">
                                         If you are new here or forgot password, <a id="js-a-click-here" style="cursor: pointer;">click here</a> to get the password
@@ -130,7 +130,7 @@
                                         Login info is incorrect
                                     </div>
                                 </div>
-                                <div class="clearfix margin-bottom-10"></div>
+                                <div class="clearfix margin-bottom-xs"></div>
                             </div>                            
                             
                             <div id="js-div-button" class="<?php echo isset($post) ? '' : 'unshow'?>">
@@ -149,16 +149,16 @@
                 <h2><b>We've got you covered, your recipient will have the option to select from many awesome gifts</b></h2>
             </div>
         </div>
-        <div class="margin-top-10">&nbsp;</div>
+        <div class="margin-top-xs">&nbsp;</div>
     </div>
     
     <main class="bg-main2">
         <div class="container">
-            <div class="row padding-top-50">
+            <div class="row padding-top-lg">
                 <div class="col-sm-2 col-sm-offset-1">
                     <div class="text-center step-front-item">
                         <img src="<?php echo base_url()."assets/images/icon_blue_01.png";?>" class="step-front-item-img">
-                        <div class="text-center margin-top-10 color-gray-dark"><b>Kick-off</b></div>
+                        <div class="text-center margin-top-xs color-gray-dark"><b>Kick-off</b></div>
                         <div class="step-front-item-no">
                             1
                         </div>
@@ -168,7 +168,7 @@
                 <div class="col-sm-2">
                     <div class="text-center step-front-item">
                         <img src="<?php echo base_url()."assets/images/icon_blue_02.png";?>" class="step-front-item-img">
-                        <div class="text-center margin-top-10 color-gray-dark"><b>Invite friends</b></div>
+                        <div class="text-center margin-top-xs color-gray-dark"><b>Invite friends</b></div>
                         <div class="step-front-item-no">
                             2
                         </div>
@@ -178,7 +178,7 @@
                 <div class="col-sm-2">
                     <div class="text-center step-front-item">
                         <img src="<?php echo base_url()."assets/images/icon_blue_03.png";?>" class="step-front-item-img">
-                        <div class="text-center margin-top-10 color-gray-dark"><b>Money collected</b></div>
+                        <div class="text-center margin-top-xs color-gray-dark"><b>Money collected</b></div>
                         <div class="step-front-item-no">
                             3
                         </div>
@@ -188,7 +188,7 @@
                 <div class="col-sm-2">
                     <div class="text-center step-front-item">
                         <img src="<?php echo base_url()."assets/images/icon_blue_04.png";?>" class="step-front-item-img">
-                        <div class="text-center margin-top-10 color-gray-dark"><b>Spend money</b></div>
+                        <div class="text-center margin-top-xs color-gray-dark"><b>Spend money</b></div>
                         <div class="step-front-item-no">
                             4
                         </div>
@@ -198,7 +198,7 @@
                 <div class="col-sm-2">
                     <div class="text-center step-front-item">
                         <img src="<?php echo base_url()."assets/images/icon_blue_05.png";?>" class="step-front-item-img">
-                        <div class="text-center margin-top-10 color-gray-dark"><b>Give the love</b></div>
+                        <div class="text-center margin-top-xs color-gray-dark"><b>Give the love</b></div>
                         <div class="step-front-item-no">
                             5
                         </div>
@@ -207,7 +207,7 @@
                                 
             </div>
         </div>
-        <div class="margin-top-50"></div>
+        <div class="margin-top-lg"></div>
         <div style="background: rgba(255, 255, 255, 0.8);">
             <div class="container">
                 <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
@@ -254,7 +254,7 @@
         </div>
         
         <div class="container">
-            <div class="row padding-top-50 padding-bottom-50 text-center color-white">
+            <div class="row padding-top-lg padding-bottom-lg text-center color-white">
                 <h2>CHOOSE TO SPEND THE MONEY ON YOUR OWN WAYS!</h2>
             </div>
             <div class="row">
@@ -262,13 +262,13 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="working-item" style="border-top: 5px solid #9b59b6;">
-                                <div class="padding-top-30 text-center color-gray-light">
+                                <div class="padding-top-normal text-center color-gray-light">
                                     <h4>
                                         Choose a gift from<br/>
                                         our selections
                                     </h4>
                                 </div>
-                                <div class="padding-top-30 padding-bottom-30 text-center">
+                                <div class="padding-top-normal padding-bottom-normal text-center">
                                     <img src="<?php echo base_url()."assets/images/icon_01.png";?>" style="width: 50%;"/>
                                 </div>
                             </div>
@@ -276,13 +276,13 @@
 
                         <div class="col-sm-4">
                             <div class="working-item" style="border-top: 5px solid #fea621;">
-                                <div class="padding-top-30 text-center color-gray-light">
+                                <div class="padding-top-normal text-center color-gray-light">
                                     <h4>
                                         Let the recipient choose<br/>
                                         the gift they want
                                     </h4>
                                 </div>
-                                <div class="padding-top-30 padding-bottom-30 text-center">
+                                <div class="padding-top-normal padding-bottom-normal text-center">
                                     <img src="<?php echo base_url()."assets/images/icon_02.png";?>" style="width: 50%;"/>
                                 </div>
                             </div>
@@ -290,12 +290,12 @@
                         
                         <div class="col-sm-4">
                             <div class="working-item" style="border-top: 5px solid #2ecc71;">
-                                <div class="padding-top-30 text-center color-gray-light">
+                                <div class="padding-top-normal text-center color-gray-light">
                                     <h4>
                                         Withdraw the money<br/><br/>
                                     </h4>
                                 </div>
-                                <div class="padding-top-30 padding-bottom-30 text-center">
+                                <div class="padding-top-normal padding-bottom-normal text-center">
                                     <img src="<?php echo base_url()."assets/images/icon_03.png";?>" style="width: 50%;"/>
                                 </div>
                             </div>
@@ -303,8 +303,8 @@
                     </div>
                 </div>
             </div>
-            <div class="margin-top-50"></div>
-            <div class="margin-top-50"></div>                    
+            <div class="margin-top-lg"></div>
+            <div class="margin-top-lg"></div>                    
         </div>
 
     </main>

@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                 
-                                <form method="POST" action="<?php echo base_url();?>business/gift/save" class="form-horizontal margin-top-30" role="form" enctype='multipart/form-data'>
+                                <form method="POST" action="<?php echo base_url();?>business/gift/save" class="form-horizontal margin-top-normal" role="form" enctype='multipart/form-data'>
                                     <input type="hidden" name="id" value="<?php echo $gift->id?>"/>
                                     
                                     <?php

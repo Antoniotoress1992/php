@@ -44,7 +44,7 @@
                                 </div>                    
                     
                                 <div class="row">
-                                    <form method="POST" action="<?php echo base_url();?>business/widget/update" class="form-horizontal margin-top-30" role="form" enctype='multipart/form-data'>
+                                    <form method="POST" action="<?php echo base_url();?>business/widget/update" class="form-horizontal margin-top-normal" role="form" enctype='multipart/form-data'>
                                         <?php
                                         $fields = [ 'w_name' => 'Company Name',
                                                     'w_logo' => 'Logo',

@@ -2,11 +2,11 @@
     <div class="container footerMenu">
         <div class="row">
         
-            <div class="col-sm-4 color-white footer-kg-link padding-bottom-10">
+            <div class="col-sm-4 color-white footer-kg-link padding-bottom-xs">
                 Visit <a href="<?php echo base_url();?>" target="_blank" style="">Kickgifter</a>
             </div>
             
-            <div class="col-sm-4 color-white social-icon text-center padding-bottom-10">
+            <div class="col-sm-4 color-white social-icon text-center padding-bottom-xs">
                 <ul class="clearfix">
                     <li>
                         <a href="#">
@@ -31,7 +31,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-4 color-white text-center padding-bottom-10">
+            <div class="col-sm-4 color-white text-center padding-bottom-xs">
                 &copy; Copyright by Kickgifter 2015  
             </div>
         </div>

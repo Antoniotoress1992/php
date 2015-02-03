@@ -18,7 +18,7 @@
                 
                     <h2>User Detail</h2>
                     
-                    <form method="POST" action="<?php echo base_url();?>backend/user/save" class="form-horizontal margin-top-30" role="form">
+                    <form method="POST" action="<?php echo base_url();?>backend/user/save" class="form-horizontal margin-top-normal" role="form">
                         <input type="hidden" name="id" value="<?php echo $user->id?>"/>
                         <?php
                         $fields = [ 'phone' => 'Phone',

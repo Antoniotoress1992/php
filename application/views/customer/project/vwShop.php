@@ -18,7 +18,7 @@
                 <div class="col-sm-9 text-center">
                     <div class="row text-center">
                         <h2 class="color-white">Shopping</h2>
-                        <div class="margin-top-20"></div>
+                        <div class="margin-top-sm"></div>
                     </div>
                     <form method="post" action="<?php echo base_url()."customer/project/submit_gift";?>" class="form-horizontal" role="form">
                         <input type="hidden" name="project_id" value="<?php echo $project_id;?>"/>

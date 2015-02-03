@@ -39,7 +39,8 @@
                 ?>
                 <li <?php echo ($pageNo == 1) ? "class='active'" : "";?>><a href="<?php echo base_url(); ?>page/how_it_works">How it works?</a></li>
                 <?php if (!$this->session->userdata('user_id')) { ?>
-                <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign in</a></li>
+                <li><a href="<?php echo base_url()."business/company/signin"?>">Business Login</a></li>
+                <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign In</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signup"?>">Register</a></li>
                 <?php } else { ?>
                 <li <?php echo ($pageNo == 2 || $pageNo == 3 || $pageNo == 4) ? "class='active'" : "";?>><a href="<?php echo base_url()."customer/dashboard"?>">Dashboards</a></li>

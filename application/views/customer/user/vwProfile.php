@@ -18,7 +18,7 @@
                 <div class="col-sm-9 text-center">
                     <div class="row">
                         <h2 class="color-white">My Profile</h2>
-                        <div class="margin-top-20"></div>
+                        <div class="margin-top-sm"></div>
                     </div>
                     <div class="row">
                         <form class="form-horizontal" role="form" method="post" action="<?php echo base_url()."customer/user/save";?>">
