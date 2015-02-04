@@ -15,10 +15,13 @@
                         <?php $this->load->view('customer/vwLeftMenu'); ?>                
                     </div>
                 </div>
-                <div class="col-sm-9 text-center">
+                <div class="col-sm-9 text-center border-blue">
                     <div class="row text-center">
-                        <h2 class="color-white">Shopping</h2>
+                        <h2>Shopping</h2>
                         <div class="margin-top-sm"></div>
+                    </div>
+                    <div class="row">
+                        <hr/>
                     </div>
                     <form method="post" action="<?php echo base_url()."customer/project/submit_gift";?>" class="form-horizontal" role="form">
                         <input type="hidden" name="project_id" value="<?php echo $project_id;?>"/>

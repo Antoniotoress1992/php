@@ -15,10 +15,13 @@
                         <?php $this->load->view('customer/vwLeftMenu'); ?>                
                     </div>                
                 </div>
-                <div class="col-sm-9 text-center">
+                <div class="col-sm-9 text-center border-blue">
                     <div class="row">
-                        <h2 class="color-white">My Profile</h2>
+                        <h2>My Profile</h2>
                         <div class="margin-top-sm"></div>
+                    </div>
+                    <div class="row">
+                        <hr/>
                     </div>
                     <div class="row">
                         <form class="form-horizontal" role="form" method="post" action="<?php echo base_url()."customer/user/save";?>">

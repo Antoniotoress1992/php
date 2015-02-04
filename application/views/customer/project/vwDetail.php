@@ -16,10 +16,13 @@
                         <?php $this->load->view('customer/vwLeftMenu'); ?>                
                     </div>                
                 </div>
-                <div class="col-sm-9 text-center">        
+                <div class="col-sm-9 text-center border-blue">        
                     <div class="row text-center">
-                        <h2 class="color-white">Project Detail</h2>
+                        <h2>Project Detail</h2>
                         <div class="margin-top-sm"></div>
+                    </div>
+                    <div class="row">
+                        <hr/>
                     </div>
                     <div class="row">
                         <div class="form-horizontal form-horizontal-custom" role="form">

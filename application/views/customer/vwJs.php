@@ -4,7 +4,10 @@
     <script src="<?php echo HTTP_JS_PATH; ?>respond.min.js"></script>
 <![endif]-->
 <script src="<?php echo HTTP_JS_PATH; ?>jquery-1.11.1.min.js"></script>
+
 <script type="text/javascript" src="<?php echo base_url()."assets/js/bootstrap.js"?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/dropdown.js"?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/modal.js"?>"></script>
 <script src="<?php echo base_url()."assets/js/bootbox.js"?>"></script>
+<script type="text/javascript" src="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>

@@ -16,9 +16,13 @@
                         <?php $this->load->view('customer/vwLeftMenu'); ?>                
                     </div>                
                 </div>
-                <div class="col-sm-9 text-center">
+                <div class="col-sm-9 text-center border-blue">
                     <div class="row text-center">
-                        <h2 class="color-white">Project List</h2>
+                        <h2>Project List</h2>
+                        <div class="margin-top-sm"></div>
+                    </div>
+                    <div class="row">
+                        <hr/>
                     </div>
                     <div class="row text-right margin-bottom-xs">
                         <div class="btn-group">
@@ -28,7 +32,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <table class="table table-striped table-project-list table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="js-tbl-data">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -39,7 +43,6 @@
                                     <th>Collected</th>
                                     <th>Inviters</th>
                                     <th>Expired At</th>
-                                    <th>Created At</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -56,7 +59,6 @@
                                     <td><?php echo $project->crowded_amount;?></td>
                                     <td><?php echo $project->cnt_invitors;?></td>
                                     <td><?php echo $project->expired_at;?></td>
-                                    <td><?php echo $project->created_at;?></td>
                                     <td>
                                         <a class="btn btn-info btn-sm" href="<?php echo base_url()."customer/project/detail/".$project->id;?>">
                                             <span class="glyphicon glyphicon-share"></span> Detail
@@ -76,4 +78,58 @@
 <?php $this->load->view('customer/vwJs'); ?>
 <script src="<?php echo base_url()."assets/js/bootstrap-datepicker.js"?>"></script>
 <?php $this->load->view('js/customer/home/jsIndex'); ?>
+
+<script>
+$(document).ready(function() {
+    // begin first table
+    $('#js-tbl-data').dataTable({
+        "columns": [{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        },{
+            "orderable": true
+        }, {
+            "orderable": false
+        }],
+        "lengthMenu": [
+            [5, 15, 20, -1],
+            [5, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 15,            
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "  _MENU_ records",
+            "paginate": {
+                "previous":"Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [{  // set default column settings
+            'orderable': false,
+            'targets': [0]
+        }, {
+            "searchable": false,
+            "targets": [0]
+        }],
+        "order": [
+            [0, "asc"]
+        ] // set first column as a default sort by asc
+    });
+});
+</script>
+
 </html>
