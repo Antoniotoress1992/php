@@ -258,37 +258,7 @@
                                             <?php } ?>
                                         </tbody>
                                     </table>
-                                </div>
-                                <!-- div class="col-sm-8">
-                                    <h4 class="text-left">Payers (<?php echo count($payers);?> People)</h4>
-                                    <table class="table table-mobile">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Phone</th>
-                                                <th>Amount</th>
-                                                <th>Paid At</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $i = 1; 
-                                            foreach ($payers as $payer) {?>
-                                            <tr>
-                                                <td><?php echo $i++;?></td>
-                                                <td><?php echo $payer->tel;?></td>
-                                                <td><?php echo $payer->amount;?></td>
-                                                <td><?php echo $payer->created_at;?></td>
-                                            </tr>
-                                            <?php }
-                                            if (count($payers) == 0) { ?>
-                                            <tr>
-                                                <td colspan="4" class="text-center">There is no payers</td>
-                                            </tr>                                        
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>                                
-                                </div -->                            
+                                </div>                        
                             </div>
                         </div>
                     </div>

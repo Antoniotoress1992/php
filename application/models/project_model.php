@@ -136,7 +136,15 @@ class Project_model extends CI_Model {
 	}
 	
 	public function payers($id) {
-        return array();
+	    $sql = "SELECT invitor_tel as tel, amount, created_at
+	              FROM bg_transactions
+	             WHERE project_id = ?";
+	    $result = $this->db->query($sql, $id)->result();
+	    if ($result) {
+	        return $result;
+	    } else {
+	        return array();
+	    }
 	}
 
 	public function amount_status($id) {

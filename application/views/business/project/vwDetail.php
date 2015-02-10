@@ -185,15 +185,19 @@
                                         </div>
                                     </div>                                                    
                                     <hr/>
+                                    
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <h3>Inviters (<?php echo count($invitors);?> People)</h3>
-                                            
-                                            <table class="table table-striped table-bordered table-hover" id="js-tbl-data">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <h4 class="text-left pull-left">Inviters (<?php echo count($invitors);?> Invited, <?php echo count($payers);?> Paid)</h4>
+                                            <table class="table table-mobile">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Phone</th>
+                                                        <th>Name</th>
+                                                        <th>Amount</th>
+                                                        <th>Paid At</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -203,47 +207,26 @@
                                                     <tr>
                                                         <td><?php echo $i++;?></td>
                                                         <td><?php echo $invitor->invitor_tel;?></td>
+                                                        <td><?php echo $invitor->name;?></td>
+                                                        <td><?php echo $invitor->amount;?></td>
+                                                        <td><?php echo $invitor->created_at;?></td>
+                                                        <td>
+                                                            <?php if ($invitor->amount == '') {?>
+                                                            <button class="btn btn-default btn-sm" id="js-btn-resend" data-invitor-tel="<?php echo $invitor->invitor_tel;?>">Resend</button>
+                                                            <?php }?>
+                                                        </td>
                                                     </tr>
                                                     <?php }
                                                     if (count($invitors) == 0) { ?>
                                                     <tr>
-                                                        <td colspan="2" class="text-center">There is no inviters</td>
+                                                        <td colspan="5" class="text-center">There is no inviters</td>
                                                     </tr>                                        
                                                     <?php } ?>
                                                 </tbody>
                                             </table>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <h3>Payers (<?php echo count($payers);?> People)</h3>
-                                            <table class="table table-striped table-bordered table-hover" id="js-tbl-data">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Phone</th>
-                                                        <th>Amount</th>
-                                                        <th>Payed At</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    $i = 1; 
-                                                    foreach ($payers as $payer) {?>
-                                                    <tr>
-                                                        <td><?php echo $i++;?></td>
-                                                        <td><?php echo $payer->tel;?></td>
-                                                        <td><?php echo $payer->amount;?></td>
-                                                        <td><?php echo $payer->created_at;?></td>
-                                                    </tr>
-                                                    <?php }
-                                                    if (count($payers) == 0) { ?>
-                                                    <tr>
-                                                        <td colspan="4" class="text-center">There is no payers</td>
-                                                    </tr>                                        
-                                                    <?php } ?>
-                                                </tbody>
-                                            </table>                                
-                                        </div>                            
+                                        </div>                        
                                     </div>
+                                                                
                                 </div>
                             </div>
                         </div>
