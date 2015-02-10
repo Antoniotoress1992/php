@@ -31,4 +31,35 @@ class Contact_model extends CI_Model {
 	        }
 	    }	    	    
 	}
+	
+	public function edit($id) {
+	    $sql = "SELECT *
+	              FROM bg_contacts
+	             WHERE id = ?";
+	    $result = $this->db->query($sql, $id)->result();
+	    return $result[0];
+	}	
+	
+	public function delete($id) {
+	    $sql = "DELETE
+	              FROM bg_contacts
+	             WHERE id = ?";
+	    $this->db->query($sql, $id);
+	}
+	
+	public function save($user_id, $contact_id, $name, $phone) {
+	    $this->load->model('common_model');
+
+        if ($contact_id != '') {
+            $sql = "UPDATE bg_contacts
+                       SET name = ?
+                         , phone = ?   
+                     WHERE id = ?";
+            $this->db->query($sql, array($name, $phone, $contact_id));
+        } else {
+            $sql = "INSERT INTO bg_contacts(user_id, name, phone, created_at, updated_at)
+                     VALUE (?, ?, ?, NOW(), NOW())";
+            $this->db->query($sql, array($user_id, $name, $phone));
+        }
+	}	
 }
