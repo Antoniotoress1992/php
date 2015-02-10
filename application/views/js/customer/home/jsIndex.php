@@ -2,6 +2,36 @@
 $(document).ready(function() {
     $('#expired_at').datepicker({format: 'yyyy-mm-dd'});
 
+    $("button#js-btn-invite-friends").click(function() {
+        $("div#js-dlg-contacts").modal();
+        $("input[name='invitors']").keyup();
+    });
+
+    $("button#js-btn-friend").click(function() {
+        if ($(this).hasClass("btn-default")) {
+            $(this).removeClass("btn-default");
+            $(this).addClass("btn-info");
+        } else {
+            $(this).addClass("btn-default");
+            $(this).removeClass("btn-info");
+        }
+    });
+
+    $("button#js-btn-submit-add-more").click(function() {
+        var objFriends = $("button#js-btn-friend.btn-info");
+        var strPhone = $("input[name='invitors']").val();
+        for (var i = 0; i < objFriends.length; i++) {
+            if (strPhone == '' && i == 0) {
+                
+            } else {
+                strPhone += ",";
+            }
+            strPhone += objFriends.eq(i).attr('data-phone');
+        }
+        $("input[name='invitors']").val(strPhone);
+        $("div#js-dlg-contacts").modal('hide');
+    });    
+
     $("input[name='name']").keyup(function() {
         $("#js-div-receiver").fadeIn();
     });

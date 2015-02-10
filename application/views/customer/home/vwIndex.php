@@ -99,7 +99,12 @@
                             </div>
                             
                             <div id="js-div-friends" class="<?php echo isset($post) ? '' : 'unshow'?>">
-                                <div class="pull-left line-height-30" style="width: 35%;"><b>Invite Friends:</b></div>
+                                <div class="pull-left line-height-30" style="width: 35%;">
+                                    <b>Invite Friends:</b>
+                                    <?php if ($this->session->userdata('user_id')) {?>
+                                    <button type="button" class="btn btn-info btn-sm pull-right" id="js-btn-invite-friends" style="margin-right: 10px;"><span class="glyphicon glyphicon-phone"></span></button>
+                                    <?php } ?>
+                                </div>
                                 <div class="pull-left margin-left-15" style="width: 60%;"><input type="text" class="form-control" name="invitors" value="<?php echo isset($post) ? $post['invitors'] :'';?>"></div>
                                 <div class="clearfix margin-bottom-xs"></div>
                             </div>
@@ -308,6 +313,28 @@
         </div>
 
     </main>
+    
+    <div class="modal fade" id="js-dlg-contacts">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><?php echo SITE_NAME;?></h4>
+                </div>
+                <div class="modal-body">
+                    <p>Select your friends.</p>
+                    <?php foreach ($contacts as $contact) {?>
+                        <button class="btn btn-default btn-sm" id="js-btn-friend" data-phone="<?php echo $contact->phone;?>"><?php echo $contact->name."(".$contact->phone.")";?></button>
+                    <?php } ?>                        
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="js-btn-submit-add-more">Ok</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
     <?php $this->load->view('customer/vwFooter'); ?>
 </body>
 <?php $this->load->view('customer/vwJs'); ?>

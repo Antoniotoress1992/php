@@ -4,6 +4,12 @@ class Contact_model extends CI_Model {
 		parent::__construct();
 	}
 	
+	public function all($user_id) {
+	    $sql = "SELECT *
+	              FROM bg_contacts
+	             WHERE user_id = ?";
+	    return $this->db->query($sql, $user_id)->result();
+	}
 	
 	public function upload($user_id, $contacts) {
 	    $this->load->model('common_model');

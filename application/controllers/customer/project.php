@@ -70,11 +70,13 @@ class Project extends CI_Controller {
         }
                 
         $this->load->model('project_model');
+        $this->load->model('contact_model');
 
         $param['project'] = $this->project_model->detail($id);
         $param['invitors'] = $this->project_model->invitors($id);
         $param['payers'] = $this->project_model->payers($id);
         $param['amount_status'] = $this->project_model->amount_status($id);
+        $param['contacts'] = $this->contact_model->all($param['project']->user_id);
         $param['pageNo'] = 2;
         
         if($alert = $this->session->flashdata('alert')) {

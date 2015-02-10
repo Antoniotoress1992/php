@@ -271,6 +271,31 @@
             <input type="hidden" name="project_id" value="<?php echo $project->id;?>">
             <input type="hidden" name="invitors" value=""/>
         </form>
+        
+        <div class="modal fade" id="js-dlg-contacts">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><?php echo SITE_NAME;?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Select your friends or enter Phone Number by separating comma.</p>
+                        <hr/>                        
+                        <textarea class="form-control" id="js-textarea-phone"></textarea>
+                        <hr/>
+                        <?php foreach ($contacts as $contact) {?>
+                            <button class="btn btn-default btn-sm" id="js-btn-friend" data-phone="<?php echo $contact->phone;?>"><?php echo $contact->name."(".$contact->phone.")";?></button>
+                        <?php } ?>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="js-btn-submit-add-more">Ok</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->        
+        
     <?php $this->load->view('customer/vwFooter'); ?>
 </body>
 <?php $this->load->view('customer/vwJs'); ?>

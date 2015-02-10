@@ -20,21 +20,18 @@ class Project_model extends CI_Model {
 	    $this->load->model('common_model');
 	    $this->load->model('country_model');
         for ($i = 0; $i < count($arrInvitor); $i++) {
-            $invitor_tel = str_replace(' ', '', $arrInvitor[$i]);
-            if (substr($invitor_tel, 0, 1) == '0') {
-                $invitor_tel = substr($invitor_tel, 1);
-            }
+            $invitor_tel = $this->common_model->phoneNo($arrInvitor[$i]);
             
             if ($invitor_tel != '') {
                 $sql = "INSERT INTO bg_invitors(project_id, invitor_tel, created_at, updated_at)
-                     VALUE (?, ?, NOW(), NOW())";
-                $this->db->query($sql, array($id, $invitor_tel));                
+                         VALUE (?, ?, NOW(), NOW())";
+                $this->db->query($sql, array($id, $invitor_tel));
+
+                $project = $this->detail($id);
+                $country = $this->country_model->detail($project->country_id);
+                
+                $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, $project->message.". "."http://".HOST_SERVER."/payment/i/".$project->token);                
             }
-            
-            $project = $this->detail($id);
-            $country = $this->country_model->detail($project->country_id);
-            
-            $this->common_model->sendSMS($project->name, $country->prefix.$invitor_tel, $project->message.". "."http://".HOST_SERVER."/payment/i/".$project->token);
             
         }
         return ['result' => 'success', 'msg' => '', ]; 
