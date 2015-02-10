@@ -230,6 +230,7 @@
                                                 <th>Phone</th>
                                                 <th>Name</th>
                                                 <th>Amount</th>
+                                                <th>Invited At</th>
                                                 <th>Paid At</th>
                                                 <th></th>
                                             </tr>
@@ -243,7 +244,8 @@
                                                 <td><?php echo $invitor->invitor_tel;?></td>
                                                 <td><?php echo $invitor->name;?></td>
                                                 <td><?php echo $invitor->amount;?></td>
-                                                <td><?php echo $invitor->created_at;?></td>
+                                                <td><?php echo $invitor->invited_at;?></td>
+                                                <td><?php echo $invitor->paid_at;?></td>
                                                 <td>
                                                     <?php if ($invitor->amount == '') {?>
                                                     <button class="btn btn-default btn-sm" id="js-btn-resend" data-invitor-tel="<?php echo $invitor->invitor_tel;?>">Resend</button>
@@ -253,7 +255,7 @@
                                             <?php }
                                             if (count($invitors) == 0) { ?>
                                             <tr>
-                                                <td colspan="5" class="text-center">There is no inviters</td>
+                                                <td colspan="7" class="text-center">There is no inviters</td>
                                             </tr>                                        
                                             <?php } ?>
                                         </tbody>

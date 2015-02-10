@@ -117,7 +117,7 @@ class Project_model extends CI_Model {
 	              FROM bg_transactions
 	             WHERE project_id = ?";
 	    
-	    $sql = "SELECT t1.invitor_tel, t2.amount, t2.created_at
+	    $sql = "SELECT t1.invitor_tel, t2.amount, t2.created_at as paid_at, t1.created_at as invited_at
 	              FROM bg_invitors t1
 	              LEFT JOIN ($sql) t2
 	                ON t1.invitor_tel = t2.invitor_tel
