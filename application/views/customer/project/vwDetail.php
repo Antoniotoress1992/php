@@ -228,6 +228,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Phone</th>
+                                                <th>Name</th>
                                                 <th>Amount</th>
                                                 <th>Paid At</th>
                                                 <th></th>
@@ -240,6 +241,7 @@
                                             <tr>
                                                 <td><?php echo $i++;?></td>
                                                 <td><?php echo $invitor->invitor_tel;?></td>
+                                                <td><?php echo $invitor->name;?></td>
                                                 <td><?php echo $invitor->amount;?></td>
                                                 <td><?php echo $invitor->created_at;?></td>
                                                 <td>

@@ -21,6 +21,11 @@ class Common_model extends CI_Model {
 	}
 	
 	function phoneNo($phone) {
+	    $phone = str_replace("(", "", $phone);
+	    $phone = str_replace(")", "", $phone);
+	    $phone = str_replace(" ", "", $phone);
+	    $phone = str_replace("-", "", $phone);
+	    
 	    if(substr($phone, 0, 1) == '0') {
 	        return substr($phone, 1);
 	    } else {

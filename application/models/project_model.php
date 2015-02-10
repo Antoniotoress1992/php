@@ -109,7 +109,10 @@ class Project_model extends CI_Model {
 	    }
 	}	
 	
-	public function invitors($id) {	    
+	public function invitors($id) {
+	    $project = $this->detail($id);
+	    $user_id = $project->user_id;
+	    
 	    $sql = "SELECT SUM(amount) as amount, invitor_tel, created_at
 	              FROM bg_transactions
 	             WHERE project_id = ?";
@@ -119,7 +122,12 @@ class Project_model extends CI_Model {
 	              LEFT JOIN ($sql) t2
 	                ON t1.invitor_tel = t2.invitor_tel
 	             WHERE t1.project_id = ?";
-	   $result = $this->db->query($sql, array($id, $id))->result();
+	    
+	    $sql = "SELECT t1.*, t2.name
+	              FROM ($sql) t1
+	              LEFT JOIN bg_contacts t2 ON t1.invitor_tel = t2.phone AND t2.user_id = ?";
+	    
+	   $result = $this->db->query($sql, array($id, $id, $user_id))->result();
 	   if ($result) {
 	       return $result;
 	   } else {
@@ -128,15 +136,7 @@ class Project_model extends CI_Model {
 	}
 	
 	public function payers($id) {
-	    $sql = "SELECT invitor_tel as tel, amount, created_at
-	              FROM bg_transactions
-	             WHERE project_id = ?";
-	    $result = $this->db->query($sql, $id)->result();
-	    if ($result) {
-	        return $result;
-	    } else {
-	        return array();
-	    }
+        return array();
 	}
 
 	public function amount_status($id) {
