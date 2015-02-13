@@ -13,6 +13,7 @@ class Contact_model extends CI_Model {
 	
 	public function upload($user_id, $contacts) {
 	    $this->load->model('common_model');
+	    $contacts = json_decode($contacts, true);
 	    foreach ($contacts as $contact) {
 	        $sql = "SELECT *
 	                  FROM bg_contacts
