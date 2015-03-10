@@ -68,7 +68,7 @@ class User extends CI_Controller {
         $this->user_model->update($user_id, $name, $password, $email, $phone, $country_id);
         $res = ['result' => 'success',
                 'msg' => ''];
-        die(json_encode($result));
+        die(json_encode($res));
     }    
     
 }
