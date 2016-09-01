@@ -3,7 +3,7 @@
         <div class="row">
         
             <div class="col-sm-4 color-white footer-kg-link padding-bottom-xs">
-                Visit <a href="<?php echo base_url();?>" target="_blank" style="">Kickgifter</a>
+                Visit <a href="<?php echo base_url();?>" target="_blank" style="">Account</a>
             </div>
             
             <div class="col-sm-4 color-white social-icon text-center padding-bottom-xs">
@@ -32,7 +32,7 @@
                 </ul>
             </div>
             <div class="col-sm-4 color-white text-center padding-bottom-xs">
-                &copy; Copyright by Kickgifter 2015  
+                &copy; Copyright by Account 2015  
             </div>
         </div>
     </div>

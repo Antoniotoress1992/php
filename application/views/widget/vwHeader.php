@@ -22,7 +22,7 @@ body {
                         <span class="font-size-20 navi-company-name"><?php echo $company->w_name; ?></span>
                     <?php } else {?>
                         <img src="<?php echo HTTP_LOGO_PATH."default.png"; ?>" style="height: 50px;"/>
-                        <span class="font-size-20">Kickgifter</span>
+                        <span class="font-size-20">Account</span>
                     <?php } ?>
                 </div>
             </div>

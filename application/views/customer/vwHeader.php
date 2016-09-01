@@ -3,7 +3,7 @@
         <div class="container">
         <div class="navi-header pull-left" style="margin-top: 5px;">
             <a class="navi-logo" href="<?php echo base_url(); ?>">
-                <img src="<?php echo base_url(); ?>assets/images/logo.png"/>
+                <img src="<?php echo base_url(); ?>assets/images/logo.png" id = "logoPicture"/>
             </a>
         </div>
         <div class="pull-right">
@@ -20,7 +20,7 @@
                 ?>
                 <li <?php echo ($pageNo == 1) ? "class='active'" : "";?>><a href="<?php echo base_url(); ?>page/how_it_works">How it works?</a></li>
                 <?php if (!$this->session->userdata('user_id')) { ?>
-                <li><a href="<?php echo base_url()."business/company/signin"?>">Business Login</a></li>
+                <li style = "display:none;"><a href="<?php echo base_url()."business/company/signin"?>">Business Login</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signin"?>">Sign In</a></li>
                 <li><a href="<?php echo base_url()."customer/user/signup"?>">Register</a></li>
                 <?php } else { ?>

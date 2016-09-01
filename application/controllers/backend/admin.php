@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         
-        if ($username == "kickgifter" && $password == "mikael90") {   
+        if ($username == "account" && $password == "mikael90") {   
             $this->session->set_userdata([ 'admin_id' => 1 ]);
             redirect('home');
         } else {

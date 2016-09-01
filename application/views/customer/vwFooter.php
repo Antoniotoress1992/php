@@ -35,7 +35,7 @@
         </div>                                    
     </div>
     <div class="row color-white text-center padding-top-normal margin-bottom-xs">
-        &copy; KickGifter, Inc.
+        &copy; Accounting, Inc.
     </div>
 </div>
 </div>

@@ -1,0 +1,14 @@
+.alert{
+	display:none;
+}
+.validate{
+	color:red;
+}
+select#incomeTransactionCategory {
+    width: 120px;
+    display:none;
+}
+select#expenseTransactionCategory {
+    width: 120px;
+    display:none;
+}

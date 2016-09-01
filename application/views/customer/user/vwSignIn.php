@@ -27,12 +27,11 @@
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group">
-                            <label>Phone No *</label>
-                            <input class="form-control" name="phone" type="text">
+                            <label>Email *</label>
+                            <input class="form-control" name="email" type="text">
                         </div>
                     </div>
                 </div>
-                
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group">
@@ -41,7 +40,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 text-right margin-top-lg">
                         <p> New Customer? Go to the

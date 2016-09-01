@@ -1,6 +1,7 @@
 .bg-main1 {
 	background: url(/assets/images/home01_background.jpg);
 	background-size: cover;
+	min-height: 500px;
 }
 
 .bg-main2 {
@@ -27,7 +28,10 @@
 	padding: 8px;
 	margin-bottom: 30px;	
 }
-
+img#logoPicture {
+    width: 150px;
+    height: 50px;
+}
 .process-no {
 	position: absolute;
 	width: 32px;

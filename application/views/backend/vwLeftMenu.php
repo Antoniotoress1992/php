@@ -4,71 +4,112 @@
             <li class="sidebar-toggler-wrapper">
                 <div class="sidebar-toggler"></div>
             </li>
-
-            <li class="start <?php echo ($pageNo == 51) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/dashboard">
-                    <i class="icon-bar-chart"></i>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            
+            <li class="start <?php echo ($pageNo == 50) ? "active" : "";?>">
+                    <a href="javascript:;">
+                        <i class="icon-basket"></i>
+                        <span class="title">Accounting</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/customer/accounting">
+                            <i class="icon-home"></i>
+                            Transaction</a>
+                        </li>
+                    </ul>
+            </li>    
+           
             <li class="<?php echo ($pageNo == 52) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/user">
+                <a href="<?php echo base_url();?>customer/expense">
                     <i class="fa fa-user"></i>
-                    <span class="title">User Management</span>
+                    <span class="title">Expense</span>
                 </a>
+                <ul class="sub-menu">
+                    <li class="<?php echo ($pageNo == 61) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/expense/index">
+                            <i class="icon-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="<?php echo ($pageNo == 62) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/purchase">
+                            <i class="icon-home"></i>
+                            Purchase
+                        </a>
+                    </li>
+                  
+                    </li>
+                </ul>
             </li>
-            
-            <li class="<?php echo ($pageNo == 53) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/company">
-                    <i class="fa fa-building"></i>
-                    <span class="title">Company Management</span>
-                </a>
-            </li>
-            
             <li class="<?php echo ($pageNo == 54) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/project">
-                    <i class="fa fa-share-alt"></i>
-                    <span class="title">Project Management</span>
+                <a href="<?php echo base_url();?>customer/sales">
+                    <i class="fa fa-building"></i>
+                    <span class="title">Sales</span>
                 </a>
+                <ul class="sub-menu">
+                    <li class="<?php echo ($pageNo == 61) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/sales/index">
+                            <i class="icon-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="<?php echo ($pageNo == 62) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/invoice">
+                            <i class="icon-home"></i>
+                            Invoice
+                        </a>
+                    </li>
+                  
+                    </li>
+                </ul>
             </li>
-            
-            <li class="<?php echo ($pageNo == 55) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/gift">
-                    <i class="fa fa-gift"></i>
-                    <span class="title">Gift Management</span>
+
+            <?php 
+                $firstDay = date('Y').('-01-01');
+                $lastDay = date('Y') . '-12-31';
+            ?>
+
+            <li class="<?php echo ($pageNo == 53) ? "active" : "";?>">
+                <a href="<?php echo base_url();?>customer/report">
+                    <i class="fa fa-building"></i>
+                    <span class="title">Reports</span>
                 </a>
+                <ul class="sub-menu">
+                    <li class="<?php echo ($pageNo == 61) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/accountReport/income?period_start=<?php echo  $firstDay;?>&period_end=<?php echo $lastDay;?>">
+                            <i class="icon-home"></i>
+                            Profit and Loss Report
+                        </a>
+                    </li>
+                    <li class="<?php echo ($pageNo == 62) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/accountReport/search?state=All">
+                            <i class="icon-home"></i>
+                            Accounting Report
+                        </a>
+                    </li>
+                  
+                    <li class="<?php echo ($pageNo == 61) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/accountReport/balance">
+                            <i class="icon-home"></i>
+                            Balance Sheet 
+                        </a>
+                    </li>
+                    <?php $nowDate = date("Y-m-d");?>
+                    <li class="<?php echo ($pageNo == 61) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/accountReport/trial?date=<?php echo $nowDate;?>">
+                            <i class="icon-home"></i>
+                            Trial balance 
+                        </a>
+                    </li>
+                    <li class="<?php echo ($pageNo == 61) ? "active" : "";?>">
+                        <a href="<?php echo base_url();?>customer/accountReport/accountingPeriod">
+                            <i class="icon-home"></i>
+                            Accounting Period 
+                        </a>
+                    </li>
+                </ul>
             </li>
-            
-            <li class="<?php echo ($pageNo == 56) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/gift/history">
-                    <i class="fa fa-bookmark"></i>
-                    <span class="title">Gift Sales History</span>
-                </a>
-            </li>
-            
-            <li class="<?php echo ($pageNo == 57) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/coupon/history">
-                    <i class="fa fa-book"></i>
-                    <span class="title">Coupon Code History</span>
-                </a>
-            </li>
-            
-            <li class="last <?php echo ($pageNo == 58) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/bank/history">
-                    <i class="fa fa-bank"></i>
-                    <span class="title">Bank Transfer History</span>
-                </a>
-            </li>
-            
-            <!-- li class="<?php echo ($pageNo == 59) ? "active" : "";?>">
-                <a href="<?php echo base_url();?>backend/admin/setting">
-                    <i class="fa fa-gear"></i>
-                    <span class="title">Setting</span>
-                </a>
-            </li -->                          
-            								
-        </ul>
+
     </div>
 </div>
 <!-- END SIDEBAR -->

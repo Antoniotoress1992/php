@@ -8,26 +8,21 @@ class User extends CI_Controller {
         $this->load->library('form_validation');
     }
     
-    public function signup() {
+     public function signup() {
         $this->load->model('user_model');
         
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('email', 'Phone', 'required');
-        $this->form_validation->set_rules('phone', 'Email', 'required');
         
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
-        $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';
-        $country_id = isset($_POST['country_id']) ? $_POST['country_id'] : 1;
         
         if ($this->form_validation->run() == FALSE) {
-            $this->load->model('country_model');
-            $param['countries'] = $this->country_model->lists();
-            $this->load->view('customer/user/vwSignUp', $param);
+            $this->load->view('customer/user/vwSignUp');
         } else {
-            $result = $this->user_model->signup($username, $password, $email, $phone, $country_id);
+            $result = $this->user_model->signup($username, $password, $email );
             $this->load->view('customer/user/vwSignIn', $result);
         }        
     }
@@ -35,22 +30,22 @@ class User extends CI_Controller {
     public function signin() {
         $this->load->model('user_model');
         
-        $this->form_validation->set_rules('phone', 'Phone No', 'required');
+        $this->form_validation->set_rules('email', 'Phone No', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         
-        $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('customer/user/vwSignIn');
         } else {
-            $result = $this->user_model->signin($phone, $password);
+            $result = $this->user_model->signin($email, $password);
             if ($result['result'] == 'success') {
                 
                 $this->session->set_userdata([ 'user_id' => $result['user_id'],
                                                'username' => $result['name'],
-                                               'email' => $result['email'],
-                                               'phone' => $result['phone'], ] );
+                                               'email' => $result['email']
+                                                ] );
                 
                 redirect('home');
             } else {

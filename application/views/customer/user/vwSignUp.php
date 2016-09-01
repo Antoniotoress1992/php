@@ -24,37 +24,7 @@
             </div>
     
             <form method="POST" action="<?php echo base_url();?>customer/user/signup" role="form" class="form-login">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <div class="form-group">
-                            <label>Phone No *</label>
-                            <input class="form-control" name="phone" type="text">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <div class="form-group">
-                            <label>Password *</label>
-                            <input class="form-control" name="password" type="password">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <div class="form-group">
-                            <label>Country *</label>
-                            <select class="form-control" name="country_id">
-                                <?php foreach ($countries as $country) {?>
-                                    <option value="<?php echo $country->id;?>"><?php echo $country->name;?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                </div>                
-                
+               
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group">
@@ -72,6 +42,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label>Password *</label>
+                            <input class="form-control" name="password" type="password">
+                        </div>
+                    </div>
+                </div>
+          
                 
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 text-right margin-top-lg">

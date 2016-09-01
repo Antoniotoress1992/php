@@ -4,35 +4,32 @@ class User_model extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function signup($name, $password, $email, $phone, $country_id = 1) {
+	public function signup($name, $password, $email) {
 	    $this->load->model('common_model');
 	    
 	    $salt = $this->common_model->generateSalt(16);
 	    $secure_key = md5($salt.$password);
-	    $phone = $this->common_model->phoneNo($phone);
 	    
-	    $sql = "INSERT INTO bg_users(name, email, phone, country_id, secure_key, salt, is_active, created_at, updated_at)
-	             VALUE (?, ?, ?, ?, ?, ?, TRUE, NOW(), NOW())";
+	    $sql = "INSERT INTO bg_users(name, email,  secure_key, salt, is_active, created_at, updated_at)
+	             VALUE (?, ?, ?, ?, TRUE, NOW(), NOW())";
 	    
-	    $this->db->query($sql, array($name, $email, $phone, $country_id, $secure_key, $salt));
+	    $this->db->query($sql, array($name, $email, $secure_key, $salt));
 	    return ['result' => 'success', 'msg' => ''];
 	}
 	
-	public function signin($phone1, $password) {
-	    $this->load->model('common_model');
-	    $phone = $this->common_model->phoneNo($phone1);
-	    $sql = "SELECT *
+	public function signin($email, $password) {
+	     $sql = "SELECT *
 	              FROM bg_users
-	             WHERE phone = ?
+	             WHERE email = ?
 	               AND secure_key = md5(concat( salt, ?))";
 	    
-	    $result = $this->db->query($sql, array($phone, $password))->result();
+	    $result = $this->db->query($sql, array($email, $password))->result();
 	    if (!$result) {
 	        $result = ['result' => 'failed', 'msg' => 'Invalid username and password', ];
 	    } else {
 	        if ($result[0]->is_active) {
 	            $result = ['result' => 'success', 'msg' => '', 'user_id' => $result[0]->id, 'name' => $result[0]->name,
-	                       'email' => $result[0]->email, 'phone' => $result[0]->phone, 'country_id' => $result[0]->country_id, ];
+	                       'email' => $result[0]->email ];
 	        } else {
 	            $result = ['result' => 'failed', 'msg' => 'This account is not actived yet', ];
 	        }

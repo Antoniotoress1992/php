@@ -29,9 +29,10 @@
 <script src="<?php echo HTTP_METRONIC_PATH; ?>admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="<?php echo HTTP_METRONIC_PATH; ?>admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="<?php echo HTTP_METRONIC_PATH; ?>admin/pages/scripts/table-managed.js"></script>
-
+<script src="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/bootstrap-modal/js/bootstrap-modal.js"/></script>
+<script src="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"/></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/dropdown.js"?>"></script>
-<script type="text/javascript" src="<?php echo base_url()."assets/js/modal.js"?>"></script>
+
 <script src="<?php echo base_url()."assets/js/bootbox.js"?>"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>

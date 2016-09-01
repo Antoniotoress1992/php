@@ -69,7 +69,7 @@
                     </div>                    
                 </div>
                 <div style="height: 30px; background: #002570; text-align: center; color: #FFF; line-height: 30px;">
-                    Kickgifter
+                    Account
                 </div>
             </div>
         </div>

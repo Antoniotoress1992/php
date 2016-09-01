@@ -10,6 +10,8 @@
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/select2/select2.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/bootstrap-modal/css/bootstrap-modal.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo HTTP_METRONIC_PATH; ?>global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"/>
 <!-- END PAGE LEVEL STYLES -->
 
 <!-- BEGIN THEME STYLES -->
@@ -18,8 +20,9 @@
 <link href="<?php echo HTTP_METRONIC_PATH; ?>admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo HTTP_METRONIC_PATH; ?>admin/layout/css/themes/blue.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo HTTP_METRONIC_PATH; ?>admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
-<!-- END THEME STYLES -->
 
 <link href="<?php echo HTTP_CSS_PATH; ?>bootstrap_style.css" rel="stylesheet">
 <link href="<?php echo HTTP_CSS_PATH; ?>style_common.css" rel="stylesheet">
 <link href="<?php echo HTTP_CSS_PATH; ?>style_backend.css" rel="stylesheet">
+<link href="<?php echo HTTP_CSS_PATH; ?>style.css" rel="stylesheet">
+<link href="<?php echo HTTP_CSS_PATH; ?>jquery-ui.css" rel="stylesheet">
